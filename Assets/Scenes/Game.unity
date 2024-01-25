@@ -774,11 +774,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 54c4b172ef78290458185719612d315d, type: 2}
-  isGlobal: 0
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!1 &728214728
 GameObject:
   m_ObjectHideFlags: 0
@@ -885,6 +880,7 @@ GameObject:
   - component: {fileID: 776686990}
   - component: {fileID: 776686992}
   - component: {fileID: 776686991}
+  - component: {fileID: 776686994}
   - component: {fileID: 776686993}
   m_Layer: 5
   m_Name: FadeIn
@@ -892,7 +888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &776686990
 RectTransform:
   m_ObjectHideFlags: 0
@@ -962,6 +958,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5799363984a754fbf0de1b52d5a58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeOffset: 2
+  canvasGroupFade: {fileID: 776686994}
+--- !u!225 &776686994
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776686989}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &818464981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2732,7 +2742,6 @@ MonoBehaviour:
   players:
   - {fileID: 1641774918067474, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
   - {fileID: 1395697760297862, guid: 926f3f2a7439548469db38ea63161f0e, type: 3}
-  _fadeIn: {fileID: 776686991}
   _fadeOffset: 35
   score: {fileID: 843589195}
   highScore: {fileID: 1812313253}

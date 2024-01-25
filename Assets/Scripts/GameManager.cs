@@ -12,16 +12,12 @@ public class GameManager : MonoBehaviour
 	//public GameObject powerUp;
 	//private float _timeToPower;
 
-	[SerializeField]
-	private Image _fadeIn;
-
-	[SerializeField]
-	private int _fadeOffset;
-
-	private float _transition;
+	// [SerializeField]
+	// private Image _fadeIn;
 
 	public TextMeshProUGUI score, highScore;
 	public DeathMenu deathMenu;
+	public ScoreControl scoreControl;
 
 	[SerializeField]
 	private GameObject _pauseMenu;
@@ -33,34 +29,16 @@ public class GameManager : MonoBehaviour
 	// Use this for initialization
 	void Awake()
 	{
-		
-
 		if (instance == null)
 		{
 			instance = this;
 		}
 
 		_pauseMenu.SetActive(false);
-		_fadeIn.gameObject.SetActive(true);
 		//_timeToPower = 0;
-		GameObject player = Instantiate(players[playerSelected], transform.position, Quaternion.Euler(0, 0, 0));
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		if (_fadeIn.gameObject.activeSelf)
-		{
-			_transition += Time.deltaTime / _fadeOffset;
-			Color tempColor = _fadeIn.color;
-			tempColor.a -= _transition;
-			_fadeIn.color = tempColor;
-
-			if (_fadeIn.color.a <= 0)
-			{
-				_fadeIn.gameObject.SetActive(false);
-			}
-		}
+		PlayerControl player = Instantiate(players[playerSelected], transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<PlayerControl>();
+		player.OnDeath += scoreControl.OnDeath;
+		player.OnDeath += () => deathMenu.ToggleEndMenu(scoreControl.TotalScore);
 	}
 
 	public void Pause()

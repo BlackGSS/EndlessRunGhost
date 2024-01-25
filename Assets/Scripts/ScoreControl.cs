@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class ScoreControl : MonoBehaviour
 {
-	private float _score = 0.0f;
-
-	private int _difficultLevel = 1;
-	private int _maxDifficultLevel = 15;
-	private int _scoreToNextLevel = 10;
+	private float score = 0.0f;
+	private int difficultLevel = 1;
+	private int maxDifficultLevel = 15;
+	private int scoreToNextLevel = 10;
 
 	private TextMeshProUGUI _scoreText, _highscoreText;
+
+	public float TotalScore { get { return score; } }
 	private DeathMenu _deathMenu;
 
 	private void Start()
@@ -26,30 +26,32 @@ public class ScoreControl : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		//TODO: Try with just check if Time.scale is > 0
 		if (GetComponent<PlayerControl>().isDead || GameManager.instance.isPaused)
 			return;
 
-		if (_score >= _scoreToNextLevel)
+		if (score >= scoreToNextLevel)
 			LevelUp();
 
-		_score += Time.deltaTime * _difficultLevel;
-		_scoreText.text = ((int)_score).ToString();
+		score += Time.deltaTime * difficultLevel;
+		_scoreText.text = ((int)score).ToString();
 	}
 
 	void LevelUp()
 	{
-		if (_difficultLevel == _maxDifficultLevel)
+		if (difficultLevel == maxDifficultLevel)
 			return;
 
-		_scoreToNextLevel *= 2;
-		print(_scoreToNextLevel);
-		_difficultLevel++;
+		scoreToNextLevel *= 2;
+		print(scoreToNextLevel);
+		difficultLevel++;
 
-		if (_difficultLevel <= 3)
+		//TODO: Out of here
+		if (difficultLevel <= 3)
 		{
 			TilesManager.currentDificultChunk = Dificulties.EASY;
 		}
-		else if (_difficultLevel <= 7)
+		else if (difficultLevel <= 7)
 		{
 			TilesManager.currentDificultChunk = Dificulties.MEDIUM;
 		}
@@ -58,14 +60,16 @@ public class ScoreControl : MonoBehaviour
 			TilesManager.currentDificultChunk = Dificulties.HARD;
 		}
 
-		GetComponent<PlayerControl>().SetSpeed(_difficultLevel);
+		// TODO: Wtf, out of here
+		GetComponent<PlayerControl>().SetSpeed(difficultLevel);
 	}
 
 	public void OnDeath()
 	{
-		if(PlayerPrefs.GetFloat("Highscore") < _score)
-			PlayerPrefs.SetFloat("Highscore", _score);
+		if (PlayerPrefs.GetFloat("Highscore") < score)
+			PlayerPrefs.SetFloat("Highscore", score);
 
-		_deathMenu.ToggleEndMenu(_score);
+		// TODO: Wtf, out of here
+		_deathMenu.ToggleEndMenu(score);
 	}
 }

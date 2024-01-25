@@ -6,31 +6,33 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
 	[SerializeField]
-	private float _speed = 10;
+	private float speed = 10;
 
 	[SerializeField]
-	private float _gravity = 12;
+	private float gravity = 12;
 
 	[SerializeField]
-	private float _jumpSpeed;
+	private float jumpSpeed;
 
 	public bool isDead = false;
 
-	private CharacterController _control;
-	private Vector3 _vector3Movement;
+	private CharacterController control;
+	private Vector3 vector3Movement;
 
-	private float _animationDuration = 1.8f;
-	private float _startTime;
+	private float animationDuration = 1.8f;
+	private float startTime;
 
 	[SerializeField]
-	private Animator _anim;
+	private Animator anim;
+
+	public event Action OnDeath;
 
 
 	// Use this for initialization
 	void Start()
 	{
-		_control = GetComponent<CharacterController>();
-		_startTime = Time.time;
+		control = GetComponent<CharacterController>();
+		startTime = Time.time;
 	}
 
 	// Update is called once per frame
@@ -39,21 +41,21 @@ public class PlayerControl : MonoBehaviour
 		if (isDead || GameManager.instance.isPaused)
 			return;
 
-		if (Time.time - _startTime < _animationDuration)
+		if (Time.time - startTime < animationDuration)
 		{
-			_control.Move(Vector3.forward * _speed * Time.deltaTime);
+			control.Move(Vector3.forward * speed * Time.deltaTime);
 			return;
 		}
 
-		_vector3Movement = Vector3.zero;
+		vector3Movement = Vector3.zero;
 
-		if (_control.isGrounded)
+		if (control.isGrounded)
 		{
-			_jumpSpeed = -0.5f;
+			jumpSpeed = -0.5f;
 		}
 		else
 		{
-			_jumpSpeed -= _gravity * Time.deltaTime;
+			jumpSpeed -= gravity * Time.deltaTime;
 		}
 
 		if (Input.GetMouseButton(0))
@@ -62,36 +64,35 @@ public class PlayerControl : MonoBehaviour
 			{
 				if (Input.mousePosition.x > Screen.width / 2)
 				{
-					_vector3Movement.x = _speed;
+					vector3Movement.x = speed;
 				}
 				else
 				{
-					_vector3Movement.x = -_speed;
+					vector3Movement.x = -speed;
 				}
 			}
 		}
 
-		_vector3Movement.y = _jumpSpeed;
+		vector3Movement.y = jumpSpeed;
+		vector3Movement.z = speed;
 
-		_vector3Movement.z = _speed;
-
-		_control.Move(_vector3Movement * Time.deltaTime);
+		control.Move(vector3Movement * Time.deltaTime);
 	}
 
 	public void SetSpeed(float newLevel)
 	{
 		NewLevel();
-		_speed = _speed + newLevel;
+		speed = speed + newLevel;
 	}
 
 	private void NewLevel()
 	{
-		_anim.SetTrigger("LevelUp");
+		anim.SetTrigger("LevelUp");
 	}
 
 	private void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-		if (hit.point.z > transform.position.z + _control.radius && hit.collider.tag == "Enemy")
+		if (hit.point.z > transform.position.z + control.radius && hit.collider.tag == "Enemy")
 		{
 			Debug.Log(hit.collider);
 			Death();
@@ -101,6 +102,6 @@ public class PlayerControl : MonoBehaviour
 	private void Death()
 	{
 		isDead = true;
-		GetComponent<ScoreControl>().OnDeath();
+		OnDeath.Invoke();
 	}
 }
