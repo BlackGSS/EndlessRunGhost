@@ -2,14 +2,13 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 
-public class FadeImage : MonoBehaviour
+public class FadeImage : CanvasGroupView
 {
     [SerializeField] int fadeOffset;
-    [SerializeField] CanvasGroup canvasGroupFade;
 
-    private void Start()
+    protected override void Init()
     {
-        ResetFadeTo(1);
+        base.Init();
         FadeTo(0);
     }
 
@@ -21,20 +20,8 @@ public class FadeImage : MonoBehaviour
     private void FadeSequence(int fadeValue, Action callback = null)
     {
         Sequence fade = DOTween.Sequence();
-        fade.Append(canvasGroupFade.DOFade(fadeValue, fadeOffset));
+        fade.Append(canvasGroup.DOFade(fadeValue, fadeOffset));
         fade.AppendCallback(() => EnableCanvasInteraction(fadeValue > 0 ? true : false));
         fade.OnComplete(() => callback?.Invoke());
-    }
-
-    private void EnableCanvasInteraction(bool on)
-    {
-        canvasGroupFade.blocksRaycasts = on;
-        canvasGroupFade.interactable = on;
-    }
-
-    private void ResetFadeTo(int fadeValue)
-    {
-        EnableCanvasInteraction(fadeValue > 0 ? true : false);
-        canvasGroupFade.alpha = fadeValue;
     }
 }
