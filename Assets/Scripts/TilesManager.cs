@@ -19,7 +19,7 @@ public class TilesManager : MonoBehaviour
 
 	private float		_countToDelete = 0;
 
-	public static Dificulties currentDificultChunk = Dificulties.EASY;
+	public static Difficulties currentDificultChunk = Difficulties.EASY;
 
 	// Use this for initialization
 	void Start()
@@ -43,7 +43,6 @@ public class TilesManager : MonoBehaviour
 	{
 		if (_countToDelete < 6)
 		{
-			Debug.Log(_countToDelete);
 			_countToDelete += Time.deltaTime;
 		}
 		else

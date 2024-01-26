@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chunk : MonoBehaviour
 {
-	public Dificulties dificult;
+	public Difficulties dificult;
 
     // Start is called before the first frame update
     void Start()

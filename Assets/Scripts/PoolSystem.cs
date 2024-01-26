@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class PoolSystem 
 {	
-	static Dictionary<Dificulties, List<GameObject>> chunkPools = new Dictionary<Dificulties, List<GameObject>>();
+	static Dictionary<Difficulties, List<GameObject>> chunkPools = new Dictionary<Difficulties, List<GameObject>>();
 
-	static Dictionary<Dificulties, GameObject[]> chunkPrefabs = new Dictionary<Dificulties, GameObject[]>();
+	static Dictionary<Difficulties, GameObject[]> chunkPrefabs = new Dictionary<Difficulties, GameObject[]>();
 
 	private static bool initialized;
 
 	private static int _lastPrefabIndex = 0;
 
-	public static GameObject GetChunkFromPool(Dificulties type)
+	public static GameObject GetChunkFromPool(Difficulties type)
 	{
 		//Cargamos todos los chunks de todos los tipos en chunkPrefabs
 		if (!initialized)
@@ -35,7 +35,7 @@ public class PoolSystem
 		//si no es así, instanciamos un elemento del tipo seleccionado. 
 		else
 		{
-			Debug.Log(chunkPools.ContainsKey(type) + "crear nuevo chunk");
+			// Debug.Log(chunkPools.ContainsKey(type) + "crear nuevo chunk");
 			int randomChunk = RandomIndex(type);
 			chunk = GameObject.Instantiate(chunkPrefabs[type][randomChunk]); //TODO: Solucionar problema de alta repetititividad en una misma partida...
 		}
@@ -51,9 +51,9 @@ public class PoolSystem
 	private static void Initialize()
 	{
 		//Recorremos todas las dificultades del enum Dificulties y cargamos dinámicamente todos los prefabs de cada typo. 
-		foreach (Dificulties type in Enum.GetValues(typeof(Dificulties)))
+		foreach (Difficulties type in Enum.GetValues(typeof(Difficulties)))
 		{
-			Debug.Log(type);
+			// Debug.Log(type);
 			GameObject[] allPrefabsOfType = Resources.LoadAll<GameObject>("Chunks/" + type);
 			chunkPrefabs[type] = allPrefabsOfType;
 		}
@@ -65,7 +65,7 @@ public class PoolSystem
 	{
 		chunk.SetActive(false);
 
-		Dificulties type = chunk.GetComponent<Chunk>().dificult;
+		Difficulties type = chunk.GetComponent<Chunk>().dificult;
 
 		//Comprobamos si el tipo de lista existe, 
 		if (!chunkPools.ContainsKey(type))
@@ -78,7 +78,7 @@ public class PoolSystem
 		chunkPools[type].Add(chunk);
 	}
 
-	private static int RandomIndex(Dificulties type)
+	private static int RandomIndex(Difficulties type)
 	{
 		//Si solo hay un elemento en la carpeta lo devovlemos. 
 		if (chunkPrefabs[type].Length <= 1)

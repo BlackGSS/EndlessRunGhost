@@ -25,7 +25,7 @@ public class PlayerControl : MonoBehaviour
 	[SerializeField]
 	private Animator anim;
 
-	public event Action OnDeath;
+	public SessionData sessionData;
 
 
 	// Use this for initialization
@@ -38,7 +38,7 @@ public class PlayerControl : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (isDead || GameManager.instance.isPaused)
+		if (!sessionData.playerAlive || Time.timeScale <= 0)
 			return;
 
 		if (Time.time - startTime < animationDuration)
@@ -101,7 +101,7 @@ public class PlayerControl : MonoBehaviour
 
 	private void Death()
 	{
-		isDead = true;
-		OnDeath.Invoke();
+		sessionData.playerAlive = false;
+		sessionData.UpdateScriptable(sessionData);
 	}
 }
