@@ -1,25 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
+using Neisum.ScriptableEvents;
+using System;
+using System.Linq;
 
-public class ScoreControl : MonoBehaviour
+public class ScoreControl : MonoBehaviour, IScriptableEventListener<SessionData>
 {
-	private float score = 0.0f;
-	private int difficultLevel = 1;
+	[SerializeField] private SessionData sessionData;
+	private float currentScore;
+	private int difficultLevel;
 	private int maxDifficultLevel = 15;
 	private int scoreToNextLevel = 10;
 
 	private TextMeshProUGUI _scoreText, _highscoreText;
 
-	public float TotalScore { get { return score; } }
-	private DeathMenu _deathMenu;
+	[SerializeField]
+	private DifficultiesRange[] difficulties;
 
 	private void Start()
 	{
 		_scoreText = GameManager.instance.score;
 		_highscoreText = GameManager.instance.highScore;
-		_deathMenu = GameManager.instance.deathMenu;
 		_highscoreText.text = ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
 	}
 
@@ -27,14 +28,15 @@ public class ScoreControl : MonoBehaviour
 	void Update()
 	{
 		//TODO: Try with just check if Time.scale is > 0
-		if (GetComponent<PlayerControl>().isDead || GameManager.instance.isPaused)
+		if (!sessionData.playerAlive || Time.timeScale <= 0)
 			return;
 
-		if (score >= scoreToNextLevel)
+		if (currentScore >= scoreToNextLevel)
 			LevelUp();
 
-		score += Time.deltaTime * difficultLevel;
-		_scoreText.text = ((int)score).ToString();
+		currentScore += Time.deltaTime * difficultLevel;
+		_scoreText.text = ((int)currentScore).ToString();
+		sessionData.score = (int)currentScore;
 	}
 
 	void LevelUp()
@@ -43,22 +45,9 @@ public class ScoreControl : MonoBehaviour
 			return;
 
 		scoreToNextLevel *= 2;
-		print(scoreToNextLevel);
 		difficultLevel++;
 
-		//TODO: Out of here
-		if (difficultLevel <= 3)
-		{
-			TilesManager.currentDificultChunk = Dificulties.EASY;
-		}
-		else if (difficultLevel <= 7)
-		{
-			TilesManager.currentDificultChunk = Dificulties.MEDIUM;
-		}
-		else
-		{
-			TilesManager.currentDificultChunk = Dificulties.HARD;
-		}
+		ChangeDifficulty(difficultLevel); 
 
 		// TODO: Wtf, out of here
 		GetComponent<PlayerControl>().SetSpeed(difficultLevel);
@@ -66,10 +55,22 @@ public class ScoreControl : MonoBehaviour
 
 	public void OnDeath()
 	{
-		if (PlayerPrefs.GetFloat("Highscore") < score)
-			PlayerPrefs.SetFloat("Highscore", score);
+		if (PlayerPrefs.GetFloat("Highscore") < currentScore)
+			PlayerPrefs.SetFloat("Highscore", currentScore);
+	}
 
-		// TODO: Wtf, out of here
-		_deathMenu.ToggleEndMenu(score);
+	private void ChangeDifficulty(int newDifficult)
+	{
+		DifficultiesRange difficultyRange = difficulties.Where(x => x.minDificultyLevel >= newDifficult && x.maxDificultyLevel <= newDifficult).First();
+		sessionData.difficulty = difficultyRange.difficulty;
+		sessionData.UpdateScriptable(sessionData);
+	}
+
+	public void ScriptableResponse(SessionData data)
+	{
+		if (!data.playerAlive)
+		{
+			OnDeath();
+		}
 	}
 }
