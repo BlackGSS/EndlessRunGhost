@@ -497,8 +497,9 @@ GameObject:
   - component: {fileID: 172045603}
   - component: {fileID: 172045605}
   - component: {fileID: 172045604}
+  - component: {fileID: 172045606}
   m_Layer: 5
-  m_Name: ScoreImage
+  m_Name: ScorePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -564,6 +565,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172045602}
   m_CullTransparentMesh: 0
+--- !u!114 &172045606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172045602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41158958940d9bb4f80b766149268cad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sessionData: {fileID: 11400000, guid: 96a29bae65bc9a24d9056fbbc578eaca, type: 2}
 --- !u!1 &273384496
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,7 +2748,6 @@ GameObject:
   - component: {fileID: 1893453673}
   - component: {fileID: 1893453672}
   - component: {fileID: 1893453674}
-  - component: {fileID: 1893453675}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2785,27 +2798,7 @@ MonoBehaviour:
   players:
   - {fileID: 1641774918067474, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
   - {fileID: 1395697760297862, guid: 926f3f2a7439548469db38ea63161f0e, type: 3}
-  score: {fileID: 843589195}
-  highScore: {fileID: 1812313253}
   _pauseMenu: {fileID: 1150821467}
-  isPaused: 0
---- !u!114 &1893453675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1893453671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41158958940d9bb4f80b766149268cad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sessionData: {fileID: 11400000, guid: 96a29bae65bc9a24d9056fbbc578eaca, type: 2}
-  difficulties:
-  - {fileID: 11400000, guid: 1243d550f3a66be42b1a6510d1129cb4, type: 2}
-  - {fileID: 11400000, guid: 13af2d005dbd9004586f0053ee0d851f, type: 2}
-  - {fileID: 11400000, guid: 587a56c8ac65201488fdba18f3911ae8, type: 2}
 --- !u!1 &2067663700
 GameObject:
   m_ObjectHideFlags: 0

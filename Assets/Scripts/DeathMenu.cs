@@ -29,7 +29,8 @@ public class DeathMenu : CanvasGroupView, IScriptableEventListener<SessionData>
 		if (!data.playerAlive)
 		{
 			ShowAnimTo(1);
-			ToggleEndMenu(data.score);
+			//TODO: Send also the diffultLevel to show in which level player died
+			ToggleEndMenu(data.currentScore);
 		} 
 	}
 }

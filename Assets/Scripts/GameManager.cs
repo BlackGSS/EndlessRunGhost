@@ -1,14 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
 	public List<GameObject> players;
 	public static int playerSelected = 0;
-
-	public TextMeshProUGUI score, highScore;
 
 	[SerializeField]
 	private GameObject _pauseMenu;

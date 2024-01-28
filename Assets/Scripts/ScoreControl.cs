@@ -6,22 +6,15 @@ using System.Linq;
 
 public class ScoreControl : MonoBehaviour, IScriptableEventListener<SessionData>
 {
+	[SerializeField] private ScoreUI scoreUI;
 	[SerializeField] private SessionData sessionData;
+	[SerializeField] private DifficultySettings difficultySettings;
 	private float currentScore;
 	private int difficultLevel;
-	private int maxDifficultLevel = 15;
-	private int scoreToNextLevel = 10;
-
-	private TextMeshProUGUI _scoreText, _highscoreText;
-
-	[SerializeField]
-	private DifficultiesRange[] difficulties;
 
 	private void Start()
 	{
-		_scoreText = GameManager.instance.score;
-		_highscoreText = GameManager.instance.highScore;
-		_highscoreText.text = ((int)PlayerPrefs.GetFloat("Highscore")).ToString();
+		scoreUI.SetHighscore(((int)PlayerPrefs.GetFloat("Highscore")).ToString());
 	}
 
 	// Update is called once per frame
@@ -31,23 +24,23 @@ public class ScoreControl : MonoBehaviour, IScriptableEventListener<SessionData>
 		if (!sessionData.playerAlive || Time.timeScale <= 0)
 			return;
 
-		if (currentScore >= scoreToNextLevel)
+		if (currentScore >= difficultySettings.scoreToNextLevel)
 			LevelUp();
 
 		currentScore += Time.deltaTime * difficultLevel;
-		_scoreText.text = ((int)currentScore).ToString();
-		sessionData.score = (int)currentScore;
+		scoreUI.SetCurrentScore(((int)currentScore).ToString());
+		sessionData.currentScore = (int)currentScore;
 	}
 
 	void LevelUp()
 	{
-		if (difficultLevel == maxDifficultLevel)
+		if (difficultLevel == difficultySettings.maxDifficultLevel)
 			return;
 
-		scoreToNextLevel *= 2;
+		difficultySettings.scoreToNextLevel *= 2;
 		difficultLevel++;
 
-		ChangeDifficulty(difficultLevel); 
+		ChangeDifficulty(difficultLevel);
 
 		// TODO: Wtf, out of here
 		GetComponent<PlayerControl>().SetSpeed(difficultLevel);
@@ -61,9 +54,10 @@ public class ScoreControl : MonoBehaviour, IScriptableEventListener<SessionData>
 
 	private void ChangeDifficulty(int newDifficult)
 	{
-		DifficultiesRange difficultyRange = difficulties.Where(x => x.minDificultyLevel >= newDifficult && x.maxDificultyLevel <= newDifficult).First();
+		DifficultiesRange difficultyRange = difficultySettings.difficulties.Where(x => x.minDificultyLevel >= newDifficult && x.maxDificultyLevel <= newDifficult).First();
 		sessionData.difficulty = difficultyRange.difficulty;
-		sessionData.UpdateScriptable(sessionData);
+		sessionData.currentDifficultLevel = difficultLevel;
+		sessionData.UpdateScriptable();
 	}
 
 	public void ScriptableResponse(SessionData data)

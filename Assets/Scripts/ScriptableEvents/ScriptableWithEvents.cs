@@ -7,19 +7,21 @@ using UnityEngine.SceneManagement;
 
 namespace Neisum.ScriptableEvents
 {
-    public abstract class ScriptableWithEvents<T> : ScriptableObject
+    public abstract class ScriptableWithEvents<T> : ScriptableObject where T : ScriptableObject
     {
+        private ScriptableObject data;
+
         [SerializeField]
         private List<SerializableInterface<IScriptableEventListener<T>>> listeners = new List<SerializableInterface<IScriptableEventListener<T>>>();
 
-        public void UpdateScriptable(T data)
+        public void UpdateScriptable()
         {
-            RaiseScriptableUpdatedEvent(data);
+            RaiseScriptableUpdatedEvent(data as T);
         }
 
         private void OnEnable()
         {
-            Debug.Log("Enabling");
+            data = this;
             ResetVariables();
         }
 
