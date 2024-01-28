@@ -41,9 +41,6 @@ public class ScoreControl : MonoBehaviour, IScriptableEventListener<SessionData>
 		difficultLevel++;
 
 		ChangeDifficulty(difficultLevel);
-
-		// TODO: Wtf, out of here
-		GetComponent<PlayerControl>().SetSpeed(difficultLevel);
 	}
 
 	public void OnDeath()
