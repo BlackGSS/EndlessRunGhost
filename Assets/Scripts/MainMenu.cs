@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-	private SessionData sessionData;
+	 [SerializeField] private SessionDataUpdater sessionDataUpdater;
 
 	public void ToGame()
 	{
@@ -12,6 +12,6 @@ public class MainMenu : MonoBehaviour
 
 	public void SelectPlayer(int index)
 	{
-		sessionData.playerSelected = index;
+		sessionDataUpdater.data.playerSelected = index;
 	}
 }

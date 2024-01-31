@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 974d27bb31b0dd9469af8cf6ef1bcd02, type: 3}
-  m_Name: InitialPlayerData
+  m_Name: TemplatePlayerData
   m_EditorClassIdentifier: 
   speed: 10
   gravity: 12
