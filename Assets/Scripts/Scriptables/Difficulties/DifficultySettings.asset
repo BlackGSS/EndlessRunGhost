@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6060329521dd6de4c891d7d11400fd0c, type: 3}
   m_Name: DifficultySettings
   m_EditorClassIdentifier: 
-  scoreToNextLevel: 10
+  scoreToFirstLevel: 10
   difficulties:
   - {fileID: 11400000, guid: 1243d550f3a66be42b1a6510d1129cb4, type: 2}
   - {fileID: 11400000, guid: 13af2d005dbd9004586f0053ee0d851f, type: 2}

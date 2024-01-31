@@ -5,31 +5,34 @@ using TNRD;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Neisum.ScriptableEvents
+namespace Neisum.ScriptableUpdaters
 {
-    public abstract class ScriptableWithEvents<T> : ScriptableObject where T : ScriptableObject
+    public abstract class ScriptableUpdater<T> : ScriptableObject where T : InstantiableScriptable
     {
-        private ScriptableObject data;
+        [SerializeField] private T templateData;
+        public T data;
 
-        [SerializeField]
-        private List<SerializableInterface<IScriptableEventListener<T>>> listeners = new List<SerializableInterface<IScriptableEventListener<T>>>();
+        [SerializeField] List<SerializableInterface<IScriptableEventListener<T>>> listeners = new List<SerializableInterface<IScriptableEventListener<T>>>();
 
         public void UpdateScriptable()
         {
-            RaiseScriptableUpdatedEvent(data as T);
+            RaiseScriptableUpdatedEvent(data);
         }
 
-        private void OnEnable()
+        public void OnEnable()
         {
-            data = this;
+            ResetVariables();
+        }
+
+        public void Initialize()
+        {
             ResetVariables();
         }
 
         private void OnValidate()
         {
-            Debug.Log("Validating");
             LoadListeners();
-            SceneManager.activeSceneChanged += (scene1, scene2) => { LoadListeners(); ResetVariables(); };
+            SceneManager.activeSceneChanged += (scene1, scene2) => { LoadListeners(); };
         }
 
         private void LoadListeners()
@@ -55,6 +58,9 @@ namespace Neisum.ScriptableEvents
             }
         }
 
-        public virtual void ResetVariables() { }
+        public virtual void ResetVariables()
+        {
+            data = (T)templateData.GetInstance();
+        }
     }
 }

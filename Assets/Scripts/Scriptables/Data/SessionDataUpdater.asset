@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f85837a45a726b04a830a9495fa2c474, type: 3}
+  m_Name: SessionDataUpdater
+  m_EditorClassIdentifier: 
+  templateData: {fileID: 11400000, guid: 5efaa9e2ca59b70498d90c7d1c77a5f5, type: 2}
+  data: {fileID: 0}
+  listeners:
+  - mode: 0
+    unityReference: {fileID: 0}
+    rawReference:
+      rid: -2
+  - mode: 0
+    unityReference: {fileID: 0}
+    rawReference:
+      rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

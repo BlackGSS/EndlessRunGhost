@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f23eb9aeb5e2b04d9ee0a2a6aa10563, type: 3}
-  m_Name: Easy
+  m_Script: {fileID: 11500000, guid: ec17b440995b34949afa24d03cf7f816, type: 3}
+  m_Name: InitialSessionData
   m_EditorClassIdentifier: 
+  playerAlive: 1
   difficulty: 0
-  minDificultyLevel: 1
-  maxDificultyLevel: 3
+  currentScore: 0
+  currentDifficultLevel: 1

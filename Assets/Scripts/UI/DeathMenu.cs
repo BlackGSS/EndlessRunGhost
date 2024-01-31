@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using Neisum.ScriptableEvents;
+using Neisum.ScriptableUpdaters;
 
 public class DeathMenu : CanvasGroupView, IScriptableEventListener<SessionData>
 {

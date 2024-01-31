@@ -1,11 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
 	public List<GameObject> players;
 	public static int playerSelected = 0;
+
+	[SerializeField]
+	private PlayerControl player;
 
 	[SerializeField]
 	private GameObject _pauseMenu;
@@ -22,7 +24,8 @@ public class GameManager : MonoBehaviour
 
 		_pauseMenu.SetActive(false);
 		//_timeToPower = 0;
-		PlayerControl player = Instantiate(players[playerSelected], transform.position, Quaternion.Euler(0, 0, 0)).GetComponent<PlayerControl>();
+		player.transform.position = transform.position;
+		player.transform.rotation = Quaternion.Euler(Vector3.zero);
 	}
 
 	public void Pause()

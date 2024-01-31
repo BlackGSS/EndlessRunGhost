@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Neisum.ScriptableUpdaters;
 using UnityEngine;
 
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : MonoBehaviour, IScriptableEventListener<PlayerData>
 {
+	//TODO: Move anim behaviour to another script
 	[SerializeField]
-	private float speed = 10;
+	private Animator anim;
 
-	[SerializeField]
-	private float gravity = 12;
-
-	[SerializeField]
+	[SerializeField] PlayerDataUpdater playerDataUpdater;
+	[SerializeField] SessionDataUpdater sessionData;
+	private float speed;
+	private float gravity;
 	private float jumpSpeed;
-
-	public bool isDead = false;
 
 	private CharacterController control;
 	private Vector3 vector3Movement;
@@ -22,23 +19,19 @@ public class PlayerControl : MonoBehaviour
 	private float animationDuration = 1.8f;
 	private float startTime;
 
-	[SerializeField]
-	private Animator anim;
-
-	public SessionData sessionData;
-
-
-	// Use this for initialization
 	void Start()
 	{
+		//TODO: RequireComponent CharacterController
 		control = GetComponent<CharacterController>();
 		startTime = Time.time;
+		speed = playerDataUpdater.data.speed;
+		gravity = playerDataUpdater.data.gravity;
+		jumpSpeed = playerDataUpdater.data.jumpSpeed;
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
-		if (!sessionData.playerAlive || Time.timeScale <= 0)
+		if (!sessionData.data.playerAlive || Time.timeScale <= 0)
 			return;
 
 		if (Time.time - startTime < animationDuration)
@@ -79,12 +72,6 @@ public class PlayerControl : MonoBehaviour
 		control.Move(vector3Movement * Time.deltaTime);
 	}
 
-	public void SetSpeed(float newLevel)
-	{
-		NewLevel();
-		speed = speed + newLevel;
-	}
-
 	private void NewLevel()
 	{
 		anim.SetTrigger("LevelUp");
@@ -92,16 +79,22 @@ public class PlayerControl : MonoBehaviour
 
 	private void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-		if (hit.point.z > transform.position.z + control.radius && hit.collider.tag == "Enemy")
+		if (hit.point.z > transform.position.z + control.radius)
 		{
-			Debug.Log(hit.collider);
-			Death();
+			if (hit.collider.tag == "Enemy")
+				Death();
 		}
 	}
 
 	private void Death()
 	{
-		sessionData.playerAlive = false;
-		sessionData.UpdateScriptable(sessionData);
+		sessionData.data.playerAlive = false;
+		sessionData.UpdateScriptable();
+	}
+
+	public void ScriptableResponse(PlayerData data)
+	{
+		speed = data.speed;
+		NewLevel();
 	}
 }

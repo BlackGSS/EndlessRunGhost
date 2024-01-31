@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+	private SessionData sessionData;
+
 	public void ToGame()
 	{
 		SceneManager.LoadScene("Game");
@@ -12,6 +12,6 @@ public class MainMenu : MonoBehaviour
 
 	public void SelectPlayer(int index)
 	{
-		GameManager.playerSelected = index;
+		sessionData.playerSelected = index;
 	}
 }

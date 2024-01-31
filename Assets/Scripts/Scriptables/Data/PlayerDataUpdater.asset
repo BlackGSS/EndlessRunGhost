@@ -9,21 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec17b440995b34949afa24d03cf7f816, type: 3}
-  m_Name: SessionData
+  m_Script: {fileID: 11500000, guid: 93de3dabe5af80c4fab5388c3b8c4567, type: 3}
+  m_Name: PlayerDataUpdater
   m_EditorClassIdentifier: 
+  templateData: {fileID: 11400000, guid: 497cd7b7aed670e418d07330e764a58f, type: 2}
+  data: {fileID: 0}
   listeners:
   - mode: 0
     unityReference: {fileID: 0}
     rawReference:
       rid: -2
-  - mode: 0
-    unityReference: {fileID: 0}
-    rawReference:
-      rid: -2
-  playerAlive: 1
-  difficult: 0
-  score: 0
   references:
     version: 2
     RefIds:

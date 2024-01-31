@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
+	[SerializeField]
 	private Transform _target;
 	private Vector3 _offset;
 	private Vector3 _vector3Movement;
@@ -18,7 +19,6 @@ public class CameraControl : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		_target = GameObject.FindGameObjectWithTag("Player").transform;
 		_offset = transform.position - _target.position;
 	}
 
@@ -44,6 +44,5 @@ public class CameraControl : MonoBehaviour
 			transform.LookAt(_target.position);
 			_transition += Time.deltaTime * 1 / _animationDuration;
 		}
-
 	}
 }

@@ -328,7 +328,7 @@ Animator:
   m_GameObject: {fileID: 1547923268319382}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f9fa91da01cc0214180a8be70a186b2c, type: 3}
-  m_Controller: {fileID: 9100000, guid: c4925d2e0ae88c0459bfa6d95e3310da, type: 2}
+  m_Controller: {fileID: 9100000, guid: ad9d5a172e7366c41afafb5118202590, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 136201716343192922}
   - component: {fileID: 143529795222606980}
   - component: {fileID: 114643018719894430}
+  - component: {fileID: 2649606941877326430}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -426,12 +427,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e006a6d62811c469081bbe038de4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  gravity: 12
-  jumpSpeed: 0
-  isDead: 0
   anim: {fileID: 95976296300888008}
-  sessionData: {fileID: 11400000, guid: 96a29bae65bc9a24d9056fbbc578eaca, type: 2}
+  playerDataUpdater: {fileID: 11400000, guid: cc0eb2df18f8c4c4fa3bbf4f0bd0160e, type: 2}
+  sessionData: {fileID: 11400000, guid: e140872435fd5e94c8290179f80b06d7, type: 2}
+--- !u!114 &2649606941877326430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641774918067474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e5653f2ec180d40933362f08c29db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDataUpdater: {fileID: 11400000, guid: cc0eb2df18f8c4c4fa3bbf4f0bd0160e, type: 2}
 --- !u!1 &1805747109202502
 GameObject:
   m_ObjectHideFlags: 0

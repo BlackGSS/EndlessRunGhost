@@ -5,24 +5,26 @@ using System.Linq;
 [CreateAssetMenu(fileName = "NewSessionData", menuName = "Scriptables/DifficultySettings", order = 0)]
 public class DifficultySettings : ScriptableObject
 {
+    private int maxDifficult;
     [SerializeField]
     public int maxDifficultLevel
     {
         get
         {
-            if (maxDifficultLevel == 0)
+            if (maxDifficult == 0)
             {
                 Difficulties[] values = (Difficulties[])Enum.GetValues(typeof(Difficulties));
-                maxDifficultLevel = difficulties.Where(x => x.difficulty == values[values.Length - 1]).First().maxDificultyLevel;
+                maxDifficult = difficulties.Where(x => x.difficulty == values[values.Length - 1]).First().maxDificultyLevel;
             }
-            return maxDifficultLevel;
+            return maxDifficult;
         }
         private set
         {
-            maxDifficultLevel = value;
+            maxDifficult = value;
         }
     }
-    public int scoreToNextLevel = 10;
+    //TODO: It would be cool to have a score lever based on levels, not just *2 this value
+    public int scoreToFirstLevel = 10;
     //Order them by Difficulty < Difficulty in inspector
     public DifficultiesRange[] difficulties;
 }

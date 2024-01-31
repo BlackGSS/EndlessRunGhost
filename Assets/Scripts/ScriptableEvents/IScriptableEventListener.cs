@@ -1,4 +1,4 @@
-namespace Neisum.ScriptableEvents
+namespace Neisum.ScriptableUpdaters
 {
     public interface IScriptableEventListener<T>
     {

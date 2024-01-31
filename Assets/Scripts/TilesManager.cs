@@ -7,23 +7,42 @@ public class TilesManager : MonoBehaviour
 {
 	[SerializeField]
 	private GameObject _initialPrefabs;
-	
+	[SerializeField]
+	private Transform _playerTransform;
 	private List<GameObject> _savedTiles;
 
-	private Transform	_playerTransform;
-	private float		_spawnZ = 0.0f;
-	private float		_tileLength = 20.5f;
-	private float		_safeZone = 58f;
-	private int			_amountTiles = 8;
-	private int			_lastPrefabIndex = 0;
+	private float _spawnZ = 0.0f;
+	private float _tileLength = 20.5f;
+	private float _safeZone = 58f;
+	private int _amountTiles = 8;
+	private int _amountInitialTiles = 2;
+	private int _lastPrefabIndex = 0;
 
-	private float		_countToDelete = 0;
+	private float _countToDelete = 0;
+	[SerializeField]
+	private float _initialDelay = 6;
 
 	public static Difficulties currentDificultChunk = Difficulties.EASY;
+
+	private static TilesManager instance;
+
+	void Awake()
+	{
+		if (instance == null)
+		{
+			instance = this;
+			DontDestroyOnLoad(this.gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
 
 	// Use this for initialization
 	void Start()
 	{
+		DontDestroyOnLoad(this);
 		_savedTiles = new List<GameObject>();
 
 		_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -31,7 +50,7 @@ public class TilesManager : MonoBehaviour
 		//Sin obstaculos las primeras
 		for (int i = 0; i < _amountTiles; i++)
 		{
-			if (i < 2)
+			if (i < _amountInitialTiles)
 				SpawnInitialTiles();
 			else
 				SpawnTiles();
@@ -41,7 +60,7 @@ public class TilesManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (_countToDelete < 6)
+		if (_countToDelete < _initialDelay)
 		{
 			_countToDelete += Time.deltaTime;
 		}
@@ -82,7 +101,7 @@ public class TilesManager : MonoBehaviour
 		_spawnZ += _tileLength;
 		_savedTiles.Add(go);
 	}
-	
+
 	private void DeleteTiles()
 	{
 		PoolSystem.AddChunkToPool(_savedTiles[0]);
