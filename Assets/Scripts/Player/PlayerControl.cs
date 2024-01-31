@@ -19,6 +19,21 @@ public class PlayerControl : MonoBehaviour, IScriptableEventListener<PlayerData>
 	private float animationDuration = 1.8f;
 	private float startTime;
 
+	public static PlayerControl Instance;
+
+	void Awake()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
+
 	void Start()
 	{
 		//TODO: RequireComponent CharacterController
@@ -96,5 +111,10 @@ public class PlayerControl : MonoBehaviour, IScriptableEventListener<PlayerData>
 	{
 		speed = data.speed;
 		NewLevel();
+	}
+
+	void OnDestroy()
+	{
+		Instance = null;    // because destroy doesn't happen until end of frame
 	}
 }

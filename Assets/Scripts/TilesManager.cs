@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class TilesManager : MonoBehaviour
@@ -24,28 +22,10 @@ public class TilesManager : MonoBehaviour
 
 	public static Difficulties currentDificultChunk = Difficulties.EASY;
 
-	private static TilesManager instance;
-
-	void Awake()
-	{
-		if (instance == null)
-		{
-			instance = this;
-			DontDestroyOnLoad(this.gameObject);
-		}
-		else
-		{
-			Destroy(gameObject);
-		}
-	}
-
 	// Use this for initialization
 	void Start()
 	{
-		DontDestroyOnLoad(this);
 		_savedTiles = new List<GameObject>();
-
-		_playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
 		//Sin obstaculos las primeras
 		for (int i = 0; i < _amountTiles; i++)
