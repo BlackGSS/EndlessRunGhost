@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 	public List<GameObject> players;
-	public static int playerSelected = 0;
 
 	[SerializeField]
 	private PlayerControl player;
@@ -12,20 +12,14 @@ public class GameManager : MonoBehaviour
 	[SerializeField]
 	private GameObject _pauseMenu;
 
-	public static GameManager instance;
-
 	// Use this for initialization
 	void Awake()
 	{
-		if (instance == null)
-		{
-			instance = this;
-		}
-
 		_pauseMenu.SetActive(false);
 		//_timeToPower = 0;
 		player.transform.position = transform.position;
 		player.transform.rotation = Quaternion.Euler(Vector3.zero);
+		// TilesManager.instance.SetPlayer()
 	}
 
 	public void Pause()
@@ -49,5 +43,15 @@ public class GameManager : MonoBehaviour
 		_pauseMenu.SetActive(false);
 		// isPaused = false;
 		Time.timeScale = 1;
+	}
+
+	public void ReturnMenu()
+	{
+		SceneManager.LoadScene("Menu");
+	}
+	
+	public void Restart()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }

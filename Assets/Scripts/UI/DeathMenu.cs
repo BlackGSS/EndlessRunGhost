@@ -1,5 +1,4 @@
 ﻿using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 using Neisum.ScriptableUpdaters;
 
@@ -11,16 +10,6 @@ public class DeathMenu : CanvasGroupView, IScriptableEventListener<SessionData>
 	public void ToggleEndMenu(float score)
 	{
 		scoreText.text = ((int)score).ToString();
-	}
-
-	public void Restart()
-	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-	}
-
-	public void ReturnMenu()
-	{
-		SceneManager.LoadScene("Menu");
 	}
 
 	public void ScriptableResponse(SessionData data)
