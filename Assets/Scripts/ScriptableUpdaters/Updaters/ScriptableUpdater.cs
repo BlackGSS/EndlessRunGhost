@@ -12,7 +12,7 @@ namespace Neisum.ScriptableUpdaters
         [SerializeField] private T templateData;
         public T data;
 
-        [SerializeField] List<SerializableInterface<IScriptableEventListener<T>>> listeners = new List<SerializableInterface<IScriptableEventListener<T>>>();
+        [SerializeField] List<SerializableInterface<IScriptableUpdaterListener<T>>> listeners = new List<SerializableInterface<IScriptableUpdaterListener<T>>>();
 
         public void UpdateScriptable()
         {
@@ -38,10 +38,10 @@ namespace Neisum.ScriptableUpdaters
         private void LoadListeners()
         {
             listeners.Clear();
-            var dataCallers = FindObjectsOfType<MonoBehaviour>().OfType<IScriptableEventListener<T>>();
-            foreach (IScriptableEventListener<T> dataCaller in dataCallers)
+            var dataCallers = FindObjectsOfType<MonoBehaviour>().OfType<IScriptableUpdaterListener<T>>();
+            foreach (IScriptableUpdaterListener<T> dataCaller in dataCallers)
             {
-                SerializableInterface<IScriptableEventListener<T>> serializableDataCaller = new SerializableInterface<IScriptableEventListener<T>>();
+                SerializableInterface<IScriptableUpdaterListener<T>> serializableDataCaller = new SerializableInterface<IScriptableUpdaterListener<T>>();
                 serializableDataCaller.Value = dataCaller;
                 listeners.Add(serializableDataCaller);
             }

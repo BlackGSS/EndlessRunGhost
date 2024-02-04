@@ -1,6 +1,6 @@
 namespace Neisum.ScriptableUpdaters
 {
-    public interface IScriptableEventListener<T>
+    public interface IScriptableUpdaterListener<T>
     {
         public void ScriptableResponse(T data);
     }

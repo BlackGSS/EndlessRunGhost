@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec17b440995b34949afa24d03cf7f816, type: 3}
-  m_Name: TemplateSessionData
+  m_Script: {fileID: 11500000, guid: 35dad4f9933a4c447b753868433a23c0, type: 3}
+  m_Name: OnPlayerSpawned
   m_EditorClassIdentifier: 
-  playerSelected: 0
-  playerAlive: 1
-  difficulty: 0
-  currentScore: 0
-  currentDifficultLevel: 1
-  playerPrefab: {fileID: 11400000, guid: 75c5f3ae97f6ac844aa991935feb3605, type: 2}
+  player: {fileID: 114643018719894430, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}

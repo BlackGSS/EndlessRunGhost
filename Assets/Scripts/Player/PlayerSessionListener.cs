@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Neisum.ScriptableUpdaters;
 using UnityEngine;
 
-public class PlayerSessionListener : MonoBehaviour, IScriptableEventListener<SessionData>
+public class PlayerSessionListener : MonoBehaviour, IScriptableUpdaterListener<SessionData>
 {
     [SerializeField] PlayerDataUpdater playerDataUpdater;
 
