@@ -3,21 +3,16 @@ using UnityEngine;
 
 public class TilesManager : MonoBehaviour
 {
+	[SerializeField] TilesConfig tilesConfig;
 	[SerializeField] GameObject _initialPrefabs;
-	[SerializeField] Transform playerTransform;
 	[SerializeField] float _initialDelay = 6;
+	[SerializeField] Transform playerTransform;
 	
-	// TODO: Try to use a Scriptable to store the tiles
+	private float countToDelete = 0;
+    private float spawnZ = 0.0f;
+	
+	// TODO: Try to use a Scriptable to store the tiles for perssistence between scenes
 	private List<GameObject> _savedTiles;
-
-	//TODO: Pass to a Scriptable TilesConfig
-	private float _spawnZ = 0.0f;
-	private float _tileLength = 20.5f;
-	private float _safeZone = 58f;
-	private int _amountTiles = 8;
-	private int _amountInitialTiles = 2;
-	private int _lastPrefabIndex = 0;
-	private float _countToDelete = 0;
 
 	public static Difficulties currentDificultChunk = Difficulties.EASY;
 
@@ -27,9 +22,9 @@ public class TilesManager : MonoBehaviour
 		_savedTiles = new List<GameObject>();
 
 		//Sin obstaculos las primeras
-		for (int i = 0; i < _amountTiles; i++)
+		for (int i = 0; i < tilesConfig.amountTiles; i++)
 		{
-			if (i < _amountInitialTiles)
+			if (i < tilesConfig.amountInitialTiles)
 				SpawnInitialTiles();
 			else
 				SpawnTiles();
@@ -39,13 +34,13 @@ public class TilesManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (_countToDelete < _initialDelay)
+		if (countToDelete < _initialDelay)
 		{
-			_countToDelete += Time.deltaTime;
+			countToDelete += Time.deltaTime;
 		}
 		else
 		{
-			if (playerTransform.position.z - _safeZone > (_spawnZ - _amountTiles * _tileLength))
+			if (playerTransform.position.z - tilesConfig.safeZone > (spawnZ - tilesConfig.amountTiles * tilesConfig.tileLength))
 			{
 				SpawnTiles();
 				DeleteTiles();
@@ -62,8 +57,8 @@ public class TilesManager : MonoBehaviour
 
 		go = Instantiate(_initialPrefabs);
 		go.transform.SetParent(transform);
-		go.transform.position = Vector3.forward * _spawnZ;
-		_spawnZ += _tileLength;
+		go.transform.position = Vector3.forward * spawnZ;
+		spawnZ += tilesConfig.tileLength;
 	}
 
 	/// <summary>
@@ -76,8 +71,8 @@ public class TilesManager : MonoBehaviour
 		go = PoolSystem.GetChunkFromPool(currentDificultChunk);
 
 		go.transform.SetParent(transform);
-		go.transform.position = Vector3.forward * _spawnZ;
-		_spawnZ += _tileLength;
+		go.transform.position = Vector3.forward * spawnZ;
+		spawnZ += tilesConfig.tileLength;
 		_savedTiles.Add(go);
 	}
 

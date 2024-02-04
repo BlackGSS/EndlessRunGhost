@@ -86,6 +86,12 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 		}
 	}
 
+	private void OnTriggerEnter(Collider collider)
+	{
+		if (collider.tag == "Enemy")
+			Death();
+	}
+
 	private void Death()
 	{
 		sessionData.data.playerAlive = false;

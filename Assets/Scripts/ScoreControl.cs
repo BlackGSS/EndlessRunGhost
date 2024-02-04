@@ -53,9 +53,7 @@ public class ScoreControl : MonoBehaviour, IScriptableUpdaterListener<SessionDat
 	public void ScriptableResponse(SessionData data)
 	{
 		if (!data.playerAlive)
-		{
 			OnDeath();
-		}
 	}
 
 	public void OnDeath()
