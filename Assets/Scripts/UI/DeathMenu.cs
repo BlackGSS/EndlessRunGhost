@@ -2,7 +2,7 @@
 using TMPro;
 using Neisum.ScriptableUpdaters;
 
-public class DeathMenu : CanvasGroupView, IScriptableEventListener<SessionData>
+public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData>
 {
 	public TextMeshProUGUI scoreText;
 	public Image backgroundImg;

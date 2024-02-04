@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour
 {
 	[SerializeField]
-	private Transform _target;
+	private Transform target;
 	private Vector3 _offset;
 	private Vector3 _vector3Movement;
 
@@ -19,15 +19,15 @@ public class CameraControl : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		_offset = transform.position - _target.position;
+		_offset = transform.position - target.position;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		_vector3Movement = _target.position + _offset;
+		_vector3Movement = target.position + _offset;
 
-		Vector3 moveTo = Vector3.Lerp(transform.position, _target.position, Time.deltaTime * _speedMoving);
+		Vector3 moveTo = Vector3.Lerp(transform.position, target.position, Time.deltaTime * _speedMoving);
 
 		_vector3Movement.x = moveTo.x;
 
@@ -41,8 +41,13 @@ public class CameraControl : MonoBehaviour
 		else
 		{
 			transform.position = Vector3.Lerp(_vector3Movement + _offsetAnim, _vector3Movement, _transition);
-			transform.LookAt(_target.position);
+			transform.LookAt(target.position);
 			_transition += Time.deltaTime * 1 / _animationDuration;
 		}
+	}
+
+	public void SetPlayerTransform(PlayerControl player)
+	{
+		target = player.transform;
 	}
 }

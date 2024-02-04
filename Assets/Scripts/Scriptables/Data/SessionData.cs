@@ -8,5 +8,5 @@ public class SessionData : InstantiableScriptable
     public Difficulties difficulty = Difficulties.EASY;
     public float currentScore;
     public int currentDifficultLevel;
-
+    public PlayerTypes playerPrefab;
 }

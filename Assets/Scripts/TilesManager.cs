@@ -3,22 +3,21 @@ using UnityEngine;
 
 public class TilesManager : MonoBehaviour
 {
-	[SerializeField]
-	private GameObject _initialPrefabs;
-	[SerializeField]
-	private Transform _playerTransform;
+	[SerializeField] GameObject _initialPrefabs;
+	[SerializeField] Transform playerTransform;
+	[SerializeField] float _initialDelay = 6;
+	
+	// TODO: Try to use a Scriptable to store the tiles
 	private List<GameObject> _savedTiles;
 
+	//TODO: Pass to a Scriptable TilesConfig
 	private float _spawnZ = 0.0f;
 	private float _tileLength = 20.5f;
 	private float _safeZone = 58f;
 	private int _amountTiles = 8;
 	private int _amountInitialTiles = 2;
 	private int _lastPrefabIndex = 0;
-
 	private float _countToDelete = 0;
-	[SerializeField]
-	private float _initialDelay = 6;
 
 	public static Difficulties currentDificultChunk = Difficulties.EASY;
 
@@ -46,7 +45,7 @@ public class TilesManager : MonoBehaviour
 		}
 		else
 		{
-			if (_playerTransform.position.z - _safeZone > (_spawnZ - _amountTiles * _tileLength))
+			if (playerTransform.position.z - _safeZone > (_spawnZ - _amountTiles * _tileLength))
 			{
 				SpawnTiles();
 				DeleteTiles();
@@ -87,5 +86,10 @@ public class TilesManager : MonoBehaviour
 		PoolSystem.AddChunkToPool(_savedTiles[0]);
 		Debug.Log(_savedTiles[0]);
 		_savedTiles.RemoveAt(0);
+	}
+
+	public void SetPlayerTransform(PlayerControl player)
+	{
+		playerTransform = player.transform;
 	}
 }

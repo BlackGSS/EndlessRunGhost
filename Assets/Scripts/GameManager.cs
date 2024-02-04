@@ -7,19 +7,18 @@ public class GameManager : MonoBehaviour
 	public List<GameObject> players;
 
 	[SerializeField]
-	private PlayerControl player;
-
-	[SerializeField]
 	private GameObject _pauseMenu;
+	
+	[SerializeField]
+	private PlayerFactory playerFactory;
+
+    [SerializeField] SessionDataUpdater sessionDataUpdater;
 
 	// Use this for initialization
 	void Awake()
 	{
 		_pauseMenu.SetActive(false);
-		//_timeToPower = 0;
-		player.transform.position = transform.position;
-		player.transform.rotation = Quaternion.Euler(Vector3.zero);
-		// TilesManager.instance.SetPlayer()
+		playerFactory.SpawnSessionPlayer();
 	}
 
 	public void Pause()

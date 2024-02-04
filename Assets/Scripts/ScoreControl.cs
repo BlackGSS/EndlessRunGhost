@@ -2,7 +2,7 @@
 using Neisum.ScriptableUpdaters;
 using System.Linq;
 
-public class ScoreControl : MonoBehaviour, IScriptableEventListener<SessionData>
+public class ScoreControl : MonoBehaviour, IScriptableUpdaterListener<SessionData>
 {
 	[SerializeField] private ScoreUI scoreUI;
 	[SerializeField] private SessionDataUpdater sessionData;
