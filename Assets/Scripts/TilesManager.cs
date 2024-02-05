@@ -6,11 +6,12 @@ public class TilesManager : MonoBehaviour
 	[SerializeField] TilesConfig tilesConfig;
 	[SerializeField] GameObject _initialPrefabs;
 	[SerializeField] float _initialDelay = 6;
+	[SerializeField] float playerSafeZone = 17f;
 	[SerializeField] Transform playerTransform;
 	
 	private float countToDelete = 0;
     private float spawnZ = 0.0f;
-	private float safeZone = 58f;
+	private float safeZone;
 	
 	// TODO: Try to use a Scriptable to store the tiles for perssistence between scenes
 	private List<GameObject> _savedTiles;
@@ -21,7 +22,7 @@ public class TilesManager : MonoBehaviour
 	void Start()
 	{
 		_savedTiles = new List<GameObject>();
-		safeZone = tilesConfig.amountInitialTiles * tilesConfig.tileLength + 12f;
+		safeZone = tilesConfig.amountInitialTiles * tilesConfig.tileLength + playerSafeZone;
 		//Sin obstaculos las primeras
 		for (int i = 0; i < tilesConfig.amountTiles; i++)
 		{
