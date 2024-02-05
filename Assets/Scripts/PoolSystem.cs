@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolSystem 
-{	
+public class PoolSystem
+{
 	static Dictionary<Difficulties, List<GameObject>> chunkPools = new Dictionary<Difficulties, List<GameObject>>();
 
 	static Dictionary<Difficulties, GameObject[]> chunkPrefabs = new Dictionary<Difficulties, GameObject[]>();
@@ -95,5 +95,10 @@ public class PoolSystem
 
 		_lastPrefabIndex = randomIndex;
 		return randomIndex;
+	}
+
+	public static void ResetChunks()
+	{
+		chunkPools = new Dictionary<Difficulties, List<GameObject>>();
 	}
 }

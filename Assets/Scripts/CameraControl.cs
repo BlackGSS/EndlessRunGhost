@@ -10,7 +10,7 @@ public class CameraControl : MonoBehaviour
 	private Vector3 _vector3Movement;
 
 	[SerializeField]
-	private float _speedMoving;
+	private float _speedMoving = 8;
 
 	private float _transition = 0f;
 	private float _animationDuration = 1.5f;

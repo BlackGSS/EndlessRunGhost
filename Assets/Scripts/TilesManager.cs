@@ -10,6 +10,7 @@ public class TilesManager : MonoBehaviour
 	
 	private float countToDelete = 0;
     private float spawnZ = 0.0f;
+	private float safeZone = 58f;
 	
 	// TODO: Try to use a Scriptable to store the tiles for perssistence between scenes
 	private List<GameObject> _savedTiles;
@@ -20,7 +21,7 @@ public class TilesManager : MonoBehaviour
 	void Start()
 	{
 		_savedTiles = new List<GameObject>();
-
+		safeZone = tilesConfig.amountInitialTiles * tilesConfig.tileLength + 12f;
 		//Sin obstaculos las primeras
 		for (int i = 0; i < tilesConfig.amountTiles; i++)
 		{
@@ -40,7 +41,7 @@ public class TilesManager : MonoBehaviour
 		}
 		else
 		{
-			if (playerTransform.position.z - tilesConfig.safeZone > (spawnZ - tilesConfig.amountTiles * tilesConfig.tileLength))
+			if (playerTransform.position.z - safeZone > (spawnZ - tilesConfig.amountTiles * tilesConfig.tileLength))
 			{
 				SpawnTiles();
 				DeleteTiles();
@@ -86,5 +87,10 @@ public class TilesManager : MonoBehaviour
 	public void SetPlayerTransform(PlayerControl player)
 	{
 		playerTransform = player.transform;
+	}
+
+	void OnDestroy()
+	{
+		PoolSystem.ResetChunks();
 	}
 }
