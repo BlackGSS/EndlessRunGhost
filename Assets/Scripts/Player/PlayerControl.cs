@@ -15,6 +15,7 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 
 	private CharacterController control;
 	private Vector3 vector3Movement;
+	private bool isInvincible = false;
 
 	private float animationDuration = 1.8f;
 	private float startTime;
@@ -79,17 +80,14 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 
 	private void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-		if (hit.point.z > transform.position.z + control.radius)
+		if (!isInvincible)
 		{
-			if (hit.collider.tag == "Enemy")
-				Death();
+			if (hit.point.z > transform.position.z + control.radius)
+			{
+				if (hit.collider.tag == "Enemy")
+					Death();
+			}
 		}
-	}
-
-	private void OnTriggerEnter(Collider collider)
-	{
-		if (collider.tag == "Enemy")
-			Death();
 	}
 
 	private void Death()
@@ -100,7 +98,13 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 
 	public void ScriptableResponse(PlayerData data)
 	{
-		speed = data.speed;
-		NewLevel();
+		if (speed != data.speed)
+		{
+			speed = data.speed;
+			NewLevel();
+		}
+
+		if (isInvincible != data.isInvincible)
+			isInvincible = data.isInvincible;
 	}
 }
