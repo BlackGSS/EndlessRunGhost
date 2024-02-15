@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerFactory : MonoBehaviour
 {
   [SerializeField]
-  private PlayerEvent playerSpawned;
+  private PlayerSpawn playerSpawned;
 
   [SerializeField] SessionDataUpdater sessionDataUpdater;
 

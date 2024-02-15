@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class BaseEvent<T> : ScriptableObject
 {
     private List<IScriptableEventListener<T>> listeners = new List<IScriptableEventListener<T>>();
+    public T overloadData;
 
     public void Raise(T data)
     {

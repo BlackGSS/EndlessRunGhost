@@ -3,5 +3,5 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerEventListener : ScriptableListener<PlayerControl, PlayerEvent, UnityEvent<PlayerControl>>
+public class PlayerEventListener : ScriptableListener<PlayerControl, PlayerSpawn, UnityEvent<PlayerControl>>
 { }
