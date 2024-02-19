@@ -17,10 +17,10 @@ public class ShieldPowerUpData : ScriptableObject, IPowerUp
     IEnumerator<float> Trying()
     {
         playerData.data.isInvincible = true;
-        playerData.UpdateScriptable();
+        playerData.Notify();
         yield return Timing.WaitForSeconds(8f);
 
         playerData.data.isInvincible = false;
-        playerData.UpdateScriptable();
+        playerData.Notify();
     }
 }

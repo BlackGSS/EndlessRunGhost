@@ -47,7 +47,7 @@ public class ScoreControl : MonoBehaviour, IScriptableUpdaterListener<SessionDat
 		DifficultiesRange difficultyRange = difficultySettings.difficulties.Where(x => x.minDificultyLevel <= newDifficult && x.maxDificultyLevel >= newDifficult).First();
 		sessionData.data.difficulty = difficultyRange.difficulty;
 		sessionData.data.currentDifficultLevel = difficultLevel;
-		sessionData.UpdateScriptable();
+		sessionData.Notify();
 	}
 
 	public void ScriptableResponse(SessionData data)

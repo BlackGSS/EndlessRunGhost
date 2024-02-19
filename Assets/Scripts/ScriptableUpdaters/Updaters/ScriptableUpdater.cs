@@ -14,7 +14,7 @@ namespace Neisum.ScriptableUpdaters
 
         [SerializeField] List<SerializableInterface<IScriptableUpdaterListener<T>>> listeners = new List<SerializableInterface<IScriptableUpdaterListener<T>>>();
 
-        public void UpdateScriptable()
+        public void Notify()
         {
             RaiseScriptableUpdatedEvent(data);
         }

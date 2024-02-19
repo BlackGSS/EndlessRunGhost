@@ -10,9 +10,12 @@ public class SessionData : InstantiableScriptable
     public float currentScore;
     public int currentDifficultLevel;
     public PlayerTypes playerPrefab;
-    public PowerUpDataPrefab[] availablePowerUps;
+
+    [Header("PowerUps Setup")]
+    public int initialPowerUp = 4;
     public int minChunksToPowerUp = 8;
     public int maxChunksToPowerUp = 12;
+    public PowerUpDataPrefab[] availablePowerUps;
 }
 
 [System.Serializable]

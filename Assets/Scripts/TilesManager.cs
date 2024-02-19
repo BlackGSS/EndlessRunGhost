@@ -6,6 +6,7 @@ public class TilesManager : MonoBehaviour
 {
 	[SerializeField] TilesConfig tilesConfig;
 	[SerializeField] ChunkEnablingEvent chunkEnableEvent;
+	[SerializeField] ChunkDisablingEvent chunkDisableEvent;
 	[SerializeField] GameObject initialTilePrefab;
 	[SerializeField] float _initialDelay = 6;
 	[SerializeField] float playerSafeZone = 17f;
@@ -16,6 +17,7 @@ public class TilesManager : MonoBehaviour
 	private float safeZone;
 	
 	// TODO: Try to use a Scriptable to store the tiles for perssistence between scenes
+	// TODO: Change gameObject varible for Chunks
 	// [SerializeField] SavedTilesData savedTilesData;
 	private List<GameObject> _savedTiles;
 
@@ -81,6 +83,7 @@ public class TilesManager : MonoBehaviour
 		PoolSystem.AddChunkToPool(_savedTiles[0]);
 		// PoolSystem.AddChunkToPool(savedTilesData.savedTiles[0]);
 		// Debug.Log(_savedTiles[0]);
+		chunkDisableEvent.Raise(_savedTiles[0].GetComponent<Chunk>());
 		_savedTiles.RemoveAt(0);
 		// savedTilesData.RemoveAt(0);
 	}

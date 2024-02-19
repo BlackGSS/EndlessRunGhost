@@ -1,14 +1,19 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUpsManager : MonoBehaviour
 {
     [SerializeField] SessionDataUpdater sessionData;
     [SerializeField] PowerUpsPool powerUpsPool;
-    [SerializeField] float amountChunks = 8;
+    [SerializeField] float amountChunks;
     [SerializeField] float chunksLeftToSpawn;
+
+    //TODO: Maybe this would be incremented to a List<PowerUpCollectable>
+    private Dictionary<Chunk, PowerUpCollectable> chunkPowerUps = new Dictionary<Chunk, PowerUpCollectable>();
 
     public void Start()
     {
+        amountChunks = sessionData.data.minChunksToPowerUp;
         chunksLeftToSpawn = amountChunks;
     }
 
@@ -25,9 +30,10 @@ public class PowerUpsManager : MonoBehaviour
         {
             if (chunk.GetRandomPointTransform(out Transform transform))
             {
-                SpawnPowerUp(transform);
+                PowerUpCollectable collectable = SpawnPowerUp(transform);
                 amountChunks = Random.Range(sessionData.data.minChunksToPowerUp, sessionData.data.maxChunksToPowerUp);
                 chunksLeftToSpawn = amountChunks;
+                chunkPowerUps.Add(chunk, collectable);
             }
             else
             {
@@ -36,9 +42,21 @@ public class PowerUpsManager : MonoBehaviour
         }
     }
 
-    private void SpawnPowerUp(Transform parentPosition)
+    private PowerUpCollectable SpawnPowerUp(Transform parentPosition)
     {
         PowerUpDataPrefab powerUpCollectableData = GetRandomPowerUp();
-        powerUpsPool.SpawnPowerUp(powerUpCollectableData.powerUpData.Value, powerUpCollectableData.prefab, parentPosition);
+        return powerUpsPool.SpawnPowerUp(powerUpCollectableData.powerUpData.Value, powerUpCollectableData.prefab, parentPosition);
+    }
+
+    public void RemovePowerUp(Chunk chunk)
+    {
+        if (chunkPowerUps.Count > 0)
+        {
+            if (chunkPowerUps.ContainsKey(chunk))
+            {
+                powerUpsPool.DisablePowerUp(chunkPowerUps[chunk]);
+                chunkPowerUps.Remove(chunk);
+            }
+        }
     }
 }

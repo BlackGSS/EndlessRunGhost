@@ -3,5 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerEventListener : ScriptableListener<PlayerControl, PlayerSpawn, UnityEvent<PlayerControl>>
-{ }
+namespace Neisum.ScriptableEvents
+{
+    public class PlayerEventListener : ScriptableListener<PlayerControl, PlayerSpawn, UnityEvent<PlayerControl>>
+    { }
+}

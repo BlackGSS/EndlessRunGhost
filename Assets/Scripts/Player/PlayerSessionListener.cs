@@ -9,6 +9,10 @@ public class PlayerSessionListener : MonoBehaviour, IScriptableUpdaterListener<S
 
     public void ScriptableResponse(SessionData data)
     {
-        playerDataUpdater.data.speed += data.currentDifficultLevel;
+        if (playerDataUpdater.data.baseSpeed + data.currentDifficultLevel != playerDataUpdater.data.speed)
+        {
+            playerDataUpdater.data.speed = playerDataUpdater.data.baseSpeed + data.currentDifficultLevel;
+            playerDataUpdater.Notify();
+        }
     }
 }

@@ -75,6 +75,7 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 
 	private void NewLevel()
 	{
+		anim.ResetTrigger("LevelUp");
 		anim.SetTrigger("LevelUp");
 	}
 
@@ -82,18 +83,15 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 	{
 		if (!isInvincible)
 		{
-			if (hit.point.z > transform.position.z + control.radius)
-			{
-				if (hit.collider.tag == "Enemy")
+			if (hit.collider.tag == "Enemy")
 					Death();
-			}
 		}
 	}
 
 	private void Death()
 	{
 		sessionData.data.playerAlive = false;
-		sessionData.UpdateScriptable();
+		sessionData.Notify();
 	}
 
 	public void ScriptableResponse(PlayerData data)

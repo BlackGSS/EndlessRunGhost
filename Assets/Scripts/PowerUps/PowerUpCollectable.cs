@@ -21,4 +21,9 @@ public class PowerUpCollectable : MonoBehaviour
         powerUp.Value.Apply(player);
         gameObject.SetActive(false);
     }
+
+    public void Disable()
+    {
+        gameObject.SetActive(false);
+    }
 }
