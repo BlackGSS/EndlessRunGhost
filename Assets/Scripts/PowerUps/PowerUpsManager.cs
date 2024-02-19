@@ -1,35 +1,44 @@
-using System.Collections.Generic;
-using MEC;
 using UnityEngine;
 
 public class PowerUpsManager : MonoBehaviour
 {
-    [SerializeField] PowerUpCollectableData[] collectableDataPrefabs;
-
+    [SerializeField] SessionDataUpdater sessionData;
     [SerializeField] PowerUpsPool powerUpsPool;
-    [SerializeField] float powerUpDelayTime = 12f;
+    [SerializeField] float amountChunks = 8;
+    [SerializeField] float chunksLeftToSpawn;
 
     public void Start()
     {
-        Timing.RunCoroutine(SpawnPowerUp());
+        chunksLeftToSpawn = amountChunks;
     }
 
-    IEnumerator<float> SpawnPowerUp()
+    private PowerUpDataPrefab GetRandomPowerUp()
     {
-        yield return Timing.WaitForSeconds(powerUpDelayTime);
-        PowerUpCollectableData powerUpCollectableData = GetRandomPowerUp();
-        powerUpsPool.SpawnPowerUp(powerUpCollectableData.powerUpData, powerUpCollectableData.prefab, null);
+        int randomNum = Random.Range(0, sessionData.data.availablePowerUps.Length - 1);
+        return sessionData.data.availablePowerUps[randomNum];
     }
 
-    private PowerUpCollectableData GetRandomPowerUp()
+    public void CheckToSpawnPowerUp(Chunk chunk)
     {
-        int randomNum = Random.Range(0, collectableDataPrefabs.Length - 1);
-        return collectableDataPrefabs[randomNum];
+        chunksLeftToSpawn--;
+        if (chunksLeftToSpawn == 0)
+        {
+            if (chunk.GetRandomPointTransform(out Transform transform))
+            {
+                SpawnPowerUp(transform);
+                amountChunks = Random.Range(sessionData.data.minChunksToPowerUp, sessionData.data.maxChunksToPowerUp);
+                chunksLeftToSpawn = amountChunks;
+            }
+            else
+            {
+                chunksLeftToSpawn++;
+            }
+        }
     }
-}
 
-public class PowerUpCollectableData
-{
-    public IPowerUp powerUpData;
-    public PowerUpCollectable prefab;
+    private void SpawnPowerUp(Transform parentPosition)
+    {
+        PowerUpDataPrefab powerUpCollectableData = GetRandomPowerUp();
+        powerUpsPool.SpawnPowerUp(powerUpCollectableData.powerUpData.Value, powerUpCollectableData.prefab, parentPosition);
+    }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using TNRD;
 
 [CreateAssetMenu(fileName = "NewSessionData", menuName = "Scriptables/SessionData", order = 0)]
 public class SessionData : InstantiableScriptable
@@ -9,4 +10,14 @@ public class SessionData : InstantiableScriptable
     public float currentScore;
     public int currentDifficultLevel;
     public PlayerTypes playerPrefab;
+    public PowerUpDataPrefab[] availablePowerUps;
+    public int minChunksToPowerUp = 8;
+    public int maxChunksToPowerUp = 12;
+}
+
+[System.Serializable]
+public class PowerUpDataPrefab
+{
+    public SerializableInterface<IPowerUp> powerUpData;
+    public PowerUpCollectable prefab;
 }

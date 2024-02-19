@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using Neisum.ScriptableEvents;
 using UnityEngine;
 
 public class TilesManager : MonoBehaviour
 {
 	[SerializeField] TilesConfig tilesConfig;
-	[SerializeField] GameObject _initialPrefabs;
+	[SerializeField] ChunkEnablingEvent chunkEnableEvent;
+	[SerializeField] GameObject initialTilePrefab;
 	[SerializeField] float _initialDelay = 6;
 	[SerializeField] float playerSafeZone = 17f;
 	[SerializeField] Transform playerTransform;
@@ -14,11 +16,12 @@ public class TilesManager : MonoBehaviour
 	private float safeZone;
 	
 	// TODO: Try to use a Scriptable to store the tiles for perssistence between scenes
+	// [SerializeField] SavedTilesData savedTilesData;
 	private List<GameObject> _savedTiles;
 
+	//TODO: This should take the Scriptable variable from SessionData
 	public static Difficulties currentDificultChunk = Difficulties.EASY;
 
-	// Use this for initialization
 	void Start()
 	{
 		_savedTiles = new List<GameObject>();
@@ -33,7 +36,6 @@ public class TilesManager : MonoBehaviour
 		}
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
 		if (countToDelete < _initialDelay)
@@ -50,22 +52,16 @@ public class TilesManager : MonoBehaviour
 		}
 	}
 
-	/// <summary>
-	/// Spawn the first and the second Chunk;
-	/// </summary>
 	private void SpawnInitialTiles()
 	{
 		GameObject go;
 
-		go = Instantiate(_initialPrefabs);
+		go = Instantiate(initialTilePrefab);
 		go.transform.SetParent(transform);
 		go.transform.position = Vector3.forward * spawnZ;
 		spawnZ += tilesConfig.tileLength;
 	}
 
-	/// <summary>
-	/// Spawn a Chunk from the Pool System
-	/// </summary>
 	private void SpawnTiles()
 	{
 		GameObject go;
@@ -75,14 +71,18 @@ public class TilesManager : MonoBehaviour
 		go.transform.SetParent(transform);
 		go.transform.position = Vector3.forward * spawnZ;
 		spawnZ += tilesConfig.tileLength;
+		chunkEnableEvent.Raise(go.GetComponent<Chunk>());
 		_savedTiles.Add(go);
+		// savedTilesData.Add(go);
 	}
 
 	private void DeleteTiles()
 	{
 		PoolSystem.AddChunkToPool(_savedTiles[0]);
-		Debug.Log(_savedTiles[0]);
+		// PoolSystem.AddChunkToPool(savedTilesData.savedTiles[0]);
+		// Debug.Log(_savedTiles[0]);
 		_savedTiles.RemoveAt(0);
+		// savedTilesData.RemoveAt(0);
 	}
 
 	public void SetPlayerTransform(PlayerControl player)

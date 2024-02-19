@@ -18,3 +18,15 @@ MonoBehaviour:
   currentScore: 0
   currentDifficultLevel: 1
   playerPrefab: {fileID: 11400000, guid: 75c5f3ae97f6ac844aa991935feb3605, type: 2}
+  availablePowerUps:
+  - powerUpData:
+      mode: 0
+      unityReference: {fileID: 11400000, guid: 3452f78f71be7144582f677f3be0dd9d, type: 2}
+      rawReference:
+        rid: -2
+    prefab: {fileID: 6802130578966837704, guid: 892f3a0333e4d3849aef1532cbc5661d, type: 3}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

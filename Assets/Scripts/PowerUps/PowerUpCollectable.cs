@@ -1,14 +1,15 @@
+using TNRD;
 using UnityEngine;
 
 public class PowerUpCollectable : MonoBehaviour
 {
-    [SerializeField] IPowerUp powerUp;
+    [SerializeField] SerializableInterface<IPowerUp> powerUp;
 
     private PlayerControl player;
 
     public void Initialize(IPowerUp newPowerUp)
     {
-        powerUp = newPowerUp;
+        powerUp.Value = newPowerUp;
         gameObject.SetActive(true);
     }
 
@@ -17,7 +18,7 @@ public class PowerUpCollectable : MonoBehaviour
         if (player == null)
             player = other.GetComponentInParent<PlayerControl>();
 
-        powerUp.Apply(player);
+        powerUp.Value.Apply(player);
         gameObject.SetActive(false);
     }
 }

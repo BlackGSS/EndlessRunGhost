@@ -2532,7 +2532,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilesConfig: {fileID: 11400000, guid: 5f652be64c699134ab6ff2f7678a46d9, type: 2}
-  _initialPrefabs: {fileID: 1888706862124886, guid: c1cf8c3b62e33714b8763c74a1fd59e0, type: 3}
+  savedTilesData: {fileID: 11400000, guid: 7369cc37d8f7b5e41b2c4d235c99a64f, type: 2}
+  chunkEnableEvent: {fileID: 11400000, guid: cf8cf1df24f36314da581cf1ec9b5222, type: 2}
+  _initialPrefabs: {fileID: 334422106184271432, guid: a3ec321aef33d194596e16ff49265476, type: 3}
   _initialDelay: 6
   playerSafeZone: 17
   playerTransform: {fileID: 0}
@@ -2849,6 +2851,97 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1822399524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1822399528}
+  - component: {fileID: 1822399527}
+  - component: {fileID: 1822399526}
+  - component: {fileID: 1822399525}
+  m_Layer: 0
+  m_Name: PowerUps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1822399525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822399524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7068e7423448e14b9a9a70e8e84c187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptableEvent: {fileID: 11400000, guid: cf8cf1df24f36314da581cf1ec9b5222, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1822399527}
+        m_TargetAssemblyTypeName: PowerUpsManager, Assembly-CSharp
+        m_MethodName: CheckToSpawnPowerUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1822399526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822399524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577a004110b3284418f6a4463bd3bb90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPowerUpCollectable: []
+--- !u!114 &1822399527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822399524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45df7b241a3b3e4bab718abf69064e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sessionData: {fileID: 11400000, guid: e140872435fd5e94c8290179f80b06d7, type: 2}
+  powerUpsPool: {fileID: 1822399526}
+  amountChunks: 3
+  chunksLeftToSpawn: 0
+--- !u!4 &1822399528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822399524}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.3429804, y: 8.259471, z: 6.664133}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1893453671
 GameObject:
   m_ObjectHideFlags: 0
