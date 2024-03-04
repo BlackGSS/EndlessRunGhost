@@ -3,14 +3,14 @@ using Neisum.ScriptableEvents;
 
 public class PlayerFactory : MonoBehaviour
 {
-  [SerializeField]
-  private PlayerSpawn playerSpawned;
+  [SerializeField] PlayerSpawn playerSpawned;
+  [SerializeField] Transform playerSpawner;
 
   [SerializeField] SessionDataUpdater sessionDataUpdater;
 
   public void SpawnSessionPlayer()
   {
-    PlayerControl player = Instantiate(sessionDataUpdater.data.playerPrefab.prefab, transform.position, Quaternion.Euler(Vector3.zero));
+    PlayerControl player = Instantiate(sessionDataUpdater.data.playerPrefab.prefab, playerSpawner);
     playerSpawned.Raise(player);
   }
 }
