@@ -1,15 +1,33 @@
 ﻿using UnityEngine.UI;
 using TMPro;
 using Neisum.ScriptableUpdaters;
+using UnityEngine;
 
 public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData>
 {
 	public TextMeshProUGUI scoreText;
-	public Image backgroundImg;
+	public TextMeshProUGUI highScoreText;
+	public CanvasGroup newHighScoreImage;
 
-	public void ToggleEndMenu(float score)
+	protected override void Init()
+	{
+		base.Init();
+		ShowNewMessage(false);
+	}
+
+	private void UpdateScore(float score)
 	{
 		scoreText.text = ((int)score).ToString();
+	}
+
+	private void UpdateHighScore(float highScore)
+	{
+		highScoreText.text = ((int)highScore).ToString();
+	}
+
+	private void ShowNewMessage(bool isNewHighScore)
+	{
+		newHighScoreImage.alpha = isNewHighScore ? 1 : 0;
 	}
 
 	public void ScriptableResponse(SessionData data)
@@ -18,7 +36,18 @@ public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData
 		{
 			ShowAnimTo(1);
 			//TODO: Send also the diffultLevel to show in which level player died
-			ToggleEndMenu(data.currentScore);
-		} 
+			UpdateScore(data.currentScore);
+
+			float currentHighScore = PlayerPrefs.GetFloat("Highscore");
+			if (currentHighScore < data.currentScore)
+			{
+				PlayerPrefs.SetFloat("Highscore", data.currentScore);
+				currentHighScore = data.currentScore;
+			}
+
+			ShowNewMessage(currentHighScore <= data.currentScore);
+			UpdateHighScore(currentHighScore);
+
+		}
 	}
 }

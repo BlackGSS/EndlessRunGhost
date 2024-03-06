@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
-using Neisum.ScriptableUpdaters;
 using System.Linq;
 
-public class ScoreControl : MonoBehaviour, IScriptableUpdaterListener<SessionData>
+public class ScoreControl : MonoBehaviour
 {
 	[SerializeField] private ScoreUI scoreUI;
 	[SerializeField] private SessionDataUpdater sessionData;
@@ -48,17 +47,5 @@ public class ScoreControl : MonoBehaviour, IScriptableUpdaterListener<SessionDat
 		sessionData.data.difficulty = difficultyRange.difficulty;
 		sessionData.data.currentDifficultLevel = difficultLevel;
 		sessionData.Notify();
-	}
-
-	public void ScriptableResponse(SessionData data)
-	{
-		if (!data.playerAlive)
-			OnDeath();
-	}
-
-	public void OnDeath()
-	{
-		if (PlayerPrefs.GetFloat("Highscore") < currentScore)
-			PlayerPrefs.SetFloat("Highscore", currentScore);
 	}
 }
