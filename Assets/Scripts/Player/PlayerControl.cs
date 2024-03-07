@@ -4,8 +4,8 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerData>
 {
 	//TODO: Move anim behaviour to another script
-	[SerializeField]
-	private Animator anim;
+	public Transform shootPosition;
+	[SerializeField] private Animator anim;
 
 	[SerializeField] PlayerDataUpdater playerDataUpdater;
 	[SerializeField] SessionDataUpdater sessionData;
@@ -84,7 +84,7 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 		if (!isInvincible)
 		{
 			if (hit.collider.tag == "Enemy")
-					Death();
+				Death();
 		}
 	}
 

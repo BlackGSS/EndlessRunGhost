@@ -14,7 +14,8 @@ public class Bullet : MonoBehaviour
         //TODO: Interface IDamagable
         if (other.tag == "Enemy")
         {
-            //TODO: IDamagable.Apply();
+            other.TryGetComponent(out IDamagable damagable);
+            damagable.ApplyDamage(1);
         }
     }
 }
