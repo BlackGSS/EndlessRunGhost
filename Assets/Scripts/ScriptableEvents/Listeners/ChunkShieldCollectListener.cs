@@ -2,7 +2,7 @@ using Neisum.ScriptableEvents;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ChunkShieldCollectListener : ScriptableListener<bool, ShieldCollectEvent, UnityEvent<bool>>
+public class ChunkShieldCollectListener : ScriptableListener<bool, PowerUpCollectEvent, UnityEvent<bool>>
 {
     [SerializeField] GameObject obstacleParent;
     private Collider[] obstacleColliders;

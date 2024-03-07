@@ -7,7 +7,7 @@ using Neisum.ScriptableEvents;
 public class ShieldPowerUpData : ScriptableObject, IPowerUp
 {
     [SerializeField] PlayerDataUpdater playerData;
-    [SerializeField] ShieldCollectEvent powerUpCollectEvent;
+    [SerializeField] PowerUpCollectEvent powerUpCollectEvent;
 
     public float duration = 8f;
 

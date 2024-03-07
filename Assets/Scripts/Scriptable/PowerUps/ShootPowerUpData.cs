@@ -1,12 +1,11 @@
 using UnityEngine;
 using Neisum.ScriptableEvents;
 
-[CreateAssetMenu(fileName = "ShieldPowerUp", menuName = "Scriptables/PowerUps/Shield", order = 0)]
+[CreateAssetMenu(fileName = "ShootPowerUp", menuName = "Scriptables/PowerUps/Shoot", order = 0)]
 public class ShootPowerUpData : ScriptableObject, IPowerUp
-{
+{ 
     [SerializeField] PlayerDataUpdater playerData;
-    //TODO: PowerUpCollectEvent
-    [SerializeField] ShieldCollectEvent powerUpCollectEvent;
+    [SerializeField] PowerUpCollectEvent powerUpCollectEvent;
 
     public int ammoAmount = 2;
 

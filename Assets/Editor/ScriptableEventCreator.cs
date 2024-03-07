@@ -19,11 +19,11 @@ public class ScriptableEventCreator
 
         string scriptableEvent = @"using UnityEngine;
 
-        namespace Neisum.ScriptableEvents
-        {
-            [CreateAssetMenu(fileName = " + '\u0022' + className + @"Event" + '\u0022' + ", menuName = " + '\u0022' + "ScriptableEvents/" + className + '\u0022' + @", order = 0 )]
-            public class " + className + @"Event : BaseEvent<" + overloadTypeName + @"> { }
-        }";
+namespace Neisum.ScriptableEvents
+{
+    [CreateAssetMenu(fileName = " + '\u0022' + className + @"Event" + '\u0022' + ", menuName = " + '\u0022' + "ScriptableEvents/" + className + '\u0022' + @", order = 0 )]
+    public class " + className + @"Event : BaseEvent<" + overloadTypeName + @"> { }
+}";
 
         File.WriteAllText(Path.Combine(folderPath, className + "Event.cs"), scriptableEvent);
     }
