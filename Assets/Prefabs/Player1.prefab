@@ -655,8 +655,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7077761014983987420}
+  - component: {fileID: 6026195679271231550}
+  - component: {fileID: 4157915629505549897}
   m_Layer: 0
-  m_Name: ShootPoint
+  m_Name: Shoot
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -677,6 +679,49 @@ Transform:
   m_Father: {fileID: 4108905009347712}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6026195679271231550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303214774545964665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b7198421763a84490535bd874f162d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDataUpdater: {fileID: 11400000, guid: cc0eb2df18f8c4c4fa3bbf4f0bd0160e, type: 2}
+  onShootEvent: {fileID: 0}
+  fireRate: 1
+--- !u!114 &4157915629505549897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303214774545964665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3cdee251c724d04aaba1302148e0615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptableEvent: {fileID: 11400000, guid: 601cc2f7762cb1e49915ebaac62c72a3, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6026195679271231550}
+        m_TargetAssemblyTypeName: ShootControl, Assembly-CSharp
+        m_MethodName: TryToFire
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8003015350177114912
 GameObject:
   m_ObjectHideFlags: 0

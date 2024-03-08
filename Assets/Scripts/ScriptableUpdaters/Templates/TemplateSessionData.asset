@@ -18,13 +18,22 @@ MonoBehaviour:
   currentScore: 0
   currentDifficultLevel: 1
   playerPrefab: {fileID: 11400000, guid: 75c5f3ae97f6ac844aa991935feb3605, type: 2}
+  initialPowerUp: 4
+  minChunksToPowerUp: 8
+  maxChunksToPowerUp: 12
   availablePowerUps:
   - powerUpData:
       mode: 0
       unityReference: {fileID: 11400000, guid: 3452f78f71be7144582f677f3be0dd9d, type: 2}
       rawReference:
         rid: -2
-    prefab: {fileID: 6802130578966837704, guid: 892f3a0333e4d3849aef1532cbc5661d, type: 3}
+    prefab: {fileID: 4224530740071050375, guid: 5cc5790aaa5ffaf47b84abc8aaabc4b1, type: 3}
+  - powerUpData:
+      mode: 0
+      unityReference: {fileID: 11400000, guid: 269f4ecad75b08d468682db4bcfa7e14, type: 2}
+      rawReference:
+        rid: -2
+    prefab: {fileID: 7156919652633687502, guid: 55589739bb135834c9ee65f50593b896, type: 3}
   references:
     version: 2
     RefIds:

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -16,7 +14,7 @@ public class CanvasGroupView : MonoBehaviour
 
     protected virtual void Init()
     {
-        ShowTo(startOn ? 1 : 0);
+        FadeTo(startOn ? 1 : 0);
     }
 
     protected void EnableCanvasInteraction(bool on)
@@ -25,13 +23,13 @@ public class CanvasGroupView : MonoBehaviour
         canvasGroup.interactable = on;
     }
 
-    protected void ShowTo(int fadeValue)
+    public void FadeTo(int fadeValue)
     {
         EnableCanvasInteraction(fadeValue > 0 ? true : false);
         canvasGroup.alpha = fadeValue;
     }
 
-    protected void ShowAnimTo(int fadeValue)
+    public void FadeAnimTo(int fadeValue)
     {
         EnableCanvasInteraction(fadeValue > 0 ? true : false);
         canvasGroup.DOFade(fadeValue, fadeTime);
