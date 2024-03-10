@@ -5,6 +5,12 @@ using UnityEngine.Events;
 
 namespace Neisum.ScriptableEvents
 {
+    /// <summary>
+    /// Listener from an ScriptableEvent
+    /// </summary>
+    /// <typeparam name="T">Payload typeOf data</typeparam>
+    /// <typeparam name="TGameEvent">ScriptableEvent</typeparam>
+    /// <typeparam name="TUnityEvent">UnityEvent<Payload typeOf data></typeparam>
     public abstract class ScriptableListener<T, TGameEvent, TUnityEvent> : MonoBehaviour, IScriptableEventListener<T> where TGameEvent : BaseEvent<T> where TUnityEvent : UnityEvent<T>
     {
         [SerializeField] TGameEvent scriptableEvent;

@@ -1,21 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using MEC;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : ItemSpawnable<BulletConfig>
 {
-    [SerializeField] float speed = 8;
+    [SerializeField] LayerMask obstacleLayer;
+    [SerializeField] SessionDataUpdater sessionDataUpdater;
+    CoroutineHandle coroutineHandle;
+    RaycastHit hitInfo;
+    private void OnEnable()
+    {
+        coroutineHandle = Timing.RunCoroutine(CountBulletAliveTime().CancelWith(gameObject));
+    }
 
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        transform.Translate(data.speed * sessionDataUpdater.data.currentDifficultLevel * Time.deltaTime * Vector3.forward);
+        if (Physics.Raycast(transform.position, Vector3.forward, out hitInfo, 1f, obstacleLayer))
+        {
+            if (hitInfo.collider.TryGetComponent(out IDamagable damagable))
+            {
+                damagable.ApplyDamage(data.damage);
+                Disable();
+            }
+        }
     }
 
-    void OnTriggerEnter(Collider other)
+    IEnumerator<float> CountBulletAliveTime()
     {
-        //TODO: Interface IDamagable
-        if (other.tag == "Enemy")
-        {
-            other.TryGetComponent(out IDamagable damagable);
-            damagable.ApplyDamage(1);
-        }
+        yield return Timing.WaitForSeconds(data.aliveTime);
+        Disable();
     }
 }

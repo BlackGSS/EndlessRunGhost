@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using Neisum.ScriptableEvents;
 using UnityEngine;
 
-public class BulletsManager : IScriptableEventListener<OnShootEvent>
+public class BulletsManager : MonoBehaviour
 {
+    [SerializeField] BulletConfig bulletConfig;
     [SerializeField] BulletPool bulletPool;
+    [SerializeField] Bullet prefab;
 
-    public void OnEventRaised(OnShootEvent data)
+    public void SpawnBullet(Transform playerTransform)
     {
-        // Bullet bullet = bulletPool.
+        Bullet newBullet = bulletPool.SpawnElement(bulletConfig, prefab, transform);
+        newBullet.transform.position = playerTransform.position;
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7360939967858576201}
   - component: {fileID: 7360939967858576214}
   - component: {fileID: 7360939967858576215}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7360939967858576213}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7360939969306574741}
   - component: {fileID: 7360939969306574738}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,4 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26f8368e004b67a4f91b21cd1b60f235, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
+  data: {fileID: 11400000, guid: 8c18cf05c9ac79e4793ad340fa8df35c, type: 2}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  sessionDataUpdater: {fileID: 11400000, guid: e140872435fd5e94c8290179f80b06d7, type: 2}

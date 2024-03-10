@@ -12,7 +12,6 @@ public class SessionData : InstantiableScriptable
     public PlayerTypes playerPrefab;
 
     [Header("PowerUps Setup")]
-    public int initialPowerUp = 4;
     public int minChunksToPowerUp = 8;
     public int maxChunksToPowerUp = 12;
     public PowerUpDataPrefab[] availablePowerUps;
