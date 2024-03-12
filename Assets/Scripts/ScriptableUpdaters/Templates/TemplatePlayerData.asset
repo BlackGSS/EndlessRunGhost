@@ -16,5 +16,5 @@ MonoBehaviour:
   speed: 10
   gravity: 12
   jumpSpeed: 0
-  ammoAmount: 2
+  ammoAmount: 0
   isInvincible: 0

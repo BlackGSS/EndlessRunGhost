@@ -4,15 +4,15 @@ using TMPro;
 public class ScoreUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI highScoreText;
+    [SerializeField] TextMeshProUGUI levelText;
 
-    public void SetHighscore(string score)
+    public void SetCurrentScore(int score)
     {
-        highScoreText.text = score;
+        scoreText.text = score >= 10 ? score.ToString() : $"0{score}";
     }
 
-    public void SetCurrentScore(string score)
+    public void SetLevelText(string level)
     {
-        scoreText.text = score;
+        levelText.text = level;
     }
 }

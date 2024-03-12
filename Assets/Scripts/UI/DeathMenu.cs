@@ -38,10 +38,10 @@ public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData
 			//TODO: Send also the diffultLevel to show in which level player died
 			UpdateScore(data.currentScore);
 
-			float currentHighScore = PlayerPrefs.GetFloat("Highscore");
+			float currentHighScore = PlayerPrefs.GetInt("Highscore");
 			if (currentHighScore < data.currentScore)
 			{
-				PlayerPrefs.SetFloat("Highscore", data.currentScore);
+				PlayerPrefs.SetInt("Highscore", data.currentScore);
 				currentHighScore = data.currentScore;
 			}
 
