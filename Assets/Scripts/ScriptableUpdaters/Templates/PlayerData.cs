@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Neisum.ScriptableUpdaters;
 using UnityEngine;
 
@@ -10,4 +11,6 @@ public class PlayerData : InstantiableScriptable
     public float jumpSpeed = 0;
     public int ammoAmount = 0;
     public bool isInvincible = false;
+    public List<CosmeticData> cosmeticsBuyed;
+    public List<CosmeticData> cosmeticsSelected;
 }

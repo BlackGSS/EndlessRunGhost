@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using TNRD;
 using UnityEngine;
 
 public class GenericDataPool<T, U> : MonoBehaviour where T : ItemSpawnable<U>
