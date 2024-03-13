@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StoreManager : MonoBehaviour
 {
-    [SerializeField] StoreUIManager uiManager;
+    [SerializeField] StoreItemCardsPool uiManager;
     [SerializeField] CosmeticData[] cosmeticDatas;
     [SerializeField] PlayerDataUpdater playerDataUpdater;
 

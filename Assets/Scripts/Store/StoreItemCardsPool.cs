@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoreUIManager : GenericDataPool<ItemCard, CosmeticData>
+public class StoreItemCardsPool : GenericDataPool<ItemCard, CosmeticData>
 {
     [SerializeField] ItemCard prefab;
     [SerializeField] Transform contentTransform;
