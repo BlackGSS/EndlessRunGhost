@@ -11,7 +11,7 @@ public class BulletsManager : MonoBehaviour
 
     public void SpawnBullet(Transform playerTransform)
     {
-        Bullet newBullet = bulletPool.SpawnElement(bulletConfig, prefab, transform);
-        newBullet.transform.position = playerTransform.position;
+        Bullet newBullet = bulletPool.SpawnElement(bulletConfig, prefab, playerTransform);
+        // newBullet.transform.position = playerTransform.position;
     }
 }

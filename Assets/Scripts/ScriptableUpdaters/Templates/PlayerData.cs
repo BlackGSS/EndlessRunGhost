@@ -11,6 +11,7 @@ public class PlayerData : InstantiableScriptable
     public float jumpSpeed = 0;
     public int ammoAmount = 0;
     public bool isInvincible = false;
+    public int money = 0;
     public List<CosmeticData> cosmeticsBuyed;
     public List<CosmeticData> cosmeticsSelected;
 }

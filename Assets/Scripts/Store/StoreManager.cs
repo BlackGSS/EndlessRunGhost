@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -25,6 +23,24 @@ public class StoreManager : MonoBehaviour
             itemCard.SetPrice();
             itemCard.SetImage();
         }
+    }
+
+    public void SelectItem(ItemCard cosmetic)
+    {
+        playerDataUpdater.data.cosmeticsSelected.Clear();
+        playerDataUpdater.data.cosmeticsSelected.Add(cosmetic.data);
+        playerDataUpdater.Notify();
+
+        if (playerDataUpdater.data.money >= cosmetic.data.price)
+            BuyItem(cosmetic);
+    }
+
+    private void BuyItem(ItemCard cosmetic)
+    {
+        playerDataUpdater.data.money -= cosmetic.data.price;
+        playerDataUpdater.Notify();
+
+        // itemCard.
     }
 }
 

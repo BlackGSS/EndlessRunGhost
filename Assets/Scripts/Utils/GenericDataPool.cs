@@ -5,8 +5,7 @@ public class GenericDataPool<T, U> : MonoBehaviour where T : ItemSpawnable<U>
 {
     [SerializeField] List<T> currentElements;
 
-    //TODO: Pass parent, the parent will be a point in the current chunk
-    public T SpawnElement(U data, T prefab, Transform parentPosition)
+    public T SpawnElement(U data, T prefab)
     {
         if (currentElements.Count > 0)
         {
@@ -16,30 +15,23 @@ public class GenericDataPool<T, U> : MonoBehaviour where T : ItemSpawnable<U>
                 {
                     currentElements[i].Initialize(data);
                     currentElements[i].Enable();
-                    UpdatePosition(currentElements[i], parentPosition);
                     return currentElements[i];
                 }
             }
-            return AddElement(data, prefab, parentPosition);
+            return AddElement(data, prefab);
         }
         else
         {
-            return AddElement(data, prefab, parentPosition);
+            return AddElement(data, prefab);
         }
     }
 
-    public T AddElement(U data, T prefab, Transform parentPosition)
+    protected virtual T AddElement(U data, T prefab)
     {
         T newElement = Instantiate(prefab, transform);
-        UpdatePosition(newElement, parentPosition);
         newElement.Initialize(data);
         currentElements.Add(newElement);
         return newElement;
-    }
-
-    private void UpdatePosition(T element, Transform newPos)
-    {
-        element.transform.position = newPos.position;
     }
 
     public void DisableElement(T element)
