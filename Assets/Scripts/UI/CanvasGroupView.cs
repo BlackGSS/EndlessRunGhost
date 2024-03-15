@@ -34,4 +34,14 @@ public class CanvasGroupView : MonoBehaviour
         EnableCanvasInteraction(fadeValue > 0 ? true : false);
         canvasGroup.DOFade(fadeValue, fadeTime);
     }
+
+    protected void Show()
+    {
+        FadeAnimTo(1);
+    }
+
+    protected void Hide()
+    {
+        FadeAnimTo(0);
+    }
 }

@@ -6,13 +6,13 @@ public class StoreManager : MonoBehaviour
     [SerializeField] StoreItemCardsPool uiManager;
     [SerializeField] CosmeticData[] cosmeticDatas;
     [SerializeField] PlayerDataUpdater playerDataUpdater;
+    [SerializeField] Modal modalUI;
+
+    private ItemCard cosmeticItemSelected;
 
     private void Start()
     {
-        if (playerDataUpdater.data.cosmeticsBuyed.Count > 0)
-            SpawnElements(cosmeticDatas.Where(x => !cosmeticDatas.Contains(x)).ToArray());
-        else
-            SpawnElements(cosmeticDatas);
+        SpawnElements(cosmeticDatas);
     }
 
     private void SpawnElements(CosmeticData[] elements)
@@ -20,8 +20,9 @@ public class StoreManager : MonoBehaviour
         for (int i = 0; i < elements.Length; i++)
         {
             ItemCard itemCard = uiManager.SpawnElement(elements[i]);
-            itemCard.SetPrice();
-            itemCard.SetImage();
+
+            if (playerDataUpdater.data.cosmeticsBuyed.Count > 0)
+                itemCard.Buyed(playerDataUpdater.data.cosmeticsBuyed.Contains(elements[i]) ? true : false);
         }
     }
 
@@ -30,17 +31,20 @@ public class StoreManager : MonoBehaviour
         playerDataUpdater.data.cosmeticsSelected.Clear();
         playerDataUpdater.data.cosmeticsSelected.Add(cosmetic.data);
         playerDataUpdater.Notify();
-
-        if (playerDataUpdater.data.money >= cosmetic.data.price)
-            BuyItem(cosmetic);
+        cosmeticItemSelected = cosmetic;
     }
 
-    private void BuyItem(ItemCard cosmetic)
+    public void BuyItem()
     {
-        playerDataUpdater.data.money -= cosmetic.data.price;
-        playerDataUpdater.Notify();
+        modalUI.Show(() => Buy());
+    }
 
-        // itemCard.
+    private void Buy()
+    {
+        cosmeticItemSelected.Buyed(true);
+        playerDataUpdater.data.money -= cosmeticItemSelected.data.price;
+        playerDataUpdater.data.cosmeticsBuyed.Add(cosmeticItemSelected.data);
+        playerDataUpdater.Notify();
     }
 }
 

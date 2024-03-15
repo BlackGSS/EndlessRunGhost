@@ -5,9 +5,17 @@ using UnityEngine.UI;
 
 public class ItemCard : ItemSpawnable<CosmeticData>
 {
+    [SerializeField] GameObject coinImage;
     [SerializeField] TextMeshProUGUI coinText;
     [SerializeField] Image image;
-    [SerializeField] BuyItemCardEvent buyItemCardEvent;
+    [SerializeField] GameObject itemBuyedImage;
+    [SerializeField] SelectItemCardEvent selectItemCard;
+
+    private void Start()
+    {
+        SetImage();
+        SetPrice();
+    }
 
     public void SetImage()
     {
@@ -20,8 +28,15 @@ public class ItemCard : ItemSpawnable<CosmeticData>
         coinText.text = data.price.ToString();
     }
 
-    public void CardOnClick()
+    public void SelectItem()
     {
-        buyItemCardEvent.Raise(this);
+        selectItemCard.Raise(this);
+    }
+
+    public void Buyed(bool active)
+    {
+        coinText.gameObject.SetActive(!active);
+        coinImage.gameObject.SetActive(!active);
+        itemBuyedImage.gameObject.SetActive(active);
     }
 }

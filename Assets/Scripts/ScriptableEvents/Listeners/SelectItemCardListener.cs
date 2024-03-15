@@ -4,5 +4,5 @@ using Neisum.ScriptableEvents;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BuyItemCardListener : ScriptableListener<ItemCard, BuyItemCardEvent, UnityEvent<ItemCard>>
+public class SelectItemCardListener : ScriptableListener<ItemCard, SelectItemCardEvent, UnityEvent<ItemCard>>
 { }
