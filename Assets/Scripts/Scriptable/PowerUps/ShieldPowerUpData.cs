@@ -9,11 +9,16 @@ public class ShieldPowerUpData : ScriptableObject, IPowerUp
     [SerializeField] PlayerDataUpdater playerData;
     [SerializeField] PowerUpCollectEvent powerUpCollectEvent;
 
+    CoroutineHandle coroutineHandle;
+
     public float duration = 8f;
 
     public void Apply(PlayerControl player)
     {
-        Timing.RunCoroutine(Affect(player));
+        if (coroutineHandle != null)
+            Timing.KillCoroutines(coroutineHandle);
+
+        coroutineHandle = Timing.RunCoroutine(Affect(player));
     }
 
     IEnumerator<float> Affect(PlayerControl player)

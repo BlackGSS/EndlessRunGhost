@@ -8,6 +8,7 @@ public class ScriptableInitializer<T, U> : MonoBehaviour where T : ScriptableUpd
     void Awake()
     {
         value.Initialize();
+        value.Notify();
     }
 
     void OnDestroy()

@@ -12,7 +12,6 @@ public class ScoreControl : MonoBehaviour
 
 	private void Start()
 	{
-		scoreUI.SetHighscore(((int)PlayerPrefs.GetFloat("Highscore")).ToString());
 		difficultLevel = sessionData.data.currentDifficultLevel;
 		scoreToNextLevel = difficultySettings.scoreToFirstLevel;
 	}
@@ -26,7 +25,7 @@ public class ScoreControl : MonoBehaviour
 			LevelUp();
 
 		currentScore += Time.deltaTime * difficultLevel;
-		scoreUI.SetCurrentScore(((int)currentScore).ToString());
+		scoreUI.SetCurrentScore((int)currentScore);
 		sessionData.data.currentScore = (int)currentScore;
 	}
 
@@ -39,6 +38,7 @@ public class ScoreControl : MonoBehaviour
 		difficultLevel++;
 
 		ChangeDifficulty(difficultLevel);
+		scoreUI.SetLevelText(difficultLevel.ToString());
 	}
 
 	private void ChangeDifficulty(int newDifficult)
