@@ -38,6 +38,14 @@ public class StoreManager : MonoBehaviour
         cosmeticItemSelected = cosmetic;
     }
 
+    public void DeselectItem()
+    {
+        playerDataUpdater.data.cosmeticsSelected.Clear();
+        playerDataUpdater.Notify();
+        cosmeticItemSelected.SetToggleOff();
+        cosmeticItemSelected = null;
+    }
+
     public void BuyItem()
     {
         modalUI.Show(() => Buy());
@@ -50,6 +58,7 @@ public class StoreManager : MonoBehaviour
         playerDataUpdater.data.cosmeticsBuyed.Add(cosmeticItemSelected.data);
         playerDataUpdater.Notify();
     }
+
 }
 
 public class Cosmetic3DData

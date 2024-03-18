@@ -17,5 +17,9 @@ public class Weareable : MonoBehaviour, IScriptableUpdaterListener<PlayerData>
         {
             mesh.enabled = data.cosmeticsSelected.Contains(cosmeticData) ? true : false;
         }
+        else
+        {
+            mesh.enabled = false;
+        }
     }
 }

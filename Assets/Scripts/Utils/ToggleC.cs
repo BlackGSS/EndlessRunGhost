@@ -48,9 +48,9 @@ public class ToggleC : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler,
         if (toggleType == ToggleTypeC.Color)
             if (TargetGraphic != null)
                 TargetGraphic.color = Color.clear;
-        if (toggleType == ToggleTypeC.Sprite)
-            if (currGraphic == null)
-                currGraphic = this.GetComponent<Image>();
+        // if (toggleType == ToggleTypeC.Sprite)
+        //     if (currGraphic == null)
+        //         currGraphic = this.GetComponent<Image>();
 
         if (isDisabled)
         {

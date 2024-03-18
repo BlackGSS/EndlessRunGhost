@@ -998,8 +998,8 @@ MonoBehaviour:
   sprSelected: {fileID: 0}
   sprDown: {fileID: 0}
   sprDisabled: {fileID: 0}
-  colorNormal: {r: 1, g: 0.67358494, b: 0.67358494, a: 1}
-  colorHighlighted: {r: 1, g: 0.6745098, b: 0.6745098, a: 1}
+  colorNormal: {r: 0.9716981, g: 0.5903524, b: 0.6634873, a: 1}
+  colorHighlighted: {r: 0.9716981, g: 0.5903524, b: 0.6634873, a: 1}
   colorSelected: {r: 1, g: 0.50377357, b: 0.5964024, a: 1}
   colorDown: {r: 0.8018868, g: 0.38883945, b: 0.38883945, a: 1}
   colorDisabled: {r: 1, g: 0.6745098, b: 0.6745098, a: 0.5254902}

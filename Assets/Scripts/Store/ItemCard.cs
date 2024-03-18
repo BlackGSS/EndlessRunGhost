@@ -41,6 +41,12 @@ public class ItemCard : ItemSpawnable<CosmeticData>
             toggle.isOn = true;
     }
 
+    public void SetToggleOff()
+    {
+        if (toggle.isOn)
+            toggle.SetIsOn(false);
+    }
+
     public void Buyed(bool active)
     {
         coinText.gameObject.SetActive(!active);
