@@ -123,6 +123,29 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &277477007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1641774918067474, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
+  m_PrefabInstance: {fileID: 1125451963}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &277477008 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9138456185317179486, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
+  m_PrefabInstance: {fileID: 1125451963}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &277477011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277477007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60826ea7b66aa594b838b614f4f4877c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 277477008}
 --- !u!1 &325791688
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,11 +230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c763ef08bf434b4ea87118f7cddb062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &628339422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8363304702119804698, guid: 1743be7bd00c2794e840776520d99476, type: 3}
-  m_PrefabInstance: {fileID: 2112444786250789435}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &694988964
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,6 +466,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9138456185317179486, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e45351d7378c6e040bf10d750f907707, type: 2}
     m_RemovedComponents:
     - {fileID: 2649606941877326430, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
     - {fileID: 114643018719894430, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
@@ -533,13 +555,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 628339422}
-        m_TargetAssemblyTypeName: StoreManager, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 277477011}
+        m_TargetAssemblyTypeName: PlayerAnimStore, Assembly-CSharp
+        m_MethodName: PlayLevelUpAnim
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -793,6 +815,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2106625651}
+    - target: {fileID: 1615097745812117198, guid: c2a21ba7149f25f48993a25339a8c966, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2a21ba7149f25f48993a25339a8c966, type: 3}
 --- !u!114 &1615097745188546410 stripped
@@ -907,6 +933,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8135081385495213934, guid: 1743be7bd00c2794e840776520d99476, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135081385708586735, guid: 1743be7bd00c2794e840776520d99476, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8363304702119804676, guid: 1743be7bd00c2794e840776520d99476, type: 3}

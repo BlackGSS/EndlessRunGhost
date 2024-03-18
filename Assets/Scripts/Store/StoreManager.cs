@@ -23,6 +23,9 @@ public class StoreManager : MonoBehaviour
 
             if (playerDataUpdater.data.cosmeticsBuyed.Count > 0)
                 itemCard.Buyed(playerDataUpdater.data.cosmeticsBuyed.Contains(elements[i]) ? true : false);
+
+            if (playerDataUpdater.data.cosmeticsSelected.Count > 0 && playerDataUpdater.data.cosmeticsSelected.Contains(elements[i]))
+                SelectItem(itemCard);
         }
     }
 
@@ -31,6 +34,7 @@ public class StoreManager : MonoBehaviour
         playerDataUpdater.data.cosmeticsSelected.Clear();
         playerDataUpdater.data.cosmeticsSelected.Add(cosmetic.data);
         playerDataUpdater.Notify();
+        cosmetic.SetToggleOn();
         cosmeticItemSelected = cosmetic;
     }
 

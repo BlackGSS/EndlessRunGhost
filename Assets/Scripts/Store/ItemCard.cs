@@ -10,6 +10,7 @@ public class ItemCard : ItemSpawnable<CosmeticData>
     [SerializeField] Image image;
     [SerializeField] GameObject itemBuyedImage;
     [SerializeField] SelectItemCardEvent selectItemCard;
+    [SerializeField] ToggleC toggle;
 
     private void Start()
     {
@@ -30,7 +31,14 @@ public class ItemCard : ItemSpawnable<CosmeticData>
 
     public void SelectItem()
     {
-        selectItemCard.Raise(this);
+        if (!toggle.isOn)
+            selectItemCard.Raise(this);
+    }
+
+    public void SetToggleOn()
+    {
+        if (!toggle.isOn)
+            toggle.isOn = true;
     }
 
     public void Buyed(bool active)
