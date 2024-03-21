@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinCollectable : ItemSpawnable<CoinData>
@@ -9,5 +7,6 @@ public class CoinCollectable : ItemSpawnable<CoinData>
     void OnTriggerEnter()
     {
         sessionDataUpdater.data.currentMoneyCollected += data.coinAmount;
+        gameObject.SetActive(false);
     }
 }
