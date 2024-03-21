@@ -47,7 +47,10 @@ public class StoreManager : MonoBehaviour
 
     public void BuyItem()
     {
-        modalUI.Show(() => Buy());
+        if (playerDataUpdater.data.money >= cosmeticItemSelected.data.price)
+            modalUI.Show("Confirmamos?", "Confirmamos", () => Buy());
+        else
+            modalUI.Show("Ops no tienes dinero :(", "Continuar");
     }
 
     private void Buy()

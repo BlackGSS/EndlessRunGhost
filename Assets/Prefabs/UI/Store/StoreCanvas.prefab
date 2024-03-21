@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2112444786704060691}
   - component: {fileID: 2112444786704060700}
   - component: {fileID: 2112444786704060688}
+  - component: {fileID: 1451294894}
   m_Layer: 5
   m_Name: StoreCanvas
   m_TagString: Untagged
@@ -122,6 +123,19 @@ MonoBehaviour:
   currentElements: []
   prefab: {fileID: 3947609858292328171, guid: 5b152328c567fa549b6735535a041cdf, type: 3}
   parentTransform: {fileID: 8135081385495213934}
+--- !u!114 &1451294894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112444786704060701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59799d8a8f9d76b4fb900d5655e894dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 6499034875467238957}
 --- !u!1 &6499034875067660326
 GameObject:
   m_ObjectHideFlags: 0
