@@ -97,13 +97,13 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 
 	public void ScriptableResponse(PlayerData data)
 	{
+		if (isInvincible != data.isInvincible)
+			isInvincible = data.isInvincible;
+
 		if (speed != data.speed)
 		{
 			speed = data.speed;
 			NewLevel();
 		}
-
-		if (isInvincible != data.isInvincible)
-			isInvincible = data.isInvincible;
 	}
 }

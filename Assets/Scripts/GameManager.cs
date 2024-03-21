@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
 	public void ReturnMenu()
 	{
-		SceneManager.LoadScene("Menu");
+		SceneManager.LoadScene("MainMenu");
 	}
 	
 	public void Restart()

@@ -9,6 +9,7 @@ public class SessionData : InstantiableScriptable
     public Difficulties difficulty = Difficulties.EASY;
     public int currentScore;
     public int currentDifficultLevel;
+    public int currentMoneyCollected;
     public PlayerTypes playerPrefab;
 
     [Header("PowerUps Setup")]

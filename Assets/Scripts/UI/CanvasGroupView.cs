@@ -23,13 +23,13 @@ public class CanvasGroupView : MonoBehaviour
         canvasGroup.interactable = on;
     }
 
-    public void FadeTo(int fadeValue)
+    public void FadeTo(float fadeValue)
     {
         EnableCanvasInteraction(fadeValue > 0 ? true : false);
         canvasGroup.alpha = fadeValue;
     }
 
-    public void FadeAnimTo(int fadeValue)
+    public void FadeAnimTo(float fadeValue)
     {
         EnableCanvasInteraction(fadeValue > 0 ? true : false);
         canvasGroup.DOFade(fadeValue, fadeTime);
