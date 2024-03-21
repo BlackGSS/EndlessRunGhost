@@ -1,9 +1,8 @@
-using System.Linq;
 using UnityEngine;
 
 public class StoreManager : MonoBehaviour
 {
-    [SerializeField] StoreItemCardsPool uiManager;
+    [SerializeField] StoreItemCardsPool itemsPool;
     [SerializeField] CosmeticData[] cosmeticDatas;
     [SerializeField] PlayerDataUpdater playerDataUpdater;
     [SerializeField] Modal modalUI;
@@ -19,7 +18,7 @@ public class StoreManager : MonoBehaviour
     {
         for (int i = 0; i < elements.Length; i++)
         {
-            ItemCard itemCard = uiManager.SpawnElement(elements[i]);
+            ItemCard itemCard = itemsPool.SpawnElement(elements[i]);
 
             if (playerDataUpdater.data.cosmeticsBuyed.Count > 0)
                 itemCard.Buyed(playerDataUpdater.data.cosmeticsBuyed.Contains(elements[i]) ? true : false);
@@ -53,10 +52,13 @@ public class StoreManager : MonoBehaviour
 
     private void Buy()
     {
-        cosmeticItemSelected.Buyed(true);
-        playerDataUpdater.data.money -= cosmeticItemSelected.data.price;
-        playerDataUpdater.data.cosmeticsBuyed.Add(cosmeticItemSelected.data);
-        playerDataUpdater.Notify();
+        if (playerDataUpdater.data.money >= cosmeticItemSelected.data.price)
+        {
+            cosmeticItemSelected.Buyed(true);
+            playerDataUpdater.data.money -= cosmeticItemSelected.data.price;
+            playerDataUpdater.data.cosmeticsBuyed.Add(cosmeticItemSelected.data);
+            playerDataUpdater.Notify();
+        }
     }
 
 }

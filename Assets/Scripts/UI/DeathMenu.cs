@@ -6,6 +6,7 @@ using MEC;
 using System.Collections.Generic;
 using DG.Tweening;
 
+//TODO: Divide in DeathController and DeathView
 public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData>
 {
 	[SerializeField] PlayerDataUpdater playerDataUpdater;
@@ -59,22 +60,23 @@ public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData
 			coinsCollectedText.text = $"+{data.currentMoneyCollected}";
 			if (data.currentMoneyCollected > 0)
 				Timing.RunCoroutine(AnimateCoinText(data.currentMoneyCollected, playerDataUpdater.data.money));
-			
+
 			playerDataUpdater.data.money += data.currentMoneyCollected;
 		}
 	}
 
 	IEnumerator<float> AnimateCoinText(int currentMoneyCollected, int playerMoney)
 	{
-		yield return Timing.WaitForSeconds(1f);
+		int initialSpeedCount = 10;
+		yield return Timing.WaitForSeconds(0.5f);
 		while (currentMoneyCollected != 0)
 		{
-			totalCoinsText.text = (++playerMoney).ToString();
-			totalCoinsText.transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0.5f), 0.13f, 3, 0.3f);
+			initialSpeedCount--;
 			currentMoneyCollected--;
-			yield return Timing.WaitForSeconds(0.15f);
+			totalCoinsText.text = (++playerMoney).ToString();
+			totalCoinsText.transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0.5f), initialSpeedCount > 0 ? 0.13f : 0.08f, 3, 0.3f);
+			yield return Timing.WaitForSeconds(initialSpeedCount > 0 ? 0.15f : 0.1f);
 		}
-		Debug.Log("Done");
 		yield return 0;
 	}
 }
