@@ -64,7 +64,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2020547628817613697}
+    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2020547628817613697}
     - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
@@ -72,7 +80,15 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateCollision
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: ActivateCollision
       objectReference: {fileID: 0}
     - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
@@ -80,7 +96,15 @@ PrefabInstance:
       value: ChunkShieldCollectListener, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ChunkShieldCollectListener, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []

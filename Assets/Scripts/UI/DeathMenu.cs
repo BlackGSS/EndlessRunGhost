@@ -61,6 +61,7 @@ public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData
 			if (data.currentMoneyCollected > 0)
 				Timing.RunCoroutine(AnimateCoinText(data.currentMoneyCollected, playerDataUpdater.data.money));
 
+			//TODO: BUG, this add money to the temp data, not the template
 			playerDataUpdater.data.money += data.currentMoneyCollected;
 		}
 	}
