@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f716872e8ed369d4db4726144665ae58, type: 3}
   m_Name: Plantita
   m_EditorClassIdentifier: 
+  id: 2
   image: {fileID: 21300000, guid: 0dc2076fb32974efa9d9de83cbbc92fc, type: 3}
   price: 1000

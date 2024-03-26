@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField]
 	private GameObject _pauseMenu;
-	
+
 	[SerializeField]
 	private PlayerFactory playerFactory;
 
-    [SerializeField] SessionDataUpdater sessionDataUpdater;
+	[SerializeField] SessionDataUpdater sessionDataUpdater;
 
 	// Use this for initialization
 	void Awake()
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
 	{
 		SceneManager.LoadScene("MainMenu");
 	}
-	
+
 	public void Restart()
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);

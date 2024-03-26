@@ -1651,6 +1651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: {fileID: 11400000, guid: cc0eb2df18f8c4c4fa3bbf4f0bd0160e, type: 2}
+  availableCosmetics: {fileID: 11400000, guid: 95ccd9efc5291ea489d2e1d9ab760d4e, type: 2}
 --- !u!1001 &209342108590265654
 PrefabInstance:
   m_ObjectHideFlags: 0

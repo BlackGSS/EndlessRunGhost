@@ -17,10 +17,10 @@ public class CameraControl : MonoBehaviour
 	private Vector3 _offsetAnim = new Vector3(0, 5, 5);
 
 	// Use this for initialization
-	void Start()
-	{
-		_offset = transform.position - target.position;
-	}
+	// void Start()
+	// {
+	// 	_offset = transform.position - target.position;
+	// }
 
 	// Update is called once per frame
 	void Update()
@@ -49,5 +49,6 @@ public class CameraControl : MonoBehaviour
 	public void SetPlayerTransform(PlayerControl player)
 	{
 		target = player.transform;
+		_offset = transform.position - target.position;
 	}
 }

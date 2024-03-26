@@ -9,17 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 974d27bb31b0dd9469af8cf6ef1bcd02, type: 3}
-  m_Name: TemplatePlayerData
+  m_Script: {fileID: 11500000, guid: e7c03e21b51393041bc73c27ce33c3b9, type: 3}
+  m_Name: AvailableCosmetics
   m_EditorClassIdentifier: 
-  baseSpeed: 10
-  speed: 10
-  gravity: 12
-  jumpSpeed: 0
-  ammoAmount: 0
-  isInvincible: 0
-  money: 1500
-  cosmeticsBuyed:
+  cosmetics:
   - {fileID: 11400000, guid: ccf31f9030c73a246ac3e0f9b9b2e44b, type: 2}
-  cosmeticsSelected:
-  - {fileID: 11400000, guid: ccf31f9030c73a246ac3e0f9b9b2e44b, type: 2}
+  - {fileID: 11400000, guid: 9365d4e0190dbea4092f5f7c0fbdcb3f, type: 2}
+  - {fileID: 11400000, guid: b10da9f52eba31f44b11e87759e65221, type: 2}
