@@ -5,6 +5,7 @@ public class StoreManager : MonoBehaviour
     [SerializeField] StoreItemCardsPool itemsPool;
     [SerializeField] CosmeticData[] cosmeticDatas;
     [SerializeField] PlayerDataUpdater playerDataUpdater;
+    [SerializeField] PlayerLoadSaveSystem playerLoadSaveSystem;
     [SerializeField] Modal modalUI;
 
     private ItemCard cosmeticItemSelected;
@@ -61,6 +62,7 @@ public class StoreManager : MonoBehaviour
             playerDataUpdater.data.money -= cosmeticItemSelected.data.price;
             playerDataUpdater.data.cosmeticsBuyed.Add(cosmeticItemSelected.data);
             playerDataUpdater.Notify();
+            playerLoadSaveSystem.SavePlayerData();
         }
     }
 
