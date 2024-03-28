@@ -977,6 +977,7 @@ MonoBehaviour:
   coinText: {fileID: 4931682471046240378}
   image: {fileID: 4931682472106327807}
   itemBuyedImage: {fileID: 3948171858285779451}
+  selectClip: {fileID: 8300000, guid: 07f2af9ea9fc7334bbdf7ee81d930eea, type: 3}
   selectItemCard: {fileID: 11400000, guid: eca769483a2d23e4ba34ad6e5961ff29, type: 2}
   toggle: {fileID: 1271156396338495560}
 --- !u!114 &1271156396338495560
