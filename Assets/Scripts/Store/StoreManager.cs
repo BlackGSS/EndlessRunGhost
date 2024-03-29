@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StoreManager : MonoBehaviour
 {
@@ -62,8 +63,17 @@ public class StoreManager : MonoBehaviour
             playerDataUpdater.data.money -= cosmeticItemSelected.data.price;
             playerDataUpdater.data.cosmeticsBuyed.Add(cosmeticItemSelected.data);
             playerDataUpdater.Notify();
-            playerLoadSaveSystem.SavePlayerData();
+            playerLoadSaveSystem.SaveAllPlayerData();
         }
+    }
+
+    public void BackToMenu()
+    {
+        if (!playerDataUpdater.data.cosmeticsBuyed.Contains(cosmeticItemSelected.data))
+            playerDataUpdater.data.cosmeticsSelected.Clear();
+
+        playerLoadSaveSystem.SaveAllPlayerData();
+        SceneManager.LoadScene("MainMenu");
     }
 
 }

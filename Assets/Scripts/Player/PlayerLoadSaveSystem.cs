@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -5,6 +6,8 @@ public class PlayerLoadSaveSystem : MonoBehaviour
 {
     [SerializeField] PlayerDataUpdater value;
     [SerializeField] AvailableCosmetics availableCosmetics;
+
+    private List<int> emptyList = new List<int>();
 
     void Awake()
     {
@@ -27,15 +30,15 @@ public class PlayerLoadSaveSystem : MonoBehaviour
         value.Notify();
     }
 
-    public void SavePlayerData()
+    public void SaveAllPlayerData()
     {
-        PlayerDataSerializable playerDataSerializable = new PlayerDataSerializable(value.data.money, value.data.cosmeticsBuyed.Select(x => x.id).ToList(), value.data.cosmeticsSelected.Select(x => x.id).ToList());
+        PlayerDataSerializable playerDataSerializable = new PlayerDataSerializable(value.data.money, value.data.cosmeticsBuyed.Count > 0 ? value.data.cosmeticsBuyed.Select(x => x.id).ToList() : emptyList, value.data.cosmeticsSelected.Count > 0 ? value.data.cosmeticsSelected.Select(x => x.id).ToList() : emptyList);
         SaveSystem<PlayerDataSerializable>.SavePlayerData(playerDataSerializable, "/playerData.ghost");
     }
 
     void OnDestroy()
     {
-        SavePlayerData();
+        SaveAllPlayerData();
         value.ResetVariables();
     }
 }
