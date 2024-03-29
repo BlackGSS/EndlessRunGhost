@@ -1,17 +1,19 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StoreManager : MonoBehaviour
 {
     [SerializeField] StoreItemCardsPool itemsPool;
-    [SerializeField] CosmeticData[] cosmeticDatas;
+    [SerializeField] AvailableCosmetics availableCosmetics;
     [SerializeField] PlayerDataUpdater playerDataUpdater;
+    [SerializeField] PlayerLoadSaveSystem playerLoadSaveSystem;
     [SerializeField] Modal modalUI;
 
     private ItemCard cosmeticItemSelected;
 
     private void Start()
     {
-        SpawnElements(cosmeticDatas);
+        SpawnElements(availableCosmetics.cosmetics);
     }
 
     private void SpawnElements(CosmeticData[] elements)
@@ -61,7 +63,17 @@ public class StoreManager : MonoBehaviour
             playerDataUpdater.data.money -= cosmeticItemSelected.data.price;
             playerDataUpdater.data.cosmeticsBuyed.Add(cosmeticItemSelected.data);
             playerDataUpdater.Notify();
+            playerLoadSaveSystem.SaveAllPlayerData();
         }
+    }
+
+    public void BackToMenu()
+    {
+        if (!playerDataUpdater.data.cosmeticsBuyed.Contains(cosmeticItemSelected.data))
+            playerDataUpdater.data.cosmeticsSelected.Clear();
+
+        playerLoadSaveSystem.SaveAllPlayerData();
+        SceneManager.LoadScene("MainMenu");
     }
 
 }

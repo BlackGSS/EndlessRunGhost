@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 9084257345363575037}
   - component: {fileID: 9084257345363575036}
   - component: {fileID: 9084257345363575026}
+  - component: {fileID: 4695563362799294097}
   m_Layer: 0
   m_Name: BaseCoin
   m_TagString: Untagged
@@ -194,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 1524b12e8d0aeb241959bb2ea47116ca, type: 2}
+  clip: {fileID: 8300000, guid: de586cdf18e9c694fa822c0113464bdc, type: 3}
   sessionDataUpdater: {fileID: 11400000, guid: e140872435fd5e94c8290179f80b06d7, type: 2}
 --- !u!65 &9084257345363575026
 BoxCollider:
@@ -208,3 +210,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8964261, y: 0.16382398, z: 0.98200655}
   m_Center: {x: -0.033443637, y: -0.0065606553, z: 0.6226509}
+--- !u!95 &4695563362799294097
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9084257345363575039}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 49ed3b6ae5a3c434e96de39e16a3f1f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

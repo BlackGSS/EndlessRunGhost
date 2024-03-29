@@ -9,6 +9,7 @@ public class ItemCard : ItemSpawnable<CosmeticData>
     [SerializeField] TextMeshProUGUI coinText;
     [SerializeField] Image image;
     [SerializeField] GameObject itemBuyedImage;
+    [SerializeField] AudioClip selectClip;
     [SerializeField] SelectItemCardEvent selectItemCard;
     [SerializeField] ToggleC toggle;
 
@@ -32,7 +33,10 @@ public class ItemCard : ItemSpawnable<CosmeticData>
     public void SelectItem()
     {
         if (!toggle.isOn)
+        {
+            SoundSystem.PlaySound(selectClip);
             selectItemCard.Raise(this);
+        }
     }
 
     public void SetToggleOn()

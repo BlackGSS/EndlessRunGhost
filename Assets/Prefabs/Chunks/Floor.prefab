@@ -131,7 +131,20 @@ MonoBehaviour:
   scriptableEvent: {fileID: 11400000, guid: 349643108daf5594286d993b4672533c, type: 2}
   response:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776885257078983327}
+        m_TargetAssemblyTypeName: ChunkShieldCollectListener, Assembly-CSharp
+        m_MethodName: ActivateCollision
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  playerDataUpdater: {fileID: 11400000, guid: cc0eb2df18f8c4c4fa3bbf4f0bd0160e, type: 2}
   obstacleParent: {fileID: 2891268936232776836}
 --- !u!1 &2891268936232776836
 GameObject:

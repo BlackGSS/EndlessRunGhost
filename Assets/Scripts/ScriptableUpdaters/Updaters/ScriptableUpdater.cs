@@ -10,6 +10,7 @@ namespace Neisum.ScriptableUpdaters
     public abstract class ScriptableUpdater<T> : ScriptableObject where T : InstantiableScriptable
     {
         [SerializeField] private T templateData;
+        public T template { get {return templateData; } set { templateData = value; } }
         public T data;
 
         [SerializeField] List<SerializableInterface<IScriptableUpdaterListener<T>>> listeners = new List<SerializableInterface<IScriptableUpdaterListener<T>>>();

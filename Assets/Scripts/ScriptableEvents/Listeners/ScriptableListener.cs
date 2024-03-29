@@ -16,12 +16,12 @@ namespace Neisum.ScriptableEvents
         [SerializeField] TGameEvent scriptableEvent;
         [SerializeField] TUnityEvent response;
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             scriptableEvent.RegisterListener(this);
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             scriptableEvent.UnRegisterListener(this);
         }

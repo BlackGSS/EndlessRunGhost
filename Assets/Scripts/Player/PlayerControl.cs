@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerData>
 {
 	//TODO: Move anim behaviour to another script
-	public Transform shootPosition;
 	[SerializeField] private Animator anim;
 
 	[SerializeField] PlayerDataUpdater playerDataUpdater;
@@ -20,6 +19,8 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 
 	private float animationDuration = 1.8f;
 	private float startTime;
+
+	public bool IsInvincible { set { isInvincible = value; playerDataUpdater.data.isInvincible = value; } }
 
 	void Start()
 	{
@@ -97,9 +98,6 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 
 	public void ScriptableResponse(PlayerData data)
 	{
-		if (isInvincible != data.isInvincible)
-			isInvincible = data.isInvincible;
-
 		if (speed != data.speed)
 		{
 			speed = data.speed;

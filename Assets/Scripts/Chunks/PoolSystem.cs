@@ -26,7 +26,7 @@ public class PoolSystem
 		//Comprobar si la lista del tipo solicitado existe y tiene algún elemento
 		if (chunkPools.ContainsKey(type) && chunkPools[type].Count > 0)
 		{
-			Debug.Log(chunkPools.ContainsKey(type) + "activar chunk");
+			// Debug.Log(chunkPools.ContainsKey(type) + "activar chunk");
 			//Si es así, devolvemos el primer elemento de esa lista y lo sacamos de la lista.
 			chunk = chunkPools[type][0];
 			chunkPools[type].RemoveAt(0);

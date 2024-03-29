@@ -3,15 +3,19 @@ using UnityEngine;
 
 public class ScriptableInitializer<T, U> : MonoBehaviour where T : ScriptableUpdater<U> where U: InstantiableScriptable
 {
-    [SerializeField] T value;
+    [SerializeField] protected T value;
 
-    void Awake()
+    protected virtual void Awake()
     {
         value.Initialize();
+    }
+
+    void Start()
+    {
         value.Notify();
     }
 
-    void OnDestroy()
+    protected virtual void OnDestroy()
     {
         value.ResetVariables();
     }

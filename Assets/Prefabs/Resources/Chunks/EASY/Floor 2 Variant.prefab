@@ -251,34 +251,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2981598320582103086}
-    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ActivateCollision
-      objectReference: {fileID: 0}
-    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ChunkShieldCollectListener, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 5739379101762546629, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -289,17 +261,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
---- !u!114 &2981598320582103086 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1776885257078983327, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
-  m_PrefabInstance: {fileID: 3587117489812724401}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85aa780dbe4cb3d4f8c9673307a23039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &6837776194984280255 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8010964078246353422, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
