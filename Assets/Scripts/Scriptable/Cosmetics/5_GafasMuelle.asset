@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f716872e8ed369d4db4726144665ae58, type: 3}
-  m_Name: GafasGoogly
+  m_Name: 5_GafasMuelle
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 6a756480636394f869e8577ef38af2ed, type: 3}
+  id: 5
+  image: {fileID: 21300000, guid: fa6f7006ea00e0347bf54384d3629a43, type: 3}
   price: 1000
+  renameOnValidate: 0
