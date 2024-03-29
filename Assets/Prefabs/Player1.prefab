@@ -147,7 +147,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f9fa91da01cc0214180a8be70a186b2c, type: 3}
+  - {fileID: 2100000, guid: 2ad1e06895266d246b55e00e08ec2f31, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -347,7 +347,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4108905009347712}
-  - component: {fileID: 33911467676429074}
   - component: {fileID: 143529795222606980}
   - component: {fileID: 114643018719894430}
   - component: {fileID: 2649606941877326430}
@@ -377,14 +376,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &33911467676429074
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641774918067474}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!143 &143529795222606980
 CharacterController:
   m_ObjectHideFlags: 0
@@ -415,7 +406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e006a6d62811c469081bbe038de4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPosition: {fileID: 7077761014983987420}
   anim: {fileID: 95976296300888008}
   playerDataUpdater: {fileID: 11400000, guid: cc0eb2df18f8c4c4fa3bbf4f0bd0160e, type: 2}
   sessionData: {fileID: 11400000, guid: e140872435fd5e94c8290179f80b06d7, type: 2}
