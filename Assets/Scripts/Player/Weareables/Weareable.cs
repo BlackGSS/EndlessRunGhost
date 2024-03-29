@@ -4,7 +4,13 @@ using UnityEngine;
 public class Weareable : MonoBehaviour, IScriptableUpdaterListener<PlayerData>
 {
     [SerializeField] CosmeticData cosmeticData;
-    [SerializeField] MeshRenderer mesh;
+    private MeshRenderer mesh;
+
+    void Awake()
+    {
+        if (mesh == null)
+            mesh = TryGetComponent(out MeshRenderer meshComponent) ? meshComponent : transform.GetComponentInChildren<MeshRenderer>();
+    }
 
     void Start()
     {

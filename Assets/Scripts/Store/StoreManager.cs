@@ -3,7 +3,7 @@ using UnityEngine;
 public class StoreManager : MonoBehaviour
 {
     [SerializeField] StoreItemCardsPool itemsPool;
-    [SerializeField] CosmeticData[] cosmeticDatas;
+    [SerializeField] AvailableCosmetics availableCosmetics;
     [SerializeField] PlayerDataUpdater playerDataUpdater;
     [SerializeField] PlayerLoadSaveSystem playerLoadSaveSystem;
     [SerializeField] Modal modalUI;
@@ -12,7 +12,7 @@ public class StoreManager : MonoBehaviour
 
     private void Start()
     {
-        SpawnElements(cosmeticDatas);
+        SpawnElements(availableCosmetics.cosmetics);
     }
 
     private void SpawnElements(CosmeticData[] elements)

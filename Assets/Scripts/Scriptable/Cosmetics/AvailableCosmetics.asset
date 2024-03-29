@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: AvailableCosmetics
   m_EditorClassIdentifier: 
   cosmetics:
+  - {fileID: 11400000, guid: 00304f2faffa2904e893619d16791ec7, type: 2}
   - {fileID: 11400000, guid: ccf31f9030c73a246ac3e0f9b9b2e44b, type: 2}
-  - {fileID: 11400000, guid: 9365d4e0190dbea4092f5f7c0fbdcb3f, type: 2}
+  - {fileID: 11400000, guid: c1d3f6a6705ef66448261533a1722934, type: 2}
+  - {fileID: 11400000, guid: ecf6ea09362b5a24a9091bdf7bff2192, type: 2}
+  - {fileID: 11400000, guid: 3e11ec87e58622d46972f33576e966a6, type: 2}
+  - {fileID: 11400000, guid: 9138bc6bd34f49f42bb66c150b4e50c5, type: 2}
   - {fileID: 11400000, guid: b10da9f52eba31f44b11e87759e65221, type: 2}
