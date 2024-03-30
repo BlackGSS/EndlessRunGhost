@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerAnimStore : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    [SerializeField] Animation anim;
 
     public void PlayLevelUpAnim()
     {
