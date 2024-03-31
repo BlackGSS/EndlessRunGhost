@@ -5,9 +5,9 @@ public class PowerUpsManager : MonoBehaviour
 {
     [SerializeField] SessionDataUpdater sessionData;
     [SerializeField] PowerUpsPool powerUpsPool;
-    [SerializeField] float amountChunks;
-    [SerializeField] float chunksLeftToSpawn;
 
+    private float amountChunks;
+    private float chunksLeftToSpawn;
     private int lastPowerUp;
     private int samePowerUpTimes = 2;
     private int currentSamePowerUpTimes = 0;

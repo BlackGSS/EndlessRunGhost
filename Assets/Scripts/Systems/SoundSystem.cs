@@ -10,11 +10,11 @@ public static class SoundSystem
         if (audioSources == null)
         {
             if (parent == null)
-                parent = new GameObject();
+                parent = new GameObject() { name = "Audio Sources" };
 
             audioSources = parent.AddComponent<AudioSource>();
         }
-        
+
         audioSources.clip = audioClip;
         audioSources.Play();
     }

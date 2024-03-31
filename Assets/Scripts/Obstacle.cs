@@ -11,12 +11,14 @@ public class Obstacle : MonoBehaviour, IDamagable
         //TODO: Maybe it would be nice to change the texture for the trans flag
         gameObject.SetActive(false);
         obstacleCollider.enabled = false;
-        flag.SetActive(true);
+        if (flag != null)
+            flag.SetActive(true);
     }
 
     void OnDisable()
     {
         obstacleCollider.enabled = true;
-        flag.SetActive(false);
+        if (flag != null)
+            flag.SetActive(false);
     }
 }

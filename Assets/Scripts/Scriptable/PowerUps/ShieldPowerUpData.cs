@@ -30,5 +30,6 @@ public class ShieldPowerUpData : ScriptableObject, IPowerUp
 
         player.IsInvincible = false;
         powerUpCollectEvent.Raise(false);
+        playerData.Notify();
     }
 }

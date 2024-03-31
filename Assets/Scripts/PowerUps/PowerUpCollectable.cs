@@ -1,4 +1,3 @@
-using TNRD;
 using UnityEngine;
 
 public class PowerUpCollectable : ItemSpawnable<IPowerUp>
