@@ -20,8 +20,7 @@ public class EnableShieldCollectListener : ScriptableListener<bool, PowerUpColle
     {
         shieldMesh.enabled = activate;
         Sequence sequence = DOTween.Sequence();
-        shieldMesh.material.SetFloat("_Fill", activate ? 1 : 0);
+        sequence.Append(shieldMesh.material.DOFloat(activate ? 1 : 0, "_Fill", 0f));
         sequence.Append(shieldMesh.material.DOFloat(activate ? 0 : 1, "_Fill", activate ? shieldData.duration * 2 : 0));
-        // sequence.OnComplete(() => ));
     }
 }
