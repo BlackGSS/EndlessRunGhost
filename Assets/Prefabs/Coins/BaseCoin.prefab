@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -876546973899608171, guid: 08848bf3312b7084fa00b819a022110e, type: 3}
+  - {fileID: 2100000, guid: 1497a72c5136515449e138542043b01b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -197,8 +197,6 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 1524b12e8d0aeb241959bb2ea47116ca, type: 2}
   sessionDataUpdater: {fileID: 11400000, guid: e140872435fd5e94c8290179f80b06d7, type: 2}
   clip: {fileID: 8300000, guid: de586cdf18e9c694fa822c0113464bdc, type: 3}
-  brilliPrefab: {fileID: 2645754525085182072, guid: cbeb4539e921c04448b89700e8d77fa9, type: 3}
-  modelTransform: {fileID: 8303663652861127422}
 --- !u!65 &9084257345363575026
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -1,23 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour, IDamagable
 {
-    [SerializeField] Collider obstacleCollider;
+    [SerializeField] Collider[] obstacleCollider;
     [SerializeField] GameObject flag;
-    public void ApplyDamage(float damage)
+
+    void OnEnable()
     {
-        // gameObject.SetActive(false);
-        obstacleCollider.enabled = false;
-        if (flag != null)
-            flag.SetActive(true);
+        ActiveCollider(true);
     }
 
-    void OnDisable()
+    public void ApplyDamage(float damage)
     {
-        obstacleCollider.enabled = true;
+        ActiveCollider(false);
+    }
+
+    private void ActiveCollider(bool active)
+    {
+        for (int i = 0; i < obstacleCollider.Length; i++)
+            obstacleCollider[i].enabled = active;
+
         if (flag != null)
-            flag.SetActive(false);
+            flag.SetActive(!active);
+    }
+
+    public void OnDisable()
+    {
+        ActiveCollider(true);
     }
 }

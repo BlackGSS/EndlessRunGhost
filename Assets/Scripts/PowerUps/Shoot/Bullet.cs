@@ -15,7 +15,7 @@ public class Bullet : ItemSpawnable<BulletConfig>
     private void OnEnable()
     {
         coroutineHandle = Timing.RunCoroutine(CountBulletAliveTime().CancelWith(gameObject));
-        speed = 12;
+        speed = data.speed;
     }
 
     void Update()
