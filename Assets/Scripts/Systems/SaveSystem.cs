@@ -7,24 +7,24 @@ public static class SaveSystem<T> where T : DataSerializable
     public static void SavePlayerData(T playerData, string fileNamePath)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + fileNamePath;
-        FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
-        formatter.Serialize(stream, playerData);
-        stream.Close();
+        string path = Path.Combine(Application.persistentDataPath, fileNamePath);
+        using (FileStream stream = new FileStream(path, FileMode.Create))
+            formatter.Serialize(stream, playerData);
+        // Debug.Log("Saved data");
     }
 
     public static T LoadPlayerData(string fileNamePath)
     {
-        string path = Application.persistentDataPath + fileNamePath;
+        string path = Path.Combine(Application.persistentDataPath, fileNamePath);
         if (File.Exists(path))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-
-            T data = formatter.Deserialize(stream) as T;
-            stream.Close();
-
-            return data;
+            using (FileStream stream = new FileStream(path, FileMode.Open))
+            {
+                T data = formatter.Deserialize(stream) as T;
+                // Debug.Log("Load data");
+                return data;
+            }
         }
         else
         {

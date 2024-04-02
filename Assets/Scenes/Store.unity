@@ -524,7 +524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4108905009347712, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4108905009347712, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
       propertyPath: m_LocalScale.x
@@ -586,6 +586,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2671602370484058185, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2840469398417001414, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -640,7 +644,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1299428619
 MonoBehaviour:
@@ -713,37 +717,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: {fileID: 11400000, guid: cc0eb2df18f8c4c4fa3bbf4f0bd0160e, type: 2}
   availableCosmetics: {fileID: 11400000, guid: 95ccd9efc5291ea489d2e1d9ab760d4e, type: 2}
---- !u!1 &1334375252
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1334375253}
-  m_Layer: 0
-  m_Name: -----
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1334375253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334375252}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.025388882, y: 2.1258416, z: 4.8995323}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2106625649
 GameObject:
   m_ObjectHideFlags: 0

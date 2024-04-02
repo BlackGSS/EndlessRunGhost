@@ -195,8 +195,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 1524b12e8d0aeb241959bb2ea47116ca, type: 2}
-  clip: {fileID: 8300000, guid: de586cdf18e9c694fa822c0113464bdc, type: 3}
   sessionDataUpdater: {fileID: 11400000, guid: e140872435fd5e94c8290179f80b06d7, type: 2}
+  clip: {fileID: 8300000, guid: de586cdf18e9c694fa822c0113464bdc, type: 3}
+  brilliPrefab: {fileID: 2645754525085182072, guid: cbeb4539e921c04448b89700e8d77fa9, type: 3}
+  modelTransform: {fileID: 8303663652861127422}
 --- !u!65 &9084257345363575026
 BoxCollider:
   m_ObjectHideFlags: 0

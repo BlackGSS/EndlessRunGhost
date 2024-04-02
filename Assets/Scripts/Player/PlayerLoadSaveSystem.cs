@@ -9,7 +9,7 @@ public class PlayerLoadSaveSystem : MonoBehaviour
 
     private List<int> emptyList = new List<int>();
 
-    void Awake()
+    void OnEnable()
     {
         PlayerDataSerializable loadedData = SaveSystem<PlayerDataSerializable>.LoadPlayerData("/playerData.ghost");
         if (loadedData != null)
@@ -39,6 +39,5 @@ public class PlayerLoadSaveSystem : MonoBehaviour
     void OnDestroy()
     {
         SaveAllPlayerData();
-        value.ResetVariables();
     }
 }
