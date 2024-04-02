@@ -8,7 +8,7 @@ public class Obstacle : MonoBehaviour, IDamagable
     [SerializeField] GameObject flag;
     public void ApplyDamage(float damage)
     {
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
         obstacleCollider.enabled = false;
         if (flag != null)
             flag.SetActive(true);
