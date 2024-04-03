@@ -13,7 +13,6 @@ public static class GlobalParticleSystem
         {
             for (int i = 0; i < particleSystemList.Count; i++)
             {
-                
                 if (particleSystemList[i].isStopped)
                 {
                     // particleSystemList[i].Stop();
@@ -41,5 +40,10 @@ public static class GlobalParticleSystem
             particleSystems.Add(particlePrefab.name, new List<ParticleSystem>() { newParticleSystem });
 
         return newParticleSystem;
+    }
+
+    public static void Clear()
+    {
+        particleSystems.Clear();
     }
 }

@@ -663,6 +663,8 @@ MonoBehaviour:
   playerDataUpdater: {fileID: 11400000, guid: cc0eb2df18f8c4c4fa3bbf4f0bd0160e, type: 2}
   playerLoadSaveSystem: {fileID: 1299428621}
   modalUI: {fileID: 1615097745188546410}
+  deniedAudio: {fileID: 8300000, guid: 82273037e8817b848b1d98cb2a2129a2, type: 3}
+  confirmAudio: {fileID: 8300000, guid: c05028f3957fefc4b88c8fb4a37ea6ca, type: 3}
 --- !u!114 &1299428620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -842,6 +844,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 969901843}
     m_Modifications:
+    - target: {fileID: 1615097745198524758, guid: c2a21ba7149f25f48993a25339a8c966, type: 3}
+      propertyPath: m_Color.a
+      value: 0.8235294
+      objectReference: {fileID: 0}
     - target: {fileID: 1615097745812117194, guid: c2a21ba7149f25f48993a25339a8c966, type: 3}
       propertyPath: m_Name
       value: Modal Canvas

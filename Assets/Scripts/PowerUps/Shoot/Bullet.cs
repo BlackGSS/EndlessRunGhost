@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using MEC;
 using UnityEngine;
@@ -14,7 +13,7 @@ public class Bullet : ItemSpawnable<BulletConfig>
     float speed = 2;
     private void OnEnable()
     {
-        coroutineHandle = Timing.RunCoroutine(CountBulletAliveTime().CancelWith(gameObject));
+        coroutineHandle = Timing.RunCoroutine(CountBulletAliveTime(data.aliveTime).CancelWith(gameObject));
         speed = data.speed;
     }
 
@@ -28,13 +27,14 @@ public class Bullet : ItemSpawnable<BulletConfig>
                 damagable.ApplyDamage(data.damage);
                 speed = 0;
                 hitParticle.SetActive(true);
+                Timing.RunCoroutine(CountBulletAliveTime(1f));
             }
         }
     }
 
-    IEnumerator<float> CountBulletAliveTime()
+    IEnumerator<float> CountBulletAliveTime(float timeOut)
     {
-        yield return Timing.WaitForSeconds(data.aliveTime);
+        yield return Timing.WaitForSeconds(timeOut);
         Disable();
     }
 

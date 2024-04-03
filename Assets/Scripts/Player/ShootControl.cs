@@ -9,6 +9,7 @@ public class ShootControl : MonoBehaviour
     [SerializeField] PlayerDataUpdater playerDataUpdater;
     [SerializeField] OnShootEvent onShootEvent;
     [SerializeField] float fireRate = 1f;
+    [SerializeField] AudioClip audioClip;
     private float currentRate = 0;
 
     IEnumerator<float> shootCoroutine;
@@ -41,6 +42,7 @@ public class ShootControl : MonoBehaviour
 
     private void Shoot()
     {
+        SoundSystem.PlaySound(audioClip, 0.3f);
         onShootEvent.Raise(transform);
     }
 }

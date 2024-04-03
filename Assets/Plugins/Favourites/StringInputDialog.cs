@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 using System;
@@ -81,3 +82,4 @@ public class StringInputDialog : EditorWindow
         return e.isKey && (e.keyCode == KeyCode.Escape);
     }
 }
+#endif

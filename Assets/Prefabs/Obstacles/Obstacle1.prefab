@@ -94,6 +94,7 @@ MonoBehaviour:
   obstacleCollider:
   - {fileID: 0}
   flag: {fileID: 8040293690392230560}
+  hitClip: {fileID: 8300000, guid: 6d11314c60ee99b4a89373752f16e480, type: 3}
 --- !u!1001 &6203607961891357222
 PrefabInstance:
   m_ObjectHideFlags: 0

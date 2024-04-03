@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PowerUpCollectable : ItemSpawnable<IPowerUp>
 {
+    [SerializeField] AudioClip audioClip;
     private PlayerControl player;
 
     void OnTriggerEnter(Collider other)
@@ -10,6 +11,7 @@ public class PowerUpCollectable : ItemSpawnable<IPowerUp>
             player = other.GetComponentInParent<PlayerControl>();
 
         data.Apply(player);
+        SoundSystem.PlaySound(audioClip, 0.6f);
         gameObject.SetActive(false);
     }
 }

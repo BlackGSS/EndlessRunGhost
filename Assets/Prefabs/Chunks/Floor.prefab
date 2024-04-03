@@ -65,6 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dificult: 0
   collectableParentTransform: {fileID: 5739379101762546629}
+  obstacleParentTransform: {fileID: 8010964078246353422}
 --- !u!114 &1776885257078983327
 MonoBehaviour:
   m_ObjectHideFlags: 0

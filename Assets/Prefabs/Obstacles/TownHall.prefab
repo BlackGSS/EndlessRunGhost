@@ -95,6 +95,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.183
       objectReference: {fileID: 0}
+    - target: {fileID: 8040293690392230560, guid: 8171a537c27315e449cc39f013e476c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8713947799128087955, guid: 8171a537c27315e449cc39f013e476c1, type: 3}
       propertyPath: obstacleCollider.Array.size
       value: 2

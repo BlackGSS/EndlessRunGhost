@@ -9,6 +9,8 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 
 	[SerializeField] PlayerDataUpdater playerDataUpdater;
 	[SerializeField] SessionDataUpdater sessionData;
+	[SerializeField] AudioClip hitPlayerClip;
+	[SerializeField] AudioClip levelUpClip;
 	private float speed;
 	private float gravity;
 	private float jumpSpeed;
@@ -79,6 +81,7 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 	{
 		anim.ResetTrigger("LevelUp");
 		anim.SetTrigger("LevelUp");
+		SoundSystem.PlaySound(levelUpClip, 0.5f);
 	}
 
 	private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -92,6 +95,7 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 
 	private void Death()
 	{
+		SoundSystem.PlaySound(hitPlayerClip, 0.8f);
 		sessionData.data.playerAlive = false;
 		sessionData.Notify();
 	}

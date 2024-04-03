@@ -144,6 +144,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6802130578966837704, guid: 892f3a0333e4d3849aef1532cbc5661d, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d547d9dad46c3547ac0b725e51a1817, type: 3}
     - target: {fileID: 7409034992412982473, guid: 892f3a0333e4d3849aef1532cbc5661d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

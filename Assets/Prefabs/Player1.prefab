@@ -293,7 +293,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4165553804325064}
-  - component: {fileID: 95976296300888008}
   m_Layer: 6
   m_Name: GhostFinal
   m_TagString: Untagged
@@ -318,26 +317,6 @@ Transform:
   m_Father: {fileID: 1731104340230881159}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -4.7050004, y: 174.53801, z: 1.098}
---- !u!95 &95976296300888008
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1547923268319382}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f9fa91da01cc0214180a8be70a186b2c, type: 3}
-  m_Controller: {fileID: 9100000, guid: ad9d5a172e7366c41afafb5118202590, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1641774918067474
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,9 +385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e006a6d62811c469081bbe038de4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 95976296300888008}
+  anim: {fileID: 9138456185317179486}
   playerDataUpdater: {fileID: 11400000, guid: cc0eb2df18f8c4c4fa3bbf4f0bd0160e, type: 2}
   sessionData: {fileID: 11400000, guid: e140872435fd5e94c8290179f80b06d7, type: 2}
+  hitPlayerClip: {fileID: 8300000, guid: c9d04ded4ce886c4c8aa6322c679e12d, type: 3}
+  levelUpClip: {fileID: 8300000, guid: 0da4498e828f0594896d66354332f6f6, type: 3}
 --- !u!114 &2649606941877326430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,6 +811,7 @@ MonoBehaviour:
   playerDataUpdater: {fileID: 11400000, guid: cc0eb2df18f8c4c4fa3bbf4f0bd0160e, type: 2}
   onShootEvent: {fileID: 11400000, guid: 466444a342491694fada1aaf6256de51, type: 2}
   fireRate: 1
+  audioClip: {fileID: 8300000, guid: ffbbb45ab5039b34dbf6dceea5eceb59, type: 3}
 --- !u!114 &4157915629505549897
 MonoBehaviour:
   m_ObjectHideFlags: 0

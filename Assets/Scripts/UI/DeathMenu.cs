@@ -15,6 +15,7 @@ public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData
 	[SerializeField] TextMeshProUGUI totalCoinsText;
 	[SerializeField] TextMeshProUGUI coinsCollectedText;
 	[SerializeField] CanvasGroup newHighScoreImage;
+	[SerializeField] AudioClip dieClip;
 
 	protected override void Init()
 	{
@@ -41,6 +42,7 @@ public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData
 	{
 		if (!data.playerAlive)
 		{
+			SoundSystem.PlaySound(dieClip, 1f);
 			FadeImage.Instance.FadeAnimTo(0.5f);
 			FadeAnimTo(1);
 			//TODO: Send also the diffultLevel to show in which level player died

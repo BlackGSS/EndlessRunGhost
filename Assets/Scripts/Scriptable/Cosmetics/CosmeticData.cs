@@ -9,6 +9,7 @@ public class CosmeticData : ScriptableObject
     public int price;
     public bool renameOnValidate = false;
 
+#if UNITY_EDITOR
     private void OnValidate()
     {
         if (renameOnValidate)
@@ -19,4 +20,5 @@ public class CosmeticData : ScriptableObject
             renameOnValidate = true;
         }
     }
+#endif
 }

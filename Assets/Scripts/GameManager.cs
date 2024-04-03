@@ -47,11 +47,13 @@ public class GameManager : MonoBehaviour
 	public void ReturnMenu()
 	{
 		Time.timeScale = 1;
+		GlobalParticleSystem.Clear();
 		SceneManager.LoadScene("MainMenu");
 	}
 
 	public void Restart()
 	{
+		GlobalParticleSystem.Clear();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }
