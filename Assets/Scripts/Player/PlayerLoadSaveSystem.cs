@@ -11,7 +11,7 @@ public class PlayerLoadSaveSystem : MonoBehaviour
 
     void OnEnable()
     {
-        PlayerDataSerializable loadedData = SaveSystem<PlayerDataSerializable>.LoadPlayerData("/playerData.ghost");
+        PlayerDataSerializable loadedData = SaveSystem<PlayerDataSerializable>.LoadPlayerData("playerData.ghost");
         if (loadedData != null)
         {
             value.template.money = loadedData.money;
@@ -33,7 +33,7 @@ public class PlayerLoadSaveSystem : MonoBehaviour
     public void SaveAllPlayerData()
     {
         PlayerDataSerializable playerDataSerializable = new PlayerDataSerializable(value.data.money, value.data.cosmeticsBuyed.Count > 0 ? value.data.cosmeticsBuyed.Select(x => x.id).ToList() : emptyList, value.data.cosmeticsSelected.Count > 0 ? value.data.cosmeticsSelected.Select(x => x.id).ToList() : emptyList);
-        SaveSystem<PlayerDataSerializable>.SavePlayerData(playerDataSerializable, "/playerData.ghost");
+        SaveSystem<PlayerDataSerializable>.SavePlayerData(playerDataSerializable, "playerData.ghost");
     }
 
     void OnDestroy()

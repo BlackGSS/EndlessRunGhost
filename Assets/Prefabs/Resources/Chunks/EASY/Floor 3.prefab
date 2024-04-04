@@ -121,10 +121,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hospital (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 867383957946454560, guid: 2b946449c587be546a29db6ca7689738, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1436297835332887272, guid: 2b946449c587be546a29db6ca7689738, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -181,10 +177,6 @@ PrefabInstance:
     - target: {fileID: 124463981251336226, guid: 2b946449c587be546a29db6ca7689738, type: 3}
       propertyPath: m_Name
       value: Hospital
-      objectReference: {fileID: 0}
-    - target: {fileID: 867383957946454560, guid: 2b946449c587be546a29db6ca7689738, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1436297835332887272, guid: 2b946449c587be546a29db6ca7689738, type: 3}
       propertyPath: m_RootOrder

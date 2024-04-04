@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1641774918067474, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4108905009347712, guid: 02b66abb3a570214d8f606b279c6bf39, type: 3}
       propertyPath: m_RootOrder
@@ -273,7 +273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9084257345363575039, guid: 3ae8d10c8d34c764cbe8b19132c48740, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ae8d10c8d34c764cbe8b19132c48740, type: 3}
@@ -560,6 +560,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shoot
       objectReference: {fileID: 0}
+    - target: {fileID: 4409845751889010418, guid: 55589739bb135834c9ee65f50593b896, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4412198400524450096, guid: 55589739bb135834c9ee65f50593b896, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -616,6 +620,10 @@ PrefabInstance:
     - target: {fileID: 1311195663635513927, guid: cbeb4539e921c04448b89700e8d77fa9, type: 3}
       propertyPath: m_Name
       value: Brilli
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311195663635513927, guid: cbeb4539e921c04448b89700e8d77fa9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4015133860608334217, guid: cbeb4539e921c04448b89700e8d77fa9, type: 3}
       propertyPath: m_RootOrder
