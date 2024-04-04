@@ -56,7 +56,7 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 			jumpSpeed -= gravity * Time.deltaTime;
 		}
 
-		if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+		if (Input.GetMouseButton(0))
 		{
 			if (Input.mousePosition.y < Screen.height / 2)
 			{

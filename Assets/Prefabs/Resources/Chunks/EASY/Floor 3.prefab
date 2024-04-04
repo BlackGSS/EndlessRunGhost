@@ -86,6 +86,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4253014108572163527, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5739379101762546629, guid: 4fc8bb94bd7ce1b47a6611eefed8ebed, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -116,6 +120,10 @@ PrefabInstance:
     - target: {fileID: 124463981251336226, guid: 2b946449c587be546a29db6ca7689738, type: 3}
       propertyPath: m_Name
       value: Hospital (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 867383957946454560, guid: 2b946449c587be546a29db6ca7689738, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1436297835332887272, guid: 2b946449c587be546a29db6ca7689738, type: 3}
       propertyPath: m_RootOrder
@@ -173,6 +181,10 @@ PrefabInstance:
     - target: {fileID: 124463981251336226, guid: 2b946449c587be546a29db6ca7689738, type: 3}
       propertyPath: m_Name
       value: Hospital
+      objectReference: {fileID: 0}
+    - target: {fileID: 867383957946454560, guid: 2b946449c587be546a29db6ca7689738, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1436297835332887272, guid: 2b946449c587be546a29db6ca7689738, type: 3}
       propertyPath: m_RootOrder

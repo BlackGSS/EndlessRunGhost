@@ -4,14 +4,20 @@ public class CoinCollectable : ItemSpawnable<CoinData>
 {
     [SerializeField] SessionDataUpdater sessionDataUpdater;
     [SerializeField] AudioClip clip;
-    // [SerializeField] ParticleSystem brilliPrefab;
-    // [SerializeField] Transform modelTransform;
+    [SerializeField] MeshRenderer mesh;
+    [SerializeField] Collider col;
+
+    void OnEnable()
+    {
+        col.enabled = true;
+        mesh.enabled = true;
+    }
 
     void OnTriggerEnter()
     {
         SoundSystem.PlaySound(clip);
-        // GlobalParticleSystem.Play(brilliPrefab, modelTransform);
         sessionDataUpdater.data.currentMoneyCollected += data.coinAmount;
-        gameObject.SetActive(false);
+        col.enabled = false;
+        mesh.enabled = false;
     }
 }

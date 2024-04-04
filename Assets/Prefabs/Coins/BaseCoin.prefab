@@ -197,6 +197,8 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: 1524b12e8d0aeb241959bb2ea47116ca, type: 2}
   sessionDataUpdater: {fileID: 11400000, guid: e140872435fd5e94c8290179f80b06d7, type: 2}
   clip: {fileID: 8300000, guid: de586cdf18e9c694fa822c0113464bdc, type: 3}
+  mesh: {fileID: 9191743733067503982}
+  col: {fileID: 9084257345363575026}
 --- !u!65 &9084257345363575026
 BoxCollider:
   m_ObjectHideFlags: 0

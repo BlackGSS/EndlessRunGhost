@@ -15,18 +15,14 @@ public class TilesManager : MonoBehaviour
 	private float countToDelete = 0;
     private float spawnZ = 0.0f;
 	private float safeZone;
-	
-	// TODO: Try to use a Scriptable to store the tiles for perssistence between scenes
-	// TODO: Change gameObject varible for Chunks
-	// [SerializeField] SavedTilesData savedTilesData;
-	private List<GameObject> _savedTiles;
+	private List<Chunk> _savedTiles;
 
 	//TODO: This should take the Scriptable variable from SessionData
 	public static Difficulties currentDificultChunk = Difficulties.EASY;
 
 	void Start()
 	{
-		_savedTiles = new List<GameObject>();
+		_savedTiles = new List<Chunk>();
 		safeZone = tilesConfig.amountInitialTiles * tilesConfig.tileLength + playerSafeZone;
 		//Sin obstaculos las primeras
 		for (int i = 0; i < tilesConfig.amountTiles; i++)
@@ -66,26 +62,20 @@ public class TilesManager : MonoBehaviour
 
 	private void SpawnTiles()
 	{
-		GameObject go;
-
-		go = PoolSystem.GetChunkFromPool(currentDificultChunk);
+		Chunk go = PoolSystem.GetChunkFromPool(currentDificultChunk);
 
 		go.transform.SetParent(transform);
 		go.transform.position = Vector3.forward * spawnZ;
 		spawnZ += tilesConfig.tileLength;
-		chunkEnableEvent.Raise(go.GetComponent<Chunk>());
+		chunkEnableEvent.Raise(go);
 		_savedTiles.Add(go);
-		// savedTilesData.Add(go);
 	}
 
 	private void DeleteTiles()
 	{
 		PoolSystem.AddChunkToPool(_savedTiles[0]);
-		// PoolSystem.AddChunkToPool(savedTilesData.savedTiles[0]);
-		// Debug.Log(_savedTiles[0]);
-		chunkDisableEvent.Raise(_savedTiles[0].GetComponent<Chunk>());
+		chunkDisableEvent.Raise(_savedTiles[0]);
 		_savedTiles.RemoveAt(0);
-		// savedTilesData.RemoveAt(0);
 	}
 
 	public void SetPlayerTransform(PlayerControl player)
