@@ -35,7 +35,7 @@ SpriteAtlas:
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 4
+      padding: 8
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 0
@@ -69,12 +69,15 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 339f93fc9ae4f4b34a290edf14d7261f, type: 3}
     - {fileID: 2800000, guid: 568877dc002654079b85bbc0e5e8ce65, type: 3}
     - {fileID: 2800000, guid: feff385501ef94fb09731630b5606c35, type: 3}
+    - {fileID: 2800000, guid: d6bfed5702eb944e1969b6af820883e1, type: 3}
+    - {fileID: 2800000, guid: 5b2f70c200f624e07a6131de2c4f0d6e, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 764243b20a00b4488ac21192a28fa566, type: 3}
+  - {fileID: 21300000, guid: 5b2f70c200f624e07a6131de2c4f0d6e, type: 3}
   - {fileID: 21300000, guid: 98cf5a13c055d45a1a73a1e1e4486b88, type: 3}
   - {fileID: 21300000, guid: ab01a2531c35a4aafb31413b44dd1bcb, type: 3}
   - {fileID: 21300000, guid: 7d09ad73d04ea4ec5912f278cacd2ed0, type: 3}
@@ -87,6 +90,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e3a3f6e5da08f46c895f632eccceb676, type: 3}
   - {fileID: 21300000, guid: 8632c5f676d85465691bbb7c3f82e925, type: 3}
   - {fileID: 21300000, guid: 87ad6647d179342c39fe217b1d916be1, type: 3}
+  - {fileID: 21300000, guid: d6bfed5702eb944e1969b6af820883e1, type: 3}
   - {fileID: 21300000, guid: 3eba92f7629b145ae9366b196000a3f3, type: 3}
   - {fileID: 21300000, guid: 620879c9ab62c447b82f0c54e1e88fee, type: 3}
   - {fileID: 21300000, guid: 274887abc41574a2bb023880e6cf0007, type: 3}
@@ -101,6 +105,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e12c291ffd5f8436d8a3f04510189563, type: 3}
   m_PackedSpriteNamesToIndex:
   - Popup_Ticket_BottomPattern
+  - BubbleFrame01_Hexagon_Bg_Blue
   - Button01_l_Pink
   - Popup02~09_Topber_White_BgTopLight
   - BubbleFrame01_Hexagon_FocusBorder
@@ -113,6 +118,7 @@ SpriteAtlas:
   - ResourceBar_Single_Icon_Coin
   - BubbleFrame01_Hexagon_FocusGlow
   - Button01_l_White_Light2
+  - BubbleFrame01_Hexagon_Bg_Green
   - Button01_l_White_Bg
   - Popup02~09_Topber_White_BgTop
   - Popup_Ticket_Border

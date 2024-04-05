@@ -1,4 +1,5 @@
-﻿using Neisum.ScriptableUpdaters;
+﻿using System.Collections.Generic;
+using Neisum.ScriptableUpdaters;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -58,17 +59,18 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 
 		if (Input.GetMouseButton(0))
 		{
-			if (Input.mousePosition.y < Screen.height / 2)
-			{
-				if (Input.mousePosition.x > Screen.width / 2)
+			if (!IsPointerOverUIObject())
+				if (Input.mousePosition.y < Screen.height / 2)
 				{
-					vector3Movement.x = speed;
+					if (Input.mousePosition.x > Screen.width / 2)
+					{
+						vector3Movement.x = speed;
+					}
+					else
+					{
+						vector3Movement.x = -speed;
+					}
 				}
-				else
-				{
-					vector3Movement.x = -speed;
-				}
-			}
 		}
 
 		vector3Movement.y = jumpSpeed;
@@ -84,20 +86,14 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 		SoundSystem.PlaySound(levelUpClip, 0.5f);
 	}
 
-	private void OnControllerColliderHit(ControllerColliderHit hit)
+	private void Death()
 	{
 		if (!isInvincible)
 		{
-			if (hit.collider.tag == "Enemy")
-				Death();
+			SoundSystem.PlaySound(hitPlayerClip, 0.8f);
+			sessionData.data.playerAlive = false;
+			sessionData.Notify();
 		}
-	}
-
-	private void Death()
-	{
-		SoundSystem.PlaySound(hitPlayerClip, 0.8f);
-		sessionData.data.playerAlive = false;
-		sessionData.Notify();
 	}
 
 	public void ScriptableResponse(PlayerData data)
@@ -107,5 +103,13 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 			speed = data.speed;
 			NewLevel();
 		}
+	}
+	private bool IsPointerOverUIObject()
+	{
+		PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+		eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+		List<RaycastResult> results = new List<RaycastResult>();
+		EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+		return results.Count > 0;
 	}
 }

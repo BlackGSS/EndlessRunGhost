@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MEC;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,9 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField]
 	private GameObject _pauseMenu;
+
+	[SerializeField]
+	private Modal initialPowerUpView;
 
 	[SerializeField]
 	private PlayerFactory playerFactory;
@@ -21,26 +25,28 @@ public class GameManager : MonoBehaviour
 		playerFactory.SpawnSessionPlayer();
 	}
 
+	void Start()
+	{
+		initialPowerUpView.Show();
+	}
+
 	public void Pause()
 	{
 		if (!_pauseMenu.activeSelf)
 		{
 			_pauseMenu.SetActive(true);
 			Time.timeScale = 0;
-			// isPaused = true;
 		}
 		else
 		{
 			_pauseMenu.SetActive(false);
 			Time.timeScale = 1;
-			// isPaused = false;
 		}
 	}
 
 	public void Resume()
 	{
 		_pauseMenu.SetActive(false);
-		// isPaused = false;
 		Time.timeScale = 1;
 	}
 
@@ -56,4 +62,8 @@ public class GameManager : MonoBehaviour
 		GlobalParticleSystem.Clear();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
+
+	// IEnumerator<float> ShowPowerUpModal()
+	// {
+	// }
 }

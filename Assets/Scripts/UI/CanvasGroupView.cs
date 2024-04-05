@@ -7,7 +7,7 @@ public class CanvasGroupView : MonoBehaviour
     [SerializeField] protected float fadeTime;
     [SerializeField] protected CanvasGroup canvasGroup;
 
-    private void Start()
+    private void Awake()
     {
         Init();
     }
@@ -35,7 +35,7 @@ public class CanvasGroupView : MonoBehaviour
         canvasGroup.DOFade(fadeValue, fadeTime);
     }
 
-    protected void Show()
+    public void Show()
     {
         FadeAnimTo(1);
     }

@@ -16,6 +16,12 @@ public class Modal : CanvasGroupView
         Show();
     }
 
+    public void ShowWithAction(Action callback = null)
+    {
+        callbackOnAccept = callback;
+        Show();
+    }
+
     public void Confirm()
     {
         if (callbackOnAccept != null)
