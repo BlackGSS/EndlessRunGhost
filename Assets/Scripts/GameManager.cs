@@ -11,9 +11,6 @@ public class GameManager : MonoBehaviour
 	private GameObject _pauseMenu;
 
 	[SerializeField]
-	private Modal initialPowerUpView;
-
-	[SerializeField]
 	private PlayerFactory playerFactory;
 
 	[SerializeField] SessionDataUpdater sessionDataUpdater;
@@ -27,7 +24,7 @@ public class GameManager : MonoBehaviour
 
 	void Start()
 	{
-		initialPowerUpView.Show();
+		FadeImage.Instance.FadeAnimTo(0);
 	}
 
 	public void Pause()
@@ -62,8 +59,4 @@ public class GameManager : MonoBehaviour
 		GlobalParticleSystem.Clear();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
-
-	// IEnumerator<float> ShowPowerUpModal()
-	// {
-	// }
 }

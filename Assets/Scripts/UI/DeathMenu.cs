@@ -43,7 +43,7 @@ public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData
 		if (!data.playerAlive)
 		{
 			SoundSystem.PlaySound(dieClip, 1f);
-			FadeImage.Instance.FadeAnimTo(0.5f);
+			FadeImage.Instance.FadeAnimTo(0.8f);
 			FadeAnimTo(1);
 			//TODO: Send also the diffultLevel to show in which level player died
 			UpdateScore(data.currentScore);

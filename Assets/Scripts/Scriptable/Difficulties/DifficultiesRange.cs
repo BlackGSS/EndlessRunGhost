@@ -8,4 +8,5 @@ public class DifficultiesRange : ScriptableObject
     public Difficulties difficulty;
     public int minDificultyLevel;
     public int maxDificultyLevel;
+    public Sprite levelSprite;
 }

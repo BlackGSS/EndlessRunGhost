@@ -37,15 +37,16 @@ public class ScoreControl : MonoBehaviour
 		scoreToNextLevel *= 2;
 		difficultLevel++;
 
-		ChangeDifficulty(difficultLevel);
-		scoreUI.SetLevelText(difficultLevel.ToString());
+		DifficultiesRange difficulty = ChangeDifficulty(difficultLevel);
+		scoreUI.SetLevelText(difficultLevel.ToString(), difficulty.levelSprite);
 	}
 
-	private void ChangeDifficulty(int newDifficult)
+	private DifficultiesRange ChangeDifficulty(int newDifficult)
 	{
 		DifficultiesRange difficultyRange = difficultySettings.difficulties.Where(x => x.minDificultyLevel <= newDifficult && x.maxDificultyLevel >= newDifficult).First();
 		sessionData.data.difficulty = difficultyRange.difficulty;
 		sessionData.data.currentDifficultLevel = difficultLevel;
 		sessionData.Notify();
+		return difficultyRange;
 	}
 }

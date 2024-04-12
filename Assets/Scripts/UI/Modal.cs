@@ -16,7 +16,7 @@ public class Modal : CanvasGroupView
         Show();
     }
 
-    public void ShowWithAction(Action callback = null)
+    public void ShowWithAction(Action callback)
     {
         callbackOnAccept = callback;
         Show();
