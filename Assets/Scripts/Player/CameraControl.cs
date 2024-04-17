@@ -23,7 +23,7 @@ public class CameraControl : MonoBehaviour
 	// }
 
 	// Update is called once per frame
-	void Update()
+	void LateUpdate()
 	{
 		_vector3Movement = target.position + _offset;
 

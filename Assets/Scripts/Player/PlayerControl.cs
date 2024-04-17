@@ -64,11 +64,11 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 				{
 					if (Input.mousePosition.x > Screen.width / 2)
 					{
-						vector3Movement.x = speed;
+						vector3Movement.x = speed - 1;
 					}
 					else
 					{
-						vector3Movement.x = -speed;
+						vector3Movement.x = -(speed - 1);
 					}
 				}
 		}

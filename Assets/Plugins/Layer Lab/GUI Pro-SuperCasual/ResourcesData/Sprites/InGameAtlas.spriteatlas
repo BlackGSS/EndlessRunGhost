@@ -73,6 +73,9 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 5b2f70c200f624e07a6131de2c4f0d6e, type: 3}
     - {fileID: 2800000, guid: 543a2fc05fd9b4049a665f9166831efe, type: 3}
     - {fileID: 2800000, guid: 7862368159c61dc4581b0f5ab12e9abd, type: 3}
+    - {fileID: 2800000, guid: f2007f2b03677d846ab68d302583b207, type: 3}
+    - {fileID: 2800000, guid: 740056dc24aca5a4990da4356c15b92e, type: 3}
+    - {fileID: 2800000, guid: 3189b0b7a8f5a6d409ee07178ff099b7, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -95,10 +98,13 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 8632c5f676d85465691bbb7c3f82e925, type: 3}
   - {fileID: 21300000, guid: 87ad6647d179342c39fe217b1d916be1, type: 3}
   - {fileID: 21300000, guid: d6bfed5702eb944e1969b6af820883e1, type: 3}
+  - {fileID: 21300000, guid: 3189b0b7a8f5a6d409ee07178ff099b7, type: 3}
   - {fileID: 21300000, guid: 3eba92f7629b145ae9366b196000a3f3, type: 3}
   - {fileID: 21300000, guid: 620879c9ab62c447b82f0c54e1e88fee, type: 3}
+  - {fileID: 21300000, guid: f2007f2b03677d846ab68d302583b207, type: 3}
   - {fileID: 21300000, guid: 274887abc41574a2bb023880e6cf0007, type: 3}
   - {fileID: 21300000, guid: 3cee3faceebf04b08946d7ad4202f081, type: 3}
+  - {fileID: 21300000, guid: 740056dc24aca5a4990da4356c15b92e, type: 3}
   - {fileID: 21300000, guid: 568877dc002654079b85bbc0e5e8ce65, type: 3}
   - {fileID: 21300000, guid: 339f93fc9ae4f4b34a290edf14d7261f, type: 3}
   - {fileID: 21300000, guid: 8ed5fcfced4fe4c82aa9cda760e45f0c, type: 3}
@@ -108,8 +114,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: b802653e90c694dd0966490b86866a22, type: 3}
   - {fileID: 21300000, guid: e12c291ffd5f8436d8a3f04510189563, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Captura322
-  - Capturare
+  - powerup_fshoot
+  - powerup_shield
   - Popup_Ticket_BottomPattern
   - BubbleFrame01_Hexagon_Bg_Blue
   - Button01_l_Pink
@@ -125,10 +131,13 @@ SpriteAtlas:
   - BubbleFrame01_Hexagon_FocusGlow
   - Button01_l_White_Light2
   - BubbleFrame01_Hexagon_Bg_Green
+  - Transgender_Pride_flag
   - Button01_l_White_Bg
   - Popup02~09_Topber_White_BgTop
+  - arrow
   - Popup_Ticket_Border
   - BubbleFrame01_Hexagon_Bg_Yellow
+  - hand
   - Button_SkillBtn_White_Light
   - Button_SkillBtn_White_Bg
   - PictoIcon_Home_2

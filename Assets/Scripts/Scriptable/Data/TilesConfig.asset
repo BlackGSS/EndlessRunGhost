@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TilesConfig
   m_EditorClassIdentifier: 
   tileLength: 20.81
-  amountTiles: 10
+  amountTiles: 11
   amountInitialTiles: 3
   lastPrefabIndex: 0

@@ -19,6 +19,14 @@ public class ShootControl : MonoBehaviour
         currentRate = fireRate;
     }
 
+    void Update()
+    {
+#if !PLATFORM_ANDROID || UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Space))
+            TryToFire();
+#endif
+    }
+
     public void TryToFire()
     {
         if (currentRate >= fireRate)

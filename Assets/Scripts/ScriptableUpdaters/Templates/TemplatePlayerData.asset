@@ -16,9 +16,9 @@ MonoBehaviour:
   speed: 10
   gravity: 12
   jumpSpeed: 0
-  ammoAmount: 10
+  ammoAmount: 0
   isInvincible: 0
-  money: 1466
+  money: 0
   cosmeticsBuyed:
   - {fileID: 11400000, guid: ccf31f9030c73a246ac3e0f9b9b2e44b, type: 2}
   - {fileID: 11400000, guid: b10da9f52eba31f44b11e87759e65221, type: 2}

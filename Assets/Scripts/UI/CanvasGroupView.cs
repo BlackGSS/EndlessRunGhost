@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
+using MEC;
 using UnityEngine;
 
 public class CanvasGroupView : MonoBehaviour
@@ -43,8 +45,20 @@ public class CanvasGroupView : MonoBehaviour
         FadeAnimTo(1, callback);
     }
 
+    public void ShowFor(float delay)
+    {
+        Show();
+        Timing.RunCoroutine(DelayToHide(delay));
+    }
+
     protected void Hide()
     {
         FadeAnimTo(0);
+    }
+
+    IEnumerator<float> DelayToHide(float delay)
+    {
+        yield return Timing.WaitForSeconds(delay);
+        Hide();
     }
 }

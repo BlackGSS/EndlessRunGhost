@@ -5,10 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	public List<GameObject> players;
-
 	[SerializeField]
 	private GameObject _pauseMenu;
+
+	[SerializeField]
+	private CanvasGroupView handHelpView;
+
+	[SerializeField]
+	private int timeToShowHandAnim = 5;
 
 	[SerializeField]
 	private PlayerFactory playerFactory;
@@ -25,6 +29,12 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		FadeImage.Instance.FadeAnimTo(0);
+		Debug.Log(PlayerPrefs.GetInt("FirstTime"));
+		if (PlayerPrefs.GetInt("FirstTime") != 1)
+		{
+			handHelpView.ShowFor(timeToShowHandAnim);
+			PlayerPrefs.SetInt("FirstTime", 1);
+		}
 	}
 
 	public void Pause()

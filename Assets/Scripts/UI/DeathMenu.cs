@@ -63,22 +63,21 @@ public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData
 			if (data.currentMoneyCollected > 0)
 				Timing.RunCoroutine(AnimateCoinText(data.currentMoneyCollected, playerDataUpdater.data.money));
 
-			//TODO: BUG, this add money to the temp data, not the template
 			playerDataUpdater.data.money += data.currentMoneyCollected;
 		}
 	}
 
 	IEnumerator<float> AnimateCoinText(int currentMoneyCollected, int playerMoney)
 	{
-		int initialSpeedCount = 10;
+		int initialSpeedCount = 5;
 		yield return Timing.WaitForSeconds(0.5f);
 		while (currentMoneyCollected != 0)
 		{
 			initialSpeedCount--;
 			currentMoneyCollected--;
 			totalCoinsText.text = (++playerMoney).ToString();
-			totalCoinsText.transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0.5f), initialSpeedCount > 0 ? 0.13f : 0.08f, 3, 0.3f);
-			yield return Timing.WaitForSeconds(initialSpeedCount > 0 ? 0.15f : 0.1f);
+			totalCoinsText.transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0.5f), initialSpeedCount > 0 ? 0.15f : 0.03f, 3, 0.3f);
+			yield return Timing.WaitForSeconds(initialSpeedCount > 0 ? 0.17f : 0.05f);
 		}
 		yield return 0;
 	}

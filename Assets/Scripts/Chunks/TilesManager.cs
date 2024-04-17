@@ -5,6 +5,7 @@ using UnityEngine;
 public class TilesManager : MonoBehaviour
 {
 	[SerializeField] TilesConfig tilesConfig;
+	[SerializeField] SessionDataUpdater sessionData;
 	[SerializeField] ChunkEnablingEvent chunkEnableEvent;
 	[SerializeField] ChunkDisablingEvent chunkDisableEvent;
 	[SerializeField] GameObject initialTilePrefab;
@@ -16,9 +17,6 @@ public class TilesManager : MonoBehaviour
     private float spawnZ = 0.0f;
 	private float safeZone;
 	private List<Chunk> _savedTiles;
-
-	//TODO: This should take the Scriptable variable from SessionData
-	public static Difficulties currentDificultChunk = Difficulties.EASY;
 
 	void Start()
 	{
@@ -62,7 +60,7 @@ public class TilesManager : MonoBehaviour
 
 	private void SpawnTiles()
 	{
-		Chunk go = PoolSystem.GetChunkFromPool(currentDificultChunk);
+		Chunk go = PoolSystem.GetChunkFromPool(sessionData.data.difficulty);
 
 		go.transform.SetParent(transform);
 		go.transform.position = Vector3.forward * spawnZ;
