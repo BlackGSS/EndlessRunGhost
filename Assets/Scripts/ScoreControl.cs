@@ -8,7 +8,7 @@ public class ScoreControl : MonoBehaviour
 	[SerializeField] private DifficultySettings difficultySettings;
 	private float currentScore;
 	private int difficultLevel;
-	private int scoreToNextLevel;
+	private float scoreToNextLevel;
 
 	private void Start()
 	{
@@ -34,16 +34,16 @@ public class ScoreControl : MonoBehaviour
 		if (difficultLevel == difficultySettings.maxDifficultLevel)
 			return;
 
-		scoreToNextLevel *= 2;
 		difficultLevel++;
+		scoreToNextLevel *= difficultySettings.difficulties.Where(x => x.minDificultyLevel <= difficultLevel && x.maxDificultyLevel >= difficultLevel).First().multiplierToNextLevel;
 
-		DifficultiesRange difficulty = ChangeDifficulty(difficultLevel);
+		DifficultiesConfig difficulty = ChangeDifficulty(difficultLevel);
 		scoreUI.SetLevelText(difficultLevel.ToString(), difficulty.levelSprite);
 	}
 
-	private DifficultiesRange ChangeDifficulty(int newDifficult)
+	private DifficultiesConfig ChangeDifficulty(int newDifficult)
 	{
-		DifficultiesRange difficultyRange = difficultySettings.difficulties.Where(x => x.minDificultyLevel <= newDifficult && x.maxDificultyLevel >= newDifficult).First();
+		DifficultiesConfig difficultyRange = difficultySettings.difficulties.Where(x => x.minDificultyLevel <= newDifficult && x.maxDificultyLevel >= newDifficult).First();
 		sessionData.data.difficulty = difficultyRange.difficulty;
 		sessionData.data.currentDifficultLevel = difficultLevel;
 		sessionData.Notify();

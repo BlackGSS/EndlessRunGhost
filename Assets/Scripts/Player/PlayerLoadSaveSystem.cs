@@ -20,6 +20,7 @@ public class PlayerLoadSaveSystem : MonoBehaviour
             value.template.money = loadedData.money;
             if (loadedData.cosmeticsIdSelected.Count > 0)
                 value.template.cosmeticsSelected = availableCosmetics.cosmetics.Where(x => loadedData.cosmeticsIdSelected.Contains(x.id)).ToList();
+            value.template.highScore = loadedData.highScore;
         }
 
         value.Initialize();
@@ -32,7 +33,7 @@ public class PlayerLoadSaveSystem : MonoBehaviour
 
     public void SaveAllPlayerData()
     {
-        PlayerDataSerializable playerDataSerializable = new PlayerDataSerializable(value.data.money, value.data.cosmeticsBuyed.Count > 0 ? value.data.cosmeticsBuyed.Select(x => x.id).ToList() : emptyList, value.data.cosmeticsSelected.Count > 0 ? value.data.cosmeticsSelected.Select(x => x.id).ToList() : emptyList);
+        PlayerDataSerializable playerDataSerializable = new PlayerDataSerializable(value.data.money, value.data.cosmeticsBuyed.Count > 0 ? value.data.cosmeticsBuyed.Select(x => x.id).ToList() : emptyList, value.data.cosmeticsSelected.Count > 0 ? value.data.cosmeticsSelected.Select(x => x.id).ToList() : emptyList, value.data.highScore);
         SaveSystem<PlayerDataSerializable>.SavePlayerData(playerDataSerializable, "playerData.ghost");
     }
 

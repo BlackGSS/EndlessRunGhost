@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public static class SoundSystem
+public class SoundSystem
 {
     private static GameObject parent;
 
@@ -21,7 +21,7 @@ public static class SoundSystem
 
                 if (!audioSourcesList[i].isPlaying)
                 {
-                    audioSourcesList[i].volume = volume;
+                    audioSourcesList[i].volume = volume - 0.1f;
                     audioSourcesList[i].Play();
                     return audioSourcesList[i];
                 }
@@ -51,4 +51,15 @@ public static class SoundSystem
     {
         audioSources.Clear();
     }
+
+    // public static void Mute(bool mute)
+    // {
+    //     foreach (List<AudioSource> audioSource in audioSources.Values)
+    //     {
+    //         for (int i = 0; i < audioSource.Count; i++)
+    //         {
+    //             audioSource[i].mute = mute;
+    //         }
+    //     }
+    // }
 }

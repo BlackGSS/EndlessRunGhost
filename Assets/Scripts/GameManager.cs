@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		FadeImage.Instance.FadeAnimTo(0);
-		Debug.Log(PlayerPrefs.GetInt("FirstTime"));
 		if (PlayerPrefs.GetInt("FirstTime") != 1)
 		{
 			handHelpView.ShowFor(timeToShowHandAnim);

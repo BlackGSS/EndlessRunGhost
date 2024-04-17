@@ -105,4 +105,3 @@ MonoBehaviour:
   startOn: 1
   fadeTime: 2
   canvasGroup: {fileID: 1525389806785470632}
-  fadeOffset: 2

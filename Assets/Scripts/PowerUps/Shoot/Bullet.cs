@@ -7,13 +7,13 @@ public class Bullet : ItemSpawnable<BulletConfig>
     [SerializeField] LayerMask obstacleLayer;
     [SerializeField] SessionDataUpdater sessionDataUpdater;
     [SerializeField] GameObject hitParticle;
-    CoroutineHandle coroutineHandle;
+    CoroutineHandle initialCoroutineTimeHandle;
     RaycastHit hitInfo;
 
     float speed = 2;
     private void OnEnable()
     {
-        coroutineHandle = Timing.RunCoroutine(CountBulletAliveTime(data.aliveTime));
+        initialCoroutineTimeHandle = Timing.RunCoroutine(CountBulletAliveTime(data.aliveTime));
         speed = data.speed;
     }
 
@@ -27,7 +27,7 @@ public class Bullet : ItemSpawnable<BulletConfig>
                 damagable.ApplyDamage(data.damage);
                 speed = 0;
                 hitParticle.SetActive(true);
-                Timing.RunCoroutine(CountBulletAliveTime(1f));
+                Timing.RunCoroutine(CountBulletAliveTime(1f).CancelWith(gameObject));
             }
         }
     }
@@ -40,7 +40,7 @@ public class Bullet : ItemSpawnable<BulletConfig>
 
     public override void Disable()
     {
-        Timing.KillCoroutines(coroutineHandle);
+        Timing.KillCoroutines(initialCoroutineTimeHandle);
         hitParticle.SetActive(false);
         base.Disable();
     }

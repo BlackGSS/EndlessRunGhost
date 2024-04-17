@@ -57,7 +57,7 @@ public class StoreManager : MonoBehaviour
         }
         else
         {
-            SoundSystem.PlaySound(deniedAudio);
+            SoundSystem.PlaySound(deniedAudio, 0.8f);
             modalUI.Show("Ops... El dinerito :()", "Volver luego");
         }
     }

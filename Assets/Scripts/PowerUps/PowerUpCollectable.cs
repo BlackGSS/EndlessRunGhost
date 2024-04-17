@@ -11,7 +11,7 @@ public class PowerUpCollectable : ItemSpawnable<IPowerUp>
             player = other.GetComponentInParent<PlayerControl>();
 
         data.Apply(player);
-        SoundSystem.PlaySound(audioClip, 0.6f);
+        SoundSystem.PlaySound(audioClip, 0.5f);
         gameObject.SetActive(false);
     }
 }

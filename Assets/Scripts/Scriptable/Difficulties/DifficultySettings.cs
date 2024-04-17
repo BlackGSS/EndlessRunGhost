@@ -26,5 +26,5 @@ public class DifficultySettings : ScriptableObject
     //TODO: It would be cool to have a score lever based on levels, not just *2 this value
     public int scoreToFirstLevel = 10;
     //Order them by Difficulty < Difficulty in inspector
-    public DifficultiesRange[] difficulties;
+    public DifficultiesConfig[] difficulties;
 }

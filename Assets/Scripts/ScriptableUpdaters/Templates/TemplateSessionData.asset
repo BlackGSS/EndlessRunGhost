@@ -19,8 +19,8 @@ MonoBehaviour:
   currentDifficultLevel: 1
   currentMoneyCollected: 0
   playerPrefab: {fileID: 11400000, guid: 75c5f3ae97f6ac844aa991935feb3605, type: 2}
-  minChunksToPowerUp: 2
-  maxChunksToPowerUp: 3
+  minChunksToPowerUp: 3
+  maxChunksToPowerUp: 10
   availablePowerUps:
   - powerUpData:
       mode: 0

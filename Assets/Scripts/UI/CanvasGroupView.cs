@@ -40,6 +40,11 @@ public class CanvasGroupView : MonoBehaviour
         sequence.OnComplete(() => callback?.Invoke());
     }
 
+    public void Show()
+    {
+        FadeAnimTo(1, null);
+    }
+
     public void Show(Action callback = null)
     {
         FadeAnimTo(1, callback);

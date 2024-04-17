@@ -83,14 +83,14 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 	{
 		anim.ResetTrigger("LevelUp");
 		anim.SetTrigger("LevelUp");
-		SoundSystem.PlaySound(levelUpClip, 0.5f);
+		SoundSystem.PlaySound(levelUpClip, 0.4f);
 	}
 
 	private void Death()
 	{
 		if (!isInvincible)
 		{
-			SoundSystem.PlaySound(hitPlayerClip, 0.8f);
+			SoundSystem.PlaySound(hitPlayerClip, 0.7f);
 			sessionData.data.playerAlive = false;
 			sessionData.Notify();
 		}

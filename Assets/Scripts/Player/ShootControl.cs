@@ -50,7 +50,7 @@ public class ShootControl : MonoBehaviour
 
     private void Shoot()
     {
-        SoundSystem.PlaySound(audioClip, 0.3f);
+        SoundSystem.PlaySound(audioClip, 0.2f);
         onShootEvent.Raise(transform);
     }
 }

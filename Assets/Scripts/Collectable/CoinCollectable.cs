@@ -15,7 +15,7 @@ public class CoinCollectable : ItemSpawnable<CoinData>
 
     void OnTriggerEnter()
     {
-        SoundSystem.PlaySound(clip);
+        SoundSystem.PlaySound(clip, 0.5f);
         sessionDataUpdater.data.currentMoneyCollected += data.coinAmount;
         col.enabled = false;
         mesh.enabled = false;
