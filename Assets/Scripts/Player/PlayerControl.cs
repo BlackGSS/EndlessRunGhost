@@ -20,7 +20,7 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 	private Vector3 vector3Movement;
 	private bool isInvincible = false;
 
-	private float animationDuration = 1.8f;
+	private float animationDuration = 1.5f;
 	private float startTime;
 
 	public bool IsInvincible { set { isInvincible = value; playerDataUpdater.data.isInvincible = value; } }

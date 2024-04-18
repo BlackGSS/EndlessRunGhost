@@ -64,7 +64,7 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorHDR: {r: 6.3541455, g: 6.3541455, b: 6.3541455, a: 1}
+    - _ColorHDR: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &6403605229533584121
 MonoBehaviour:

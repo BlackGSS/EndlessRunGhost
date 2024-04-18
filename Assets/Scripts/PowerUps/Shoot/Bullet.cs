@@ -22,7 +22,8 @@ public class Bullet : ItemSpawnable<BulletConfig>
         transform.Translate(speed * Time.deltaTime * Vector3.forward);
         if (Physics.Raycast(transform.position, Vector3.forward, out hitInfo, 1.5f, obstacleLayer))
         {
-            if (hitInfo.collider.TryGetComponent(out IDamagable damagable))
+            Collider col = hitInfo.collider;
+            if (!col.isTrigger && col.TryGetComponent(out IDamagable damagable))
             {
                 damagable.ApplyDamage(data.damage);
                 speed = 0;

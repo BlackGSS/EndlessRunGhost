@@ -234,11 +234,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8339740547946453823, guid: 574c069b35f56490e9befd3c39a66116, type: 3}
       propertyPath: m_text
-      value: "COSM\xC9TICOS"
+      value: COSMETICS
       objectReference: {fileID: 0}
     - target: {fileID: 8339740547946453823, guid: 574c069b35f56490e9befd3c39a66116, type: 3}
       propertyPath: m_fontSize
-      value: 47.9
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 8339740548904839332, guid: 574c069b35f56490e9befd3c39a66116, type: 3}
       propertyPath: m_Sprite
@@ -876,7 +876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8339740547946453823, guid: 574c069b35f56490e9befd3c39a66116, type: 3}
       propertyPath: m_text
-      value: EMPEZAR
+      value: START
       objectReference: {fileID: 0}
     - target: {fileID: 8339740547946453823, guid: 574c069b35f56490e9befd3c39a66116, type: 3}
       propertyPath: m_fontSize

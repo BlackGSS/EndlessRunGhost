@@ -31,9 +31,12 @@ public class ShootControl : MonoBehaviour
     {
         if (currentRate >= fireRate)
         {
-            Shoot();
-            playerDataUpdater.data.ammoAmount--;
-            playerDataUpdater.Notify();
+            if (playerDataUpdater.data.ammoAmount > 0)
+            {
+                Shoot();
+                playerDataUpdater.data.ammoAmount--;
+                playerDataUpdater.Notify();
+            }
         }
         else
         {

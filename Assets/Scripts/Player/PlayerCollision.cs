@@ -7,7 +7,7 @@ public class PlayerCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (other.tag == "Enemy" && !other.isTrigger)
             callbackOnCollision.Invoke();
     }
 }

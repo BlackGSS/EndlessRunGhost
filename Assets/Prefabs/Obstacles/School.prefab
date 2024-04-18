@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26243993386dadc4eaa414c5309752f7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.2
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26243993386dadc4eaa414c5309752f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -157,8 +157,12 @@ PrefabInstance:
       value: School
       objectReference: {fileID: 0}
     - target: {fileID: 7268541721801449498, guid: 8171a537c27315e449cc39f013e476c1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7268541721801449498, guid: 8171a537c27315e449cc39f013e476c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.36
+      value: 3.66
       objectReference: {fileID: 0}
     - target: {fileID: 7268541721801449498, guid: 8171a537c27315e449cc39f013e476c1, type: 3}
       propertyPath: m_LocalPosition.z

@@ -21,7 +21,7 @@ public class SoundSystem
 
                 if (!audioSourcesList[i].isPlaying)
                 {
-                    audioSourcesList[i].volume = volume - 0.1f;
+                    audioSourcesList[i].volume = volume;
                     audioSourcesList[i].Play();
                     return audioSourcesList[i];
                 }

@@ -105,7 +105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7268541721801449498, guid: 8171a537c27315e449cc39f013e476c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.52
+      value: 2.65
       objectReference: {fileID: 0}
     - target: {fileID: 8713947799128087955, guid: 8171a537c27315e449cc39f013e476c1, type: 3}
       propertyPath: obstacleCollider.Array.size
@@ -166,7 +166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5262cb36cbbee0a48a0c135e0a8309ae, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.48
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5262cb36cbbee0a48a0c135e0a8309ae, type: 3}
       propertyPath: m_LocalScale.z

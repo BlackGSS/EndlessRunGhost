@@ -5,24 +5,14 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour
 {
 	[SerializeField]
+	private float _speedMoving = 8;
 	private Transform target;
 	private Vector3 _offset;
 	private Vector3 _vector3Movement;
-
-	[SerializeField]
-	private float _speedMoving = 8;
-
 	private float _transition = 0f;
 	private float _animationDuration = 1.5f;
 	private Vector3 _offsetAnim = new Vector3(0, 5, 5);
 
-	// Use this for initialization
-	// void Start()
-	// {
-	// 	_offset = transform.position - target.position;
-	// }
-
-	// Update is called once per frame
 	void LateUpdate()
 	{
 		_vector3Movement = target.position + _offset;
@@ -50,5 +40,11 @@ public class CameraControl : MonoBehaviour
 	{
 		target = player.transform;
 		_offset = transform.position - target.position;
+	}
+
+	public void GivePlayerCamera(PlayerControl player)
+	{
+		player.TryGetComponent(out CircleSync component);
+		component?.SetCamera(GetComponent<Camera>());
 	}
 }
