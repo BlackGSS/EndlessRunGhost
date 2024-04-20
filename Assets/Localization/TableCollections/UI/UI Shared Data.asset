@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI
+  m_TableCollectionNameGuidString: 5a0bab4c6c34379438542da7c5ad9c34
+  m_Entries:
+  - m_Id: 502030520320
+    m_Key: start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896068603904
+    m_Key: cosmetics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 955652886528
+    m_Key: shop_buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1008622751744
+    m_Key: shop_modal_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1092252979200
+    m_Key: shop_modal_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1181130280960
+    m_Key: powerup_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1398151958528
+    m_Key: powerup_intro
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1499498926080
+    m_Key: powerup_law_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1617207873536
+    m_Key: powerup_law_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1914785353728
+    m_Key: powerup_flag_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1992002490368
+    m_Key: powerup_flag_description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2287428292608
+    m_Key: powerup_end
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3016029229056
+    m_Key: powerup_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3060778258432
+    m_Key: death_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3141371809792
+    m_Key: death_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3207960580096
+    m_Key: shop_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3458985480192
+    m_Key: shop_itemcard_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6118455234560
+    m_Key: menu_credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7974761910272
+    m_Key: death_new
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8329033797632
+    m_Key: pause_resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8794593153024
+    m_Key: pause_title
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 7678991826250629178
+  references:
+    version: 2
+    RefIds:
+    - rid: 7678991826250629178
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1713463045263

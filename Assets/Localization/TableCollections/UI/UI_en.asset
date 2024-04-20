@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 5a0bab4c6c34379438542da7c5ad9c34, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 502030520320
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 896068603904
+    m_Localized: Cosmetics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 955652886528
+    m_Localized: Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1008622751744
+    m_Localized: Confirm?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1092252979200
+    m_Localized: Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1181130280960
+    m_Localized: Dear friend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1398151958528
+    m_Localized: 'We have rights,
+
+      it''s time to use them!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1499498926080
+    m_Localized: Trans law
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1617207873536
+    m_Localized: Shields you against any harm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1914785353728
+    m_Localized: Trans flag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1992002490368
+    m_Localized: Release your trans energy and make them trans-friendly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2287428292608
+    m_Localized: Use them to pass through without fear!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3016029229056
+    m_Localized: Gotcha!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3060778258432
+    m_Localized: Don't worry!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3141371809792
+    m_Localized: Well done!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3207960580096
+    m_Localized: Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3458985480192
+    m_Localized: Gotcha!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6118455234560
+    m_Localized: Credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7974761910272
+    m_Localized: New!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8329033797632
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8794593153024
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

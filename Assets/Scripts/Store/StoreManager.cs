@@ -26,6 +26,8 @@ public class StoreManager : MonoBehaviour
 
             if (playerDataUpdater.data.cosmeticsBuyed.Count > 0)
                 itemCard.Buyed(playerDataUpdater.data.cosmeticsBuyed.Contains(elements[i]) ? true : false);
+            else
+                itemCard.Buyed(false);
 
             if (playerDataUpdater.data.cosmeticsSelected.Count > 0 && playerDataUpdater.data.cosmeticsSelected.Contains(elements[i]))
                 SelectItem(itemCard);
@@ -76,7 +78,7 @@ public class StoreManager : MonoBehaviour
 
     public void BackToMenu()
     {
-        if (!playerDataUpdater.data.cosmeticsBuyed.Contains(cosmeticItemSelected.data))
+        if (playerDataUpdater.data.cosmeticsBuyed.Count == 0 || !playerDataUpdater.data.cosmeticsBuyed.Contains(cosmeticItemSelected.data))
             playerDataUpdater.data.cosmeticsSelected.Clear();
 
         playerLoadSaveSystem.SaveAllPlayerData();
