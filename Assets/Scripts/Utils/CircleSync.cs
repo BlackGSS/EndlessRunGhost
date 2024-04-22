@@ -5,6 +5,7 @@ public class CircleSync : MonoBehaviour
 {
     public static int PosID = Shader.PropertyToID("_Position");
     public static int SizeID = Shader.PropertyToID("_Size");
+    [SerializeField] PlayerDataUpdater playerDataUpdater;
     [SerializeField] LayerMask layer;
     [SerializeField] Vector3 offset;
     [SerializeField] float rayDistance = 10f;
@@ -23,7 +24,7 @@ public class CircleSync : MonoBehaviour
             {
                 // Debug.Log(hitInfo.transform.gameObject.name);
                 // Debug.Log("Colliders Enabled" + hitInfo.transform.gameObject.GetComponent<Obstacle>().CollidersEnabled);
-                if (!hitInfo.transform.gameObject.GetComponent<Obstacle>().CollidersEnabled)
+                if (!hitInfo.transform.gameObject.GetComponent<Obstacle>().CollidersEnabled || playerDataUpdater.data.isInvincible)
                 {
                     wallMaterial = hitInfo.transform.gameObject.GetComponentInChildren<Renderer>().material;
                     wallMaterial.SetFloat(SizeID, 1f);
