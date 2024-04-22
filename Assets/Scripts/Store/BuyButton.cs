@@ -14,7 +14,7 @@ public class BuyButton : MonoBehaviour, IScriptableUpdaterListener<PlayerData>
         {
             IEnumerable<CosmeticData> itemsInCommon = data.cosmeticsSelected.Intersect(data.cosmeticsBuyed);
             button.DOFade(!itemsInCommon.Any() ? 1 : 0, 0.2f);
-            button.transform.DOShakeScale(0.2f, 0.4f, 6, 0);
+            button.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.4f, 6, 0);
         }
         else
         {

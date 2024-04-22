@@ -17,6 +17,7 @@ public class CoinCollectable : ItemSpawnable<CoinData>
     {
         SoundSystem.PlaySound(clip, 0.6f);
         sessionDataUpdater.data.currentMoneyCollected += data.coinAmount;
+        sessionDataUpdater.Notify();
         col.enabled = false;
         mesh.enabled = false;
     }

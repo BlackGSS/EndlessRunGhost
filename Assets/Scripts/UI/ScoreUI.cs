@@ -10,7 +10,7 @@ public class ScoreUI : MonoBehaviour
 
     public void SetCurrentScore(int score)
     {
-        scoreText.text = score >= 10 ? score.ToString() : $"0{score}";
+        scoreText.text = score >= 100 ? score.ToString() : score >= 10 ? $"0{score}" : $"00{score}";
     }
 
     public void SetLevelText(string level, Sprite difficultySprite)
