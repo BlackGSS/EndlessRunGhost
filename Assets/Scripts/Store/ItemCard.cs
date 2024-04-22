@@ -34,7 +34,7 @@ public class ItemCard : ItemSpawnable<CosmeticData>
     {
         if (!toggle.isOn)
         {
-            SoundSystem.PlaySound(selectClip);
+            SoundSystem.PlaySound(selectClip, 0.8f);
             selectItemCard.Raise(this);
         }
     }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BulletConfig
   m_EditorClassIdentifier: 
   damage: 1
-  speed: 14
+  speed: 40
   aliveTime: 7

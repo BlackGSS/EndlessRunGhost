@@ -23,12 +23,13 @@ public class ShieldPowerUpData : ScriptableObject, IPowerUp
 
     IEnumerator<float> Affect(PlayerControl player)
     {
-        powerUpCollectEvent.Raise(true);
         player.IsInvincible = true;
+        powerUpCollectEvent.Raise(true);
 
-        yield return Timing.WaitForSeconds(8f);
+        yield return Timing.WaitForSeconds(duration);
 
         player.IsInvincible = false;
         powerUpCollectEvent.Raise(false);
+        playerData.Notify();
     }
 }

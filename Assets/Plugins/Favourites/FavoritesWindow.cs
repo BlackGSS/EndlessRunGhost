@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 using UnityEditorInternal;
@@ -117,7 +118,7 @@ public class FavoritesWindow : EditorWindow, IHasCustomMenu
                 else if (dragObject == objectToDrag &&
                     currentEvent.type == EventType.MouseDrag &&
                     Vector2.Distance(clickPosition, currentEvent.mousePosition) >= MIN_DRAG_PIXELS)
-            {
+                {
                     UnityEditor.DragAndDrop.PrepareStartDrag();
                     UnityEditor.DragAndDrop.objectReferences = new Object[] { objectToDrag };
                     // PrepareStartDrag is supposed to clear paths, but it didn't really.
@@ -349,3 +350,4 @@ public class FavoritesWindow : EditorWindow, IHasCustomMenu
         });
     }
 }
+#endif

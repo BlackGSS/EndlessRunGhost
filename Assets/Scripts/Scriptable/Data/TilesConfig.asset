@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c38ea989e0ce5854091403aefbff4d25, type: 3}
   m_Name: TilesConfig
   m_EditorClassIdentifier: 
-  tileLength: 20.5
-  safeZone: 78
-  amountTiles: 8
+  tileLength: 20.81
+  amountTiles: 11
   amountInitialTiles: 3
   lastPrefabIndex: 0

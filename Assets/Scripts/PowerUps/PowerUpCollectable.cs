@@ -1,8 +1,8 @@
-using TNRD;
 using UnityEngine;
 
 public class PowerUpCollectable : ItemSpawnable<IPowerUp>
 {
+    [SerializeField] AudioClip audioClip;
     private PlayerControl player;
 
     void OnTriggerEnter(Collider other)
@@ -11,6 +11,7 @@ public class PowerUpCollectable : ItemSpawnable<IPowerUp>
             player = other.GetComponentInParent<PlayerControl>();
 
         data.Apply(player);
+        SoundSystem.PlaySound(audioClip, 0.5f);
         gameObject.SetActive(false);
     }
 }

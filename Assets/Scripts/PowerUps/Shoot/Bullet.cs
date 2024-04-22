@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using MEC;
 using UnityEngine;
@@ -7,29 +6,43 @@ public class Bullet : ItemSpawnable<BulletConfig>
 {
     [SerializeField] LayerMask obstacleLayer;
     [SerializeField] SessionDataUpdater sessionDataUpdater;
-    CoroutineHandle coroutineHandle;
+    [SerializeField] GameObject hitParticle;
+    CoroutineHandle initialCoroutineTimeHandle;
     RaycastHit hitInfo;
+
+    float speed = 2;
     private void OnEnable()
     {
-        coroutineHandle = Timing.RunCoroutine(CountBulletAliveTime().CancelWith(gameObject));
+        initialCoroutineTimeHandle = Timing.RunCoroutine(CountBulletAliveTime(data.aliveTime));
+        speed = data.speed;
     }
 
     void Update()
     {
-        transform.Translate(data.speed * sessionDataUpdater.data.currentDifficultLevel * Time.deltaTime * Vector3.forward);
-        if (Physics.Raycast(transform.position, Vector3.forward, out hitInfo, 1f, obstacleLayer))
+        transform.Translate(speed * Time.deltaTime * Vector3.forward);
+        if (Physics.Raycast(transform.position, Vector3.forward, out hitInfo, 1.5f, obstacleLayer))
         {
-            if (hitInfo.collider.TryGetComponent(out IDamagable damagable))
+            Collider col = hitInfo.collider;
+            if (!col.isTrigger && col.TryGetComponent(out IDamagable damagable))
             {
                 damagable.ApplyDamage(data.damage);
-                Disable();
+                speed = 0;
+                hitParticle.SetActive(true);
+                Timing.RunCoroutine(CountBulletAliveTime(1f).CancelWith(gameObject));
             }
         }
     }
 
-    IEnumerator<float> CountBulletAliveTime()
+    IEnumerator<float> CountBulletAliveTime(float timeOut)
     {
-        yield return Timing.WaitForSeconds(data.aliveTime);
+        yield return Timing.WaitForSeconds(timeOut);
         Disable();
+    }
+
+    public override void Disable()
+    {
+        Timing.KillCoroutines(initialCoroutineTimeHandle);
+        hitParticle.SetActive(false);
+        base.Disable();
     }
 }

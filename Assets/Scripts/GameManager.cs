@@ -1,13 +1,18 @@
 ﻿using System.Collections.Generic;
+using MEC;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-	public List<GameObject> players;
-
 	[SerializeField]
 	private GameObject _pauseMenu;
+
+	[SerializeField]
+	private CanvasGroupView handHelpView;
+
+	[SerializeField]
+	private int timeToShowHandAnim = 5;
 
 	[SerializeField]
 	private PlayerFactory playerFactory;
@@ -21,36 +26,46 @@ public class GameManager : MonoBehaviour
 		playerFactory.SpawnSessionPlayer();
 	}
 
+	void Start()
+	{
+		FadeImage.Instance.FadeAnimTo(0);
+		if (PlayerPrefs.GetInt("FirstTime") != 1)
+		{
+			handHelpView.ShowFor(timeToShowHandAnim);
+			PlayerPrefs.SetInt("FirstTime", 1);
+		}
+	}
+
 	public void Pause()
 	{
 		if (!_pauseMenu.activeSelf)
 		{
 			_pauseMenu.SetActive(true);
 			Time.timeScale = 0;
-			// isPaused = true;
 		}
 		else
 		{
 			_pauseMenu.SetActive(false);
 			Time.timeScale = 1;
-			// isPaused = false;
 		}
 	}
 
 	public void Resume()
 	{
 		_pauseMenu.SetActive(false);
-		// isPaused = false;
 		Time.timeScale = 1;
 	}
 
 	public void ReturnMenu()
 	{
+		Time.timeScale = 1;
+		GlobalParticleSystem.Clear();
 		SceneManager.LoadScene("MainMenu");
 	}
 
 	public void Restart()
 	{
+		GlobalParticleSystem.Clear();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 }

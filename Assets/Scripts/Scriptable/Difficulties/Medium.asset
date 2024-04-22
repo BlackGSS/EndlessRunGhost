@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Medium
   m_EditorClassIdentifier: 
   difficulty: 1
-  minDificultyLevel: 4
-  maxDificultyLevel: 7
+  minDificultyLevel: 5
+  maxDificultyLevel: 8
+  levelSprite: {fileID: 21300000, guid: 5b2f70c200f624e07a6131de2c4f0d6e, type: 3}
+  multiplierToNextLevel: 2.5

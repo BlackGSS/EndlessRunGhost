@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using DG.Tweening;
+using MEC;
 using UnityEngine;
 
 public class CanvasGroupView : MonoBehaviour
@@ -7,7 +10,7 @@ public class CanvasGroupView : MonoBehaviour
     [SerializeField] protected float fadeTime;
     [SerializeField] protected CanvasGroup canvasGroup;
 
-    private void Start()
+    protected virtual void Awake()
     {
         Init();
     }
@@ -29,19 +32,38 @@ public class CanvasGroupView : MonoBehaviour
         canvasGroup.alpha = fadeValue;
     }
 
-    public void FadeAnimTo(float fadeValue)
+    public void FadeAnimTo(float fadeValue, Action callback = null)
     {
         EnableCanvasInteraction(fadeValue > 0 ? true : false);
-        canvasGroup.DOFade(fadeValue, fadeTime);
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(canvasGroup.DOFade(fadeValue, fadeTime));
+        sequence.OnComplete(() => callback?.Invoke());
     }
 
-    protected void Show()
+    public void Show()
     {
-        FadeAnimTo(1);
+        FadeAnimTo(1, null);
+    }
+
+    public void Show(Action callback = null)
+    {
+        FadeAnimTo(1, callback);
+    }
+
+    public void ShowFor(float delay)
+    {
+        Show();
+        Timing.RunCoroutine(DelayToHide(delay));
     }
 
     protected void Hide()
     {
         FadeAnimTo(0);
+    }
+
+    IEnumerator<float> DelayToHide(float delay)
+    {
+        yield return Timing.WaitForSeconds(delay);
+        Hide();
     }
 }

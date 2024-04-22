@@ -18,8 +18,7 @@ MonoBehaviour:
   jumpSpeed: 0
   ammoAmount: 0
   isInvincible: 0
-  money: 1500
-  cosmeticsBuyed:
-  - {fileID: 11400000, guid: ccf31f9030c73a246ac3e0f9b9b2e44b, type: 2}
-  cosmeticsSelected:
-  - {fileID: 11400000, guid: ccf31f9030c73a246ac3e0f9b9b2e44b, type: 2}
+  money: 0
+  highScore: 0
+  cosmeticsBuyed: []
+  cosmeticsSelected: []

@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   difficulty: 0
   minDificultyLevel: 1
-  maxDificultyLevel: 3
+  maxDificultyLevel: 4
+  levelSprite: {fileID: 21300000, guid: d6bfed5702eb944e1969b6af820883e1, type: 3}
+  multiplierToNextLevel: 3

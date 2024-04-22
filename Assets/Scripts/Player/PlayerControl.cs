@@ -1,4 +1,5 @@
-﻿using Neisum.ScriptableUpdaters;
+﻿using System.Collections.Generic;
+using Neisum.ScriptableUpdaters;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,6 +10,8 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 
 	[SerializeField] PlayerDataUpdater playerDataUpdater;
 	[SerializeField] SessionDataUpdater sessionData;
+	[SerializeField] AudioClip hitPlayerClip;
+	[SerializeField] AudioClip levelUpClip;
 	private float speed;
 	private float gravity;
 	private float jumpSpeed;
@@ -17,7 +20,7 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 	private Vector3 vector3Movement;
 	private bool isInvincible = false;
 
-	private float animationDuration = 1.8f;
+	private float animationDuration = 1.5f;
 	private float startTime;
 
 	public bool IsInvincible { set { isInvincible = value; playerDataUpdater.data.isInvincible = value; } }
@@ -54,19 +57,20 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 			jumpSpeed -= gravity * Time.deltaTime;
 		}
 
-		if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+		if (Input.GetMouseButton(0))
 		{
-			if (Input.mousePosition.y < Screen.height / 2)
-			{
-				if (Input.mousePosition.x > Screen.width / 2)
+			if (!IsPointerOverUIObject())
+				if (Input.mousePosition.y < Screen.height / 2)
 				{
-					vector3Movement.x = speed;
+					if (Input.mousePosition.x > Screen.width / 2)
+					{
+						vector3Movement.x = speed - 1;
+					}
+					else
+					{
+						vector3Movement.x = -(speed - 1);
+					}
 				}
-				else
-				{
-					vector3Movement.x = -speed;
-				}
-			}
 		}
 
 		vector3Movement.y = jumpSpeed;
@@ -79,21 +83,17 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 	{
 		anim.ResetTrigger("LevelUp");
 		anim.SetTrigger("LevelUp");
-	}
-
-	private void OnControllerColliderHit(ControllerColliderHit hit)
-	{
-		if (!isInvincible)
-		{
-			if (hit.collider.tag == "Enemy")
-				Death();
-		}
+		SoundSystem.PlaySound(levelUpClip, 0.4f);
 	}
 
 	private void Death()
 	{
-		sessionData.data.playerAlive = false;
-		sessionData.Notify();
+		if (!isInvincible)
+		{
+			SoundSystem.PlaySound(hitPlayerClip, 0.7f);
+			sessionData.data.playerAlive = false;
+			sessionData.Notify();
+		}
 	}
 
 	public void ScriptableResponse(PlayerData data)
@@ -103,5 +103,13 @@ public class PlayerControl : MonoBehaviour, IScriptableUpdaterListener<PlayerDat
 			speed = data.speed;
 			NewLevel();
 		}
+	}
+	private bool IsPointerOverUIObject()
+	{
+		PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+		eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+		List<RaycastResult> results = new List<RaycastResult>();
+		EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+		return results.Count > 0;
 	}
 }

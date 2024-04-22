@@ -5,7 +5,7 @@ public class ScriptableInitializer<T, U> : MonoBehaviour where T : ScriptableUpd
 {
     [SerializeField] protected T value;
 
-    protected virtual void Awake()
+    protected virtual void OnEnable()
     {
         value.Initialize();
     }

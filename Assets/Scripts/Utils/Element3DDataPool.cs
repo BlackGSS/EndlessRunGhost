@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Element3DDataPool<T, U> : GenericDataPool<T, U> where T : ItemSpawnable<U>
+public class Element3DDataPool<T, U> : GenericDictionaryDataPool<T, U> where T : ItemSpawnable<U>
 {
     private Transform targetPos;
 

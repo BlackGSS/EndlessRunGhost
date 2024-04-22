@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class PoolSystem
 {
-	static Dictionary<Difficulties, List<GameObject>> chunkPools = new Dictionary<Difficulties, List<GameObject>>();
+	static Dictionary<Difficulties, List<Chunk>> chunkPools = new Dictionary<Difficulties, List<Chunk>>();
 
-	static Dictionary<Difficulties, GameObject[]> chunkPrefabs = new Dictionary<Difficulties, GameObject[]>();
+	static Dictionary<Difficulties, Chunk[]> chunkPrefabs = new Dictionary<Difficulties, Chunk[]>();
 
 	private static bool initialized;
 
 	private static int _lastPrefabIndex = 0;
 
-	public static GameObject GetChunkFromPool(Difficulties type)
+	public static Chunk GetChunkFromPool(Difficulties type)
 	{
 		//Cargamos todos los chunks de todos los tipos en chunkPrefabs
 		if (!initialized)
@@ -21,7 +21,7 @@ public class PoolSystem
 			Initialize();
 		}
 
-		GameObject chunk = null;
+		Chunk chunk = null;
 
 		//Comprobar si la lista del tipo solicitado existe y tiene algún elemento
 		if (chunkPools.ContainsKey(type) && chunkPools[type].Count > 0)
@@ -30,7 +30,7 @@ public class PoolSystem
 			//Si es así, devolvemos el primer elemento de esa lista y lo sacamos de la lista.
 			chunk = chunkPools[type][0];
 			chunkPools[type].RemoveAt(0);
-			chunk.SetActive(true);
+			chunk.gameObject.SetActive(true);
 		}
 		//si no es así, instanciamos un elemento del tipo seleccionado. 
 		else
@@ -54,24 +54,24 @@ public class PoolSystem
 		foreach (Difficulties type in Enum.GetValues(typeof(Difficulties)))
 		{
 			// Debug.Log(type);
-			GameObject[] allPrefabsOfType = Resources.LoadAll<GameObject>("Chunks/" + type);
+			Chunk[] allPrefabsOfType = Resources.LoadAll<Chunk>("Chunks/" + type);
 			chunkPrefabs[type] = allPrefabsOfType;
 		}
 
 		initialized = true;
 	}
 
-	public static void AddChunkToPool(GameObject chunk)
+	public static void AddChunkToPool(Chunk chunk)
 	{
-		chunk.SetActive(false);
+		chunk.gameObject.SetActive(false);
 
-		Difficulties type = chunk.GetComponent<Chunk>().dificult;
+		Difficulties type = chunk.dificult;
 
 		//Comprobamos si el tipo de lista existe, 
 		if (!chunkPools.ContainsKey(type))
 		{
 			//Si no existe, hay que añadir una lista nueva al diccionario.
-			chunkPools.Add(type, new List<GameObject>());
+			chunkPools.Add(type, new List<Chunk>());
 		}
 
 		//Añadimos el elemnto a la lista y lo desactivamos. 
@@ -99,6 +99,6 @@ public class PoolSystem
 
 	public static void ResetChunks()
 	{
-		chunkPools = new Dictionary<Difficulties, List<GameObject>>();
+		chunkPools = new Dictionary<Difficulties, List<Chunk>>();
 	}
 }

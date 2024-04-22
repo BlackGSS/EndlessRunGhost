@@ -27,13 +27,8 @@ namespace Neisum.ScriptableUpdaters
 
         public void Initialize()
         {
-            ResetVariables();
-        }
-
-        private void OnValidate()
-        {
             LoadListeners();
-            SceneManager.activeSceneChanged += (scene1, scene2) => { LoadListeners(); };
+            ResetVariables();
         }
 
         private void LoadListeners()

@@ -8,6 +8,8 @@ public class StoreManager : MonoBehaviour
     [SerializeField] PlayerDataUpdater playerDataUpdater;
     [SerializeField] PlayerLoadSaveSystem playerLoadSaveSystem;
     [SerializeField] Modal modalUI;
+    [SerializeField] AudioClip deniedAudio;
+    [SerializeField] AudioClip confirmAudio;
 
     private ItemCard cosmeticItemSelected;
 
@@ -24,6 +26,8 @@ public class StoreManager : MonoBehaviour
 
             if (playerDataUpdater.data.cosmeticsBuyed.Count > 0)
                 itemCard.Buyed(playerDataUpdater.data.cosmeticsBuyed.Contains(elements[i]) ? true : false);
+            else
+                itemCard.Buyed(false);
 
             if (playerDataUpdater.data.cosmeticsSelected.Count > 0 && playerDataUpdater.data.cosmeticsSelected.Contains(elements[i]))
                 SelectItem(itemCard);
@@ -50,9 +54,14 @@ public class StoreManager : MonoBehaviour
     public void BuyItem()
     {
         if (playerDataUpdater.data.money >= cosmeticItemSelected.data.price)
+        {
             modalUI.Show("Confirmamos?", "Confirmamos", () => Buy());
+        }
         else
-            modalUI.Show("Ops no tienes dinero :(", "Continuar");
+        {
+            SoundSystem.PlaySound(deniedAudio, 0.8f);
+            modalUI.Show("Ops... El dinerito :()", "Volver luego");
+        }
     }
 
     private void Buy()
@@ -69,7 +78,7 @@ public class StoreManager : MonoBehaviour
 
     public void BackToMenu()
     {
-        if (!playerDataUpdater.data.cosmeticsBuyed.Contains(cosmeticItemSelected.data))
+        if (playerDataUpdater.data.cosmeticsBuyed.Count == 0 || !playerDataUpdater.data.cosmeticsBuyed.Contains(cosmeticItemSelected.data))
             playerDataUpdater.data.cosmeticsSelected.Clear();
 
         playerLoadSaveSystem.SaveAllPlayerData();

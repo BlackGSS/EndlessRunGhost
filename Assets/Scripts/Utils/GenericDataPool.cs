@@ -13,7 +13,7 @@ public class GenericDataPool<T, U> : MonoBehaviour where T : ItemSpawnable<U>
             {
                 if (!currentElements[i].gameObject.activeSelf)
                 {
-                    currentElements[i].Initialize(data);
+                    currentElements[i].SetData(data);
                     currentElements[i].Enable();
                     return currentElements[i];
                 }
@@ -29,7 +29,7 @@ public class GenericDataPool<T, U> : MonoBehaviour where T : ItemSpawnable<U>
     protected virtual T AddElement(U data, T prefab)
     {
         T newElement = Instantiate(prefab, transform);
-        newElement.Initialize(data);
+        newElement.SetData(data);
         currentElements.Add(newElement);
         return newElement;
     }
@@ -43,7 +43,7 @@ public class GenericDataPool<T, U> : MonoBehaviour where T : ItemSpawnable<U>
 public class ItemSpawnable<T> : MonoBehaviour
 {
     public T data;
-    public void Initialize(T newData) => data = newData;
+    public void SetData(T newData) => data = newData;
     public virtual void Enable() { gameObject.SetActive(true); }
     public virtual void Disable() { gameObject.SetActive(false); }
 }

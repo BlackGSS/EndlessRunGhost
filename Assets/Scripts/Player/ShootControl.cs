@@ -9,6 +9,7 @@ public class ShootControl : MonoBehaviour
     [SerializeField] PlayerDataUpdater playerDataUpdater;
     [SerializeField] OnShootEvent onShootEvent;
     [SerializeField] float fireRate = 1f;
+    [SerializeField] AudioClip audioClip;
     private float currentRate = 0;
 
     IEnumerator<float> shootCoroutine;
@@ -18,13 +19,24 @@ public class ShootControl : MonoBehaviour
         currentRate = fireRate;
     }
 
+    void Update()
+    {
+#if !PLATFORM_ANDROID || UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.Space))
+            TryToFire();
+#endif
+    }
+
     public void TryToFire()
     {
         if (currentRate >= fireRate)
         {
-            Shoot();
-            playerDataUpdater.data.ammoAmount--;
-            playerDataUpdater.Notify();
+            if (playerDataUpdater.data.ammoAmount > 0)
+            {
+                Shoot();
+                playerDataUpdater.data.ammoAmount--;
+                playerDataUpdater.Notify();
+            }
         }
         else
         {
@@ -41,6 +53,7 @@ public class ShootControl : MonoBehaviour
 
     private void Shoot()
     {
+        SoundSystem.PlaySound(audioClip, 0.2f);
         onShootEvent.Raise(transform);
     }
 }

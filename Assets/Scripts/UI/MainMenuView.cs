@@ -1,11 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuView : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] bool showInstructionsOnlyFirstTime;
+    [SerializeField] Modal initPowerUps;
+
+    public void ShowRules()
+    {
+        if (showInstructionsOnlyFirstTime == false)
+            FadeImage.Instance.Show(() => initPowerUps.ShowWithAction(GoToGame));
+        else
+            FadeImage.Instance.Show(() => CheckToShowInstructions());
+    }
+
+    private void CheckToShowInstructions()
+    {
+        if (PlayerPrefs.GetInt("FirstTime") == 0)
+            initPowerUps.ShowWithAction(GoToGame);
+        else
+            GoToGame();
+    }
+
     public void GoToGame()
     {
         SceneManager.LoadScene("Game");

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Neisum.ScriptableUpdaters;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewPlayerData", menuName = "Scriptables/PlayerData", order = 0)]
@@ -12,6 +11,7 @@ public class PlayerData : InstantiableScriptable
     public int ammoAmount = 0;
     public bool isInvincible = false;
     public int money = 0;
+    public int highScore = 0;
     public List<CosmeticData> cosmeticsBuyed;
     public List<CosmeticData> cosmeticsSelected;
 }
@@ -20,13 +20,15 @@ public class PlayerData : InstantiableScriptable
 public class PlayerDataSerializable : DataSerializable
 {
     public int money;
+    public int highScore;
     public List<int> cosmeticsIdBuyed;
     public List<int> cosmeticsIdSelected;
 
-    public PlayerDataSerializable(int _money, List<int> _cosmeticsBuyed, List<int> _cosmeticsSelected)
+    public PlayerDataSerializable(int _money, List<int> _cosmeticsBuyed, List<int> _cosmeticsSelected, int _highScore)
     {
         money = _money;
         cosmeticsIdBuyed = _cosmeticsBuyed;
         cosmeticsIdSelected = _cosmeticsSelected;
+        highScore = _highScore;
     }
 }
