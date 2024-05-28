@@ -5,6 +5,7 @@ using UnityEngine;
 using MEC;
 using System.Collections.Generic;
 using DG.Tweening;
+using Firebase.Analytics;
 
 //TODO: Divide in DeathController and DeathView
 public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData>
@@ -60,6 +61,17 @@ public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData
 				Timing.RunCoroutine(AnimateCoinText(data.currentMoneyCollected, playerDataUpdater.data.money).CancelWith(gameObject));
 
 			playerDataUpdater.data.money += data.currentMoneyCollected;
+			Firebase.Analytics.Parameter[] ScoreParameters = {
+				new Firebase.Analytics.Parameter(
+					Firebase.Analytics.FirebaseAnalytics.ParameterLevel, data.currentDifficultLevel),
+				new Firebase.Analytics.Parameter(
+					Firebase.Analytics.FirebaseAnalytics.ParameterScore, data.currentScore)
+				};
+
+			Firebase.Analytics.FirebaseAnalytics.LogEvent(
+				Firebase.Analytics.FirebaseAnalytics.EventPostScore,
+				ScoreParameters);
+
 		}
 	}
 
