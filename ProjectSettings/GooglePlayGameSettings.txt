@@ -1,2 +1,9 @@
 lastUpgrade=01101
 proj.pluginVersion=0.11.01
+proj.AppId=800236879317
+and.BundleId=com.Neisum.TransGhostRun
+proj.classDir=Assets
+proj.ConstantsClassName=GPGSIds
+and.ResourceData=%3c%3fxml+version%3d%221.0%22+encoding%3d%22utf-8%22%3f%3e%0d%0a%3c%21--Google+Play+game+services+IDs.+Save+this+file+as+res%2fvalues%2fgames-ids.xml+in+your+project.--%3e%0d%0a%3cresources%3e%0d%0a++%3c%21--app_id--%3e%0d%0a++%3cstring+name%3d%22app_id%22+translatable%3d%22false%22%3e800236879317%3c%2fstring%3e%0d%0a++%3c%21--package_name--%3e%0d%0a++%3cstring+name%3d%22package_name%22+translatable%3d%22false%22%3ecom.Neisum.TransGhostRun%3c%2fstring%3e%0d%0a++%3c%21--achievement+Yas+my+queen%21--%3e%0d%0a++%3cstring+name%3d%22achievement_yas_my_queen%22+translatable%3d%22false%22%3eCgkI1fvWjqUXEAIQBg%3c%2fstring%3e%0d%0a++%3c%21--achievement+Reach+100+points--%3e%0d%0a++%3cstring+name%3d%22achievement_reach_100_points%22+translatable%3d%22false%22%3eCgkI1fvWjqUXEAIQAg%3c%2fstring%3e%0d%0a++%3c%21--achievement+Your+first+cosmetic%21--%3e%0d%0a++%3cstring+name%3d%22achievement_your_first_cosmetic%22+translatable%3d%22false%22%3eCgkI1fvWjqUXEAIQAw%3c%2fstring%3e%0d%0a++%3c%21--achievement+Wow%2c+500+points--%3e%0d%0a++%3cstring+name%3d%22achievement_wow_500_points%22+translatable%3d%22false%22%3eCgkI1fvWjqUXEAIQBA%3c%2fstring%3e%0d%0a++%3c%21--achievement+First+stop--%3e%0d%0a++%3cstring+name%3d%22achievement_first_stop%22+translatable%3d%22false%22%3eCgkI1fvWjqUXEAIQBw%3c%2fstring%3e%0d%0a++%3c%21--achievement+Credit+your+mates%21--%3e%0d%0a++%3cstring+name%3d%22achievement_credit_your_mates%22+translatable%3d%22false%22%3eCgkI1fvWjqUXEAIQCA%3c%2fstring%3e%0d%0a++%3c%21--leaderboard+highScore--%3e%0d%0a++%3cstring+name%3d%22leaderboard_highscore%22+translatable%3d%22false%22%3eCgkI1fvWjqUXEAIQAQ%3c%2fstring%3e%0d%0a%3c%2fresources%3e
+and.ClientId=800236879317-9hvqdbmj561bkn6jndqv8o806hvps78c.apps.googleusercontent.com
+android.SetupDone=true
