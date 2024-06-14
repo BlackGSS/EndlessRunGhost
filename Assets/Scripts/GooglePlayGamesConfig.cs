@@ -4,18 +4,22 @@ using GooglePlayGames.BasicApi;
 
 public class GooglePlayGamesConfig : MonoBehaviour
 {
-
+    public bool initialized = false;
     public void Start()
     {
-        PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
-        this.gameObject.SetActive(false);
+        if (!PlayGamesPlatform.Instance.IsAuthenticated())
+        {
+
+            PlayGamesPlatform.Activate();
+            PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
+        }
     }
 
     internal void ProcessAuthentication(SignInStatus status)
     {
         if (status == SignInStatus.Success)
         {
-            // Continue with Play Games Services
+            Debug.Log("Signed player with Google Play");
         }
         else
         {

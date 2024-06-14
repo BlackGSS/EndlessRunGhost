@@ -61,18 +61,26 @@ public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData
 				Timing.RunCoroutine(AnimateCoinText(data.currentMoneyCollected, playerDataUpdater.data.money).CancelWith(gameObject));
 
 			playerDataUpdater.data.money += data.currentMoneyCollected;
-			Firebase.Analytics.Parameter[] ScoreParameters = {
-				new Firebase.Analytics.Parameter(
-					Firebase.Analytics.FirebaseAnalytics.ParameterLevel, data.currentDifficultLevel),
-				new Firebase.Analytics.Parameter(
-					Firebase.Analytics.FirebaseAnalytics.ParameterScore, data.currentScore)
+
+
+			Parameter[] ScoreParameters = {
+				new Parameter(
+					FirebaseAnalytics.ParameterLevel, data.currentDifficultLevel),
+				new Parameter(
+					FirebaseAnalytics.ParameterScore, data.currentScore)
 				};
 
-			Firebase.Analytics.FirebaseAnalytics.LogEvent(
-				Firebase.Analytics.FirebaseAnalytics.EventPostScore,
+			FirebaseAnalytics.LogEvent(
+				FirebaseAnalytics.EventPostScore,
 				ScoreParameters);
 
+			Social.ReportScore(data.currentScore, GPGSIds.leaderboard_highscore, (success) => HandleCallback(success));
 		}
+	}
+
+	private void HandleCallback(bool success)
+	{
+		Debug.Log(success ? "Reported score successfully" : "Failed to report score");
 	}
 
 	IEnumerator<float> AnimateCoinText(int currentMoneyCollected, int playerMoney)
