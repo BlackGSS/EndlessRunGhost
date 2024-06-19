@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuView : MonoBehaviour
+public class MainMenuView : CanvasGroupView
 {
     [SerializeField] bool showInstructionsOnlyFirstTime;
     [SerializeField] Modal initPowerUps;
@@ -17,9 +17,13 @@ public class MainMenuView : MonoBehaviour
     private void CheckToShowInstructions()
     {
         if (PlayerPrefs.GetInt("FirstTime") == 0)
+        {
             initPowerUps.ShowWithAction(GoToGame);
+        }
         else
+        {
             GoToGame();
+        }
     }
 
     public void GoToGame()

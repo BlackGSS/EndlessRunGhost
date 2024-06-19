@@ -35,9 +35,4 @@ public class FireBaseInit : MonoBehaviour
             }
         });
     }
-
-    public void CrashMeButton()
-    {
-        throw new System.Exception("Test Crash Ignore");
-    }
 }

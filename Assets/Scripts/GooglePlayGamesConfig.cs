@@ -4,15 +4,15 @@ using GooglePlayGames.BasicApi;
 
 public class GooglePlayGamesConfig : MonoBehaviour
 {
-    public bool initialized = false;
+    public CanvasGroupView loadingCanvas;
+    public CanvasGroupView mainMenuCanvas;
+    private bool initialized = false;
+
     public void Start()
     {
-        if (!PlayGamesPlatform.Instance.IsAuthenticated())
-        {
-
-            PlayGamesPlatform.Activate();
-            PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
-        }
+        loadingCanvas.Show();
+        PlayGamesPlatform.Activate();
+        PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
     }
 
     internal void ProcessAuthentication(SignInStatus status)
@@ -23,9 +23,21 @@ public class GooglePlayGamesConfig : MonoBehaviour
         }
         else
         {
+            Debug.Log("Not Auth");
             // Disable your integration with Play Games Services or show a login button
             // to ask users to sign-in. Clicking it should call
             // PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication).
         }
+
+        if (!initialized)
+        {
+            ShowButtons();
+        }
+    }
+
+    private void ShowButtons()
+    {
+        mainMenuCanvas.Show();
+        loadingCanvas.Hide();
     }
 }
