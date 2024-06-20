@@ -56,7 +56,7 @@ public class CanvasGroupView : MonoBehaviour
         Timing.RunCoroutine(DelayToHide(delay));
     }
 
-    protected void Hide()
+    public void Hide()
     {
         FadeAnimTo(0);
     }

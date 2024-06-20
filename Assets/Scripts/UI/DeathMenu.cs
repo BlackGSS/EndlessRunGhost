@@ -5,6 +5,7 @@ using UnityEngine;
 using MEC;
 using System.Collections.Generic;
 using DG.Tweening;
+using Firebase.Analytics;
 
 //TODO: Divide in DeathController and DeathView
 public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData>
@@ -60,7 +61,33 @@ public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData
 				Timing.RunCoroutine(AnimateCoinText(data.currentMoneyCollected, playerDataUpdater.data.money).CancelWith(gameObject));
 
 			playerDataUpdater.data.money += data.currentMoneyCollected;
+
+
+			Parameter[] ScoreParameters = {
+				new Parameter(
+					FirebaseAnalytics.ParameterLevel, data.currentDifficultLevel),
+				new Parameter(
+					FirebaseAnalytics.ParameterScore, data.currentScore)
+				};
+
+			FirebaseAnalytics.LogEvent(
+				FirebaseAnalytics.EventPostScore,
+				ScoreParameters);
+			
+			if(playerDataUpdater.data.highScore >= 100)
+				Social.ReportProgress(GPGSIds.achievement_reach_100_points, 100f, HandleCallback);
+
+			if(playerDataUpdater.data.highScore >= 500)
+				Social.ReportProgress(GPGSIds.achievement_wow_500_points, 100f, HandleCallback);
+
+			Social.ReportProgress(GPGSIds.achievement_first_stop, 100f, HandleCallback);
+			Social.ReportScore(data.currentScore, GPGSIds.leaderboard_highscore, (success) => HandleCallback(success));
 		}
+	}
+
+	private void HandleCallback(bool success)
+	{
+		// Debug.Log(success ? "Reported score successfully" : "Failed to report score");
 	}
 
 	IEnumerator<float> AnimateCoinText(int currentMoneyCollected, int playerMoney)

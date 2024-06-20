@@ -137,7 +137,7 @@ SpriteAtlas:
   - arrow
   - Popup_Ticket_Border
   - BubbleFrame01_Hexagon_Bg_Yellow
-  - hand
+  - handSwipe
   - Button_SkillBtn_White_Light
   - Button_SkillBtn_White_Bg
   - PictoIcon_Home_2

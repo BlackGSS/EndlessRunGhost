@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "800236879317",
+    "project_id": "com-neisum-transghostrun",
+    "storage_bucket": "com-neisum-transghostrun.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:800236879317:android:f7dd22337c67046810515c",
+        "android_client_info": {
+          "package_name": "com.Neisum.TransGhostRun"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlSfw-SO_MWoJkuDP_iFgD8NUXUGeJEes"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -29,8 +29,9 @@ public class GameManager : MonoBehaviour
 	void Start()
 	{
 		FadeImage.Instance.FadeAnimTo(0);
-		if (PlayerPrefs.GetInt("FirstTime") != 1)
+		if (PlayerPrefs.GetInt("FirstTime") == 0)
 		{
+			Social.ReportProgress(GPGSIds.achievement_yas_my_queen, 100f, (success) => {});
 			handHelpView.ShowFor(timeToShowHandAnim);
 			PlayerPrefs.SetInt("FirstTime", 1);
 		}
