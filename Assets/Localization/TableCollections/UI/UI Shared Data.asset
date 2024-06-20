@@ -99,6 +99,14 @@ MonoBehaviour:
     m_Key: pause_title
     m_Metadata:
       m_Items: []
+  - m_Id: 22414751725899776
+    m_Key: leaderboard_warning_confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22414932194217984
+    m_Key: leaderboard_warning_instructions
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

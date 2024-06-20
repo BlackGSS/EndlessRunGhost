@@ -104,6 +104,16 @@ MonoBehaviour:
     m_Localized: Pausa
     m_Metadata:
       m_Items: []
+  - m_Id: 22414751725899776
+    m_Localized: OKI DOKI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22414932194217984
+    m_Localized: "ASEGURATE DE TENER EL PERFIL DE PLAY SERVICES EN P\xDABLICO PARA
+      FIGURAR EN LA TABLA DE CLASIFICACI\xD3N\n\n<B>APP PLAY SERVICES > AJUSTES >
+      PERFIL Y PRIVACIDAD"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

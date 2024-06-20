@@ -1,18 +1,27 @@
 using UnityEngine;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
+using System.Collections.Generic;
 
 public class GooglePlayGamesConfig : MonoBehaviour
 {
     public CanvasGroupView loadingCanvas;
     public CanvasGroupView mainMenuCanvas;
-    private bool initialized = false;
 
     public void Start()
     {
-        loadingCanvas.Show();
-        PlayGamesPlatform.Activate();
-        PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
+        if (!PlayGamesPlatform.Instance.IsAuthenticated())
+        {
+            Debug.Log("Not already authenticated");
+            loadingCanvas.Show();
+            PlayGamesPlatform.Activate();
+            PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
+        }
+        else
+        {
+            Debug.Log("Is already authenticated");
+            ShowButtons();
+        }
     }
 
     internal void ProcessAuthentication(SignInStatus status)
@@ -29,15 +38,18 @@ public class GooglePlayGamesConfig : MonoBehaviour
             // PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication).
         }
 
-        if (!initialized)
-        {
-            ShowButtons();
-        }
+        MEC.Timing.RunCoroutine(WaitToShowButtons());
+    }
+
+    IEnumerator<float> WaitToShowButtons()
+    {
+        yield return MEC.Timing.WaitForSeconds(0.5f);
+        ShowButtons();
     }
 
     private void ShowButtons()
     {
-        mainMenuCanvas.Show();
         loadingCanvas.Hide();
+        mainMenuCanvas.Show();
     }
 }

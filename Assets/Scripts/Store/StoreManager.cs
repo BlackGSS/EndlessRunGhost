@@ -68,6 +68,7 @@ public class StoreManager : MonoBehaviour
     {
         if (playerDataUpdater.data.money >= cosmeticItemSelected.data.price)
         {
+			Social.ReportProgress(GPGSIds.achievement_your_first_cosmetic, 100f, (success) => {});
             cosmeticItemSelected.Buyed(true);
             playerDataUpdater.data.money -= cosmeticItemSelected.data.price;
             playerDataUpdater.data.cosmeticsBuyed.Add(cosmeticItemSelected.data);

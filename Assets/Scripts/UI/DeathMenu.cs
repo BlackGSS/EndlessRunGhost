@@ -73,14 +73,21 @@ public class DeathMenu : CanvasGroupView, IScriptableUpdaterListener<SessionData
 			FirebaseAnalytics.LogEvent(
 				FirebaseAnalytics.EventPostScore,
 				ScoreParameters);
+			
+			if(playerDataUpdater.data.highScore >= 100)
+				Social.ReportProgress(GPGSIds.achievement_reach_100_points, 100f, HandleCallback);
 
+			if(playerDataUpdater.data.highScore >= 500)
+				Social.ReportProgress(GPGSIds.achievement_wow_500_points, 100f, HandleCallback);
+
+			Social.ReportProgress(GPGSIds.achievement_first_stop, 100f, HandleCallback);
 			Social.ReportScore(data.currentScore, GPGSIds.leaderboard_highscore, (success) => HandleCallback(success));
 		}
 	}
 
 	private void HandleCallback(bool success)
 	{
-		Debug.Log(success ? "Reported score successfully" : "Failed to report score");
+		// Debug.Log(success ? "Reported score successfully" : "Failed to report score");
 	}
 
 	IEnumerator<float> AnimateCoinText(int currentMoneyCollected, int playerMoney)
